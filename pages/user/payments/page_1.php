@@ -160,7 +160,7 @@
         </nav>
 
         <!-- Page Content -->
-        <div id="page-wrapper">
+        <div id="page-wrapper" style="margin-bottom: 60px;">
             <div class="container-fluid">
                 <div class="row">
                   <div class="col-lg-12">
