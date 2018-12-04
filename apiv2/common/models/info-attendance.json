@@ -1,0 +1,29 @@
+{
+  "name": "info_attendance",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "user_id": {
+      "type": "number",
+      "required": true
+    },
+    "event_id": {
+      "type": "number",
+      "required": true
+    },
+    "payment_status": {
+      "type": "string",
+      "required": true
+    },
+    "remarks": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

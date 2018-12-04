@@ -1,0 +1,22 @@
+{
+  "name": "info_chapter",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "chapterName": {
+      "type": "string",
+      "required": true
+    },
+    "sectorId": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

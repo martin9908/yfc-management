@@ -1,0 +1,66 @@
+{
+  "name": "reservation_venue",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "iduser": {
+      "type": "number",
+      "required": true
+    },
+    "reservation_place": {
+      "type": "string",
+      "required": true
+    },
+    "reservation_date": {
+      "type": "date",
+      "required": true
+    },
+    "reservation_end_date": {
+      "type": "date",
+      "required": true
+    },
+    "reservation_time": {
+      "type": "string",
+      "required": true
+    },
+    "reservation_end_time": {
+      "type": "string",
+      "required": true
+    },
+    "event_type": {
+      "type": "string",
+      "required": true
+    },
+    "reservation_event": {
+      "type": "string",
+      "required": true
+    },
+    "reservation_status": {
+      "type": "string",
+      "required": true
+    },
+    "reservation_area": {
+      "type": "number",
+      "required": true
+    },
+    "reservation_sector": {
+      "type": "number",
+      "required": true
+    },
+    "reservation_chapter": {
+      "type": "number",
+      "required": true
+    },
+    "reservation_fee": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

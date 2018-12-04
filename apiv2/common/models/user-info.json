@@ -1,0 +1,64 @@
+{
+  "name": "info_user",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "User_Number": {
+      "type": "string",
+      "required": true
+    },
+    "First_Name": {
+      "type": "string",
+      "required": true
+    },
+    "Middle_Name": {
+      "type": "string"
+    },
+    "Last_Name": {
+      "type": "string",
+      "required": true
+    },
+    "Gender": {
+      "type": "string",
+      "required": true
+    },
+    "Address": {
+      "type": "string",
+      "required": true
+    },
+    "Contact_Number": {
+      "type": "string",
+      "required": true
+    },
+    "Account_Status": {
+      "type": "string",
+      "required": true
+    },
+    "password": {
+      "type": "string",
+      "required": true
+    },
+    "Area": {
+      "type": "number",
+      "required": true
+    },
+    "Chapter": {
+      "type": "number",
+      "required": true
+    },
+    "Member_Since": {
+      "type": "date",
+      "required": true
+    },
+    "Account_Picture": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

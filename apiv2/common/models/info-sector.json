@@ -1,0 +1,22 @@
+{
+  "name": "info_sector",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "sectorName": {
+      "type": "string",
+      "required": true
+    },
+    "areaId": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
