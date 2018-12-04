@@ -46,7 +46,7 @@
 <body>
 <div id="wrapper">
 <!-- Page Content -->
-    <div class="container-fluid" style="margin-bottom: 60px;">
+    <div class="container-fluid" style="margin-bottom: 70px;">
         <div class="row">
             <div class="col-lg-12" style="width:300px">
                 <form action="database/reserve_venue.php" method="post">

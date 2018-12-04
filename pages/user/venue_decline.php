@@ -60,7 +60,7 @@
 <body>
 <div id="wrapper">
 <!-- Page Content -->
-    <div class="container-fluid" style="margin-bottom: 60px;">
+    <div class="container-fluid" style="margin-bottom: 70px;">
         <div class="row">
             <div class="col-lg-12" style="width:500px">
                 <form action="database/venue_decline.php" method="GET">
