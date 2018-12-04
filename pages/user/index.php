@@ -20,11 +20,7 @@
 	$Contact_Number = isset($_SESSION['Contact_Number']) ? $_SESSION['Contact_Number'] : null;
 	$Account_Type = isset($_SESSION['Account_Type']) ? $_SESSION['Account_Type'] : null;
 	$Account_Status = isset($_SESSION['Account_Status']) ? $_SESSION['Account_Status'] : null;
-	$pic = isset($_SESSION['Pic']) ? $_SESSION['Pic'] : "assets/img/photo.png";
-
-	if (trim($pic) == ""){
-		$pic = "assets/img/photo.png";
-	}
+	$pic = isset($_SESSION['Pic']) || $_SESSION['Pic'] == '' ? $_SESSION['Pic'] : "assets/img/photo.png";
 
 	//Account Info
 	if ($Account_Type == 1)
