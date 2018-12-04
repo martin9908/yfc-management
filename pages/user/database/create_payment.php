@@ -49,7 +49,7 @@ VALUES
 ");
 
 if(!$sql){
-  die('Error: ' . mysqli_error($connect));
+  die('Error_1: ' . mysqli_error($connect));
 }
 
 $sql1= mysqli_query($connect, "INSERT INTO info_attendance
@@ -66,7 +66,7 @@ VALUES
 'joined');");
 
 if(!$sql){
-  die('Error: ' . mysqli_error($connect));
+  die('Error_2: ' . mysqli_error($connect));
 }
 mysqli_close($connect);
 echo "<script>
