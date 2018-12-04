@@ -28,6 +28,8 @@
 			info_chapter
 		WHERE
 			info_area.id = reservation_venue.reservation_area
+		OR
+			reservation_venue.event_type = 'International'
 		AND
 		 	info_sector.id = reservation_venue.reservation_sector
 		AND
@@ -66,6 +68,8 @@
 			$Sector = reservation_venue.reservation_sector
 		AND
 			$Chapter = reservation_venue.reservation_chapter
+		OR
+			reservation_venue.event_type = 'International'
 		AND
 			info_area.id = reservation_venue.reservation_area
 		AND
