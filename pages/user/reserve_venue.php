@@ -32,7 +32,7 @@
 		 	info_sector.id = reservation_venue.reservation_sector
 		AND
 			info_chapter.id = reservation_venue.reservation_chapter
-		OR
+		AND
 			reservation_venue.event_type = 'International';");
 	}
 	else if ($Account_Type == 2){
@@ -53,7 +53,7 @@
 		 	info_sector.id = reservation_venue.reservation_sector
 		AND
 			info_chapter.id = reservation_venue.reservation_chapter
-		OR
+		AND
 			reservation_venue.event_type = 'International';");
 	}
 	else {
@@ -74,7 +74,7 @@
 		 	info_sector.id = reservation_venue.reservation_sector
 		AND
 			info_chapter.id = reservation_venue.reservation_chapter
-		OR
+		AND
 			reservation_venue.event_type = 'International';");
 
 		$attendance = mysqli_query($connect, "SELECT * FROM info_attendance where info_attendance.user_id = $id");
