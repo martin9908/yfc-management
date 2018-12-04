@@ -181,8 +181,10 @@
 		                                    <label>Address</label>
 		                                    <input class="form-control" name="Address" value="<?PHP echo $Address;?>" required>
 		                                    <label>Contact Number</label>
-																				<span class="input-group-addon">+63</span>
-		                                    <input class="form-control" name="Contact_Number" value="<?PHP $Contact_Number;?>" required>
+																				<div class="form-group input-group">
+																					<span class="input-group-addon">+63</span>
+																					<input class="form-control" name="ConNum" placeholder="9XXXXXXXXX" value="<?PHP echo $Contact_Number;?>" required>
+																				</div>
 		                                    <label>Password</label>
 		                                    <input class="form-control" name="Password" value="<?PHP echo $Password;?>" type="password" required>
 		                                    <label>Profile Picture</label>
