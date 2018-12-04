@@ -293,7 +293,6 @@
                                         <tr>
                                             <th>User Number</th>
                                             <th>First Name</th>
-                                            <th>Middle Name</th>
                                             <th>Last Name</th>
                                             <th>Account Type</th>
 																						<?PHP if($Account_Type != 0){ ?>
@@ -308,7 +307,6 @@
                                         while($row = mysqli_fetch_assoc($users)){
                                             echo "<tr><td>".$row['User_Number']."</td>";
                                             echo "<td>".$row['First_Name']."</td>";
-                                            echo "<td>".$row['Middle_Name']."</td>";
                                             echo "<td>".$row['Last_Name']."</td>";
 																						if ($row['Account_Type'] == 1){
 																							echo "<td>Administrator</td>";
@@ -345,7 +343,6 @@
 																				while($row = mysqli_fetch_assoc($users1)){
                                             echo "<tr><td>".$row['User_Number']."</td>";
                                             echo "<td>".$row['First_Name']."</td>";
-                                            echo "<td>".$row['Middle_Name']."</td>";
                                             echo "<td>".$row['Last_Name']."</td>";
 																						if ($row['Account_Type'] == 1){
 																							echo "<td>Administrator</td>";
@@ -415,7 +412,7 @@
 		$('#dataTables-example').DataTable({
 				retrieve: true,
 				responsive: true,
-				"order": [[ 5, "asc" ]]
+				"order": [[ 4, "desc" ]]
 		});
 	});
     </script>
