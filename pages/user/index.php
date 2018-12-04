@@ -257,7 +257,7 @@
                             <!--/.panel-heading -->
                             <div class="panel-body">
                             	<div class="col-md-8 col-xs-6">
-                                    <p><b>ID Number:      </b><?PHP echo $id;?></p>
+                                    <p><b>ID Number:      </b><?PHP echo $User_Number;?></p>
                                     <p><b>Address:        </b><?PHP echo $Address;?></p>
                                     <p><b>Contact Number: </b><?PHP echo '+63' . $Contact_Number;?></p>
                                     <p><b>Account Type:   </b><?PHP echo $Account_Name;?></p>
