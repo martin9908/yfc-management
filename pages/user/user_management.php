@@ -296,6 +296,9 @@
                                             <th>Middle Name</th>
                                             <th>Last Name</th>
                                             <th>Account Type</th>
+																						<?PHP if($Account_Type != 0){ ?>
+																						<th>Account Status</th>
+																						<?PHP }?>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -322,6 +325,7 @@
 																						else{
 																							echo "<td>User</td>";
 																						}
+																						echo "<td>".$row['Account_Status']."</td>";
 																						if($row['Account_Status'] == 'Pending') {
  																						 echo
 																						"<td>
@@ -358,6 +362,7 @@
 																						else{
 																							echo "<td>User</td>";
 																						}
+																						echo "<td>".$row['Account_Status']."</td>";
 																						if($row['Account_Status'] == 'Pending') {
 																							echo
 																					 "<td>
