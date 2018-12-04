@@ -181,7 +181,8 @@
 		                                    <label>Address</label>
 		                                    <input class="form-control" name="Address" value="<?PHP echo $Address;?>" required>
 		                                    <label>Contact Number</label>
-		                                    <input class="form-control" name="Contact_Number" value="<?PHP echo '+63' . $Contact_Number;?>" required>
+																				<span class="input-group-addon">+63</span>
+		                                    <input class="form-control" name="Contact_Number" value="<?PHP $Contact_Number;?>" required>
 		                                    <label>Password</label>
 		                                    <input class="form-control" name="Password" value="<?PHP echo $Password;?>" type="password" required>
 		                                    <label>Profile Picture</label>
