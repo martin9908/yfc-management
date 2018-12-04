@@ -6,7 +6,7 @@
 	$connect = mysqli_connect($host, $user, $pass,$databasename) or die("Couldn't connect to database!");
 
 	//Variables
-	$id = isset($_SESSION['id']) ? $_SESSION['id'] : null;
+	$id = isset($_SESSION['User_Number']) ? $_SESSION['User_Number'] : null;
 	$usernumber = isset($_SESSION['User_Number']) ? $_SESSION['User_Number'] : null;
 	$fname = isset($_POST['FName']) ? $_POST['FName'] : null;
 	$mname = isset($_POST['MName']) ? $_POST['MName'] : null;
@@ -49,7 +49,7 @@
 						`password` = '$pword',
 						`account_picture` = '$target_path'
 
-						WHERE `id` = $id;");
+						WHERE `User_Number` = $id;");
 		if(!$sql){
 			die('Error: ' . mysqli_error($connect));
 		}
@@ -69,7 +69,7 @@
 						`Contact_Number` = '$cnum',
 						`password` = '$pword'
 
-						WHERE `id` = $id;");
+						WHERE `User_Number` = '$id';");
 		if(!$sql){
 			die('Error: ' . mysqli_error($connect));
 		}
@@ -130,7 +130,9 @@ function new_variables($username, $password){
 		}
 
 	mysqli_close($connect);
-
+	echo "<script> var oldURL = document.referrer;
+		alert('Update Successful!');
+		window.location.assign(oldURL); </script>";
 	}
 }
 ?>
