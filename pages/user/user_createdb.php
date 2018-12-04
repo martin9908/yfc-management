@@ -104,8 +104,7 @@
 						`Chapter`,
 						`Member_Since`,
 						`Account_Status`,
-						`password`,
-						`Account_Picture`)
+						`password`)
 						VALUES
 						(
 							'$IDNum',
@@ -121,8 +120,7 @@
 							'$Chapter',
 							'$Date',
 							'Active',
-							'$LName',
-							'$NoImage');");
+							'$LName');");
 		if(!$sql){
 			die('Error: ' . mysqli_error($connect));
 		}
