@@ -73,6 +73,8 @@
 
 		$attendance = mysqli_query($connect, "SELECT * FROM info_attendance where info_attendance.user_id = $id");
 	}
+
+	echo $equipment;
 ?>
 <!DOCTYPE html>
 <html lang="en">
