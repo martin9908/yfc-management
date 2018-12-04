@@ -41,6 +41,8 @@
 			info_chapter
 		WHERE
 			$Area = reservation_venue.reservation_area
+		OR
+			reservation_venue.event_type = 'International'
 		AND
 			$Sector = reservation_venue.reservation_sector
 		AND
