@@ -130,9 +130,7 @@ function new_variables($username, $password){
 		}
 
 	mysqli_close($connect);
-	echo "<script> var oldURL = document.referrer;
-		alert('Update Successful!');
-		window.location.assign(oldURL); </script>";
+
 	}
 }
 ?>

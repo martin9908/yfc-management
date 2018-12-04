@@ -68,6 +68,7 @@ VALUES
 if(!$sql){
   die('Error_2: ' . mysqli_error($connect));
 }
+
 mysqli_close($connect);
 echo "<script>
       window.location.assign('../payments/page_4.php'); </script>";
