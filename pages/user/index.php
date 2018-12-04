@@ -22,7 +22,7 @@
 	$Account_Status = isset($_SESSION['Account_Status']) ? $_SESSION['Account_Status'] : null;
 	$pic = isset($_SESSION['Pic']) ? $_SESSION['Pic'] : "assets/img/photo.png";
 
-	if ($pic == ' '){
+	if (trim($pic) == ""){
 		$pic = "assets/img/photo.png";
 	}
 
