@@ -99,7 +99,7 @@
     </div>
 </div>
 <!-- / .wrapper -->
-<footer class="footer">
+<footer class="footer" aria-labelledby="hide-on-desktop">
 	<nav class="navbar navbar-light bg-faded container-fluid" aria-labelledby="hide-on-desktop">
 		<a href="index.php" class="navbar-brand"><i class="fa fa-home fa-fw"></i></a>
 	<?php if ($Account_Type != 0){?>
