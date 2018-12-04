@@ -31,9 +31,7 @@
 		AND
 		 	info_sector.id = reservation_venue.reservation_sector
 		AND
-			info_chapter.id = reservation_venue.reservation_chapter
-		AND
-			reservation_venue.event_type = 'International';");
+			info_chapter.id = reservation_venue.reservation_chapter;");
 	}
 	else if ($Account_Type == 2){
 		$equipment = mysqli_query($connect,"SELECT * FROM
@@ -52,9 +50,7 @@
 		AND
 		 	info_sector.id = reservation_venue.reservation_sector
 		AND
-			info_chapter.id = reservation_venue.reservation_chapter
-		AND
-			reservation_venue.event_type = 'International';");
+			info_chapter.id = reservation_venue.reservation_chapter;");
 	}
 	else {
 		$equipment = mysqli_query($connect,"SELECT * FROM
@@ -73,9 +69,7 @@
 		AND
 		 	info_sector.id = reservation_venue.reservation_sector
 		AND
-			info_chapter.id = reservation_venue.reservation_chapter
-		AND
-			reservation_venue.event_type = 'International';");
+			info_chapter.id = reservation_venue.reservation_chapter;");
 
 		$attendance = mysqli_query($connect, "SELECT * FROM info_attendance where info_attendance.user_id = $id");
 	}
