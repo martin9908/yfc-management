@@ -71,7 +71,7 @@
 		AND
 			info_chapter.id = reservation_venue.reservation_chapter;");
 
-		$attendance = mysqli_query($connect, "SELECT * FROM info_attendance where info_attendance.user_id = $id");
+		$attendance = mysqli_query($connect, "SELECT * FROM info_attendance where info_attendance.user_id = $User_Number");
 	}
 ?>
 <!DOCTYPE html>

@@ -6,7 +6,7 @@ include("connect.php");
 $connect = mysqli_connect($host, $user, $pass,$databasename) or die("Couldn't connect to database!");
 
 //Variables
-$user_id = isset($_SESSION['payment_user']) ? $_SESSION['payment_user'] : $_SESSION['id'];
+$user_id = isset($_SESSION['User_Number']) ? $_SESSION['User_Number'] : $_SESSION['id'];
 $event_id = isset($_SESSION['event_id']) ? $_SESSION['event_id'] : null;
 $payment_type = isset($_SESSION['payment_type']) ? $_SESSION['payment_type'] : null;
 $payment_date = date("Y-m-d");
