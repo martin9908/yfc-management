@@ -1,0 +1,4 @@
+RewriteEngine On # Turn on the rewriting engine
+RewriteRule ^users/?$ users.php [NC,L]
+RewriteRule ^users/([0-9]+)/?$ users.php?id=$1 [NC,L]
+RewriteRule ^users/?user_name=$1&password=$2 [NC,L]
