@@ -20,6 +20,8 @@
 	$Account_Status = isset($_SESSION['Account_Status']) ? $_SESSION['Account_Status'] : null;
 
 	//SQL Scripts
+	$international = mysqli_query($connect, "SELECT * FROM reservation_venue WHERE event_type = 'International'")
+
 	if($Account_Type == 1){
 		$equipment = mysqli_query($connect,"SELECT * FROM
 			reservation_venue,
@@ -31,9 +33,11 @@
 		AND
 		 	info_sector.id = reservation_venue.reservation_sector
 		AND
+			`event_type` = 'local'
+		AND
 			info_chapter.id = reservation_venue.reservation_chapter;");
 	}
-	else if ($Account_Type == 2){
+	else if ($Account_Type == 2 || $Account_Type == 3 || $Account_Type == 4){
 		$equipment = mysqli_query($connect,"SELECT * FROM
 			reservation_venue,
 			info_area,
@@ -47,6 +51,8 @@
 			$Chapter = reservation_venue.reservation_chapter
 		AND
 			info_area.id = reservation_venue.reservation_area
+		AND
+			`event_type` = 'local'
 		AND
 		 	info_sector.id = reservation_venue.reservation_sector
 		AND
@@ -66,6 +72,8 @@
 			$Chapter = reservation_venue.reservation_chapter
 		AND
 			info_area.id = reservation_venue.reservation_area
+		AND
+			`event_type` = 'local'
 		AND
 		 	info_sector.id = reservation_venue.reservation_sector
 		AND
@@ -250,6 +258,70 @@
 											</tr>
 										</thead>
 										<tbody>
+											<?PHP
+												while($row = mysqli_fetch_assoc($international)){
+													echo "<tr>";
+													echo "<td>".$row['reservation_place']."</td>";
+													echo "<td>".$row['reservation_event']."</td>";
+													echo "<td>".$row['reservation_date']."</td>";
+													echo "<td>".$row['reservation_time']."</td>";
+													echo "<td>".$row['reservation_end_date']."</td>";
+													echo "<td>".$row['reservation_end_time']."</td>";
+													if($Account_Type != 0){
+														echo "<td>".$row['sectorName']."</td>";
+														echo "<td>".$row['areaName']."</td>";
+														echo "<td>".$row['chapterName']."</td>";
+														echo "<td>".$row['reservation_fee']."</td>";
+														if($Account_Type != 1){
+															if(mysqli_num_rows($attendance) == 0){
+																echo "<td>
+																<a class='btn btn-outline btn-success' href='payments/page_2.php?event_id=".$row['id'].
+																"&reservation_fee=".$row['reservation_fee']."'>Join</a>";
+
+																echo"</tr>";
+															}
+															else{
+																while($row1 = mysqli_fetch_assoc($attendance)){
+																	if($row['id'] == $row1['event_id'] && $row1['remarks'] != 'joined'){
+																		echo "<td>
+																		<a class='btn btn-outline btn-success' href='payments/page_2.php?event_id=".$row['id'].
+																		"&reservation_fee=".$row['reservation_fee']."'>Join</a>";
+																		echo"</tr>";
+																	}
+																	else {
+																		echo "<td><a class='btn btn-outline btn-danger fancybox fancybox.ajax' href='venue_decline.php?ppid=".$row['id']."'>Cancel</a></td>";
+																		echo"</tr>";
+																	}
+																}
+															}
+														}
+													}
+													if($Account_Type == 0) {
+														echo "<td>".$row['reservation_fee']."</td>";
+														if(mysqli_num_rows($attendance) == 0){
+															echo "<td>
+															<a class='btn btn-outline btn-success' href='payments/page_2.php?event_id=".$row['id'].
+															"&reservation_fee=".$row['reservation_fee']."'>Join</a>";
+
+															echo"</tr>";
+														}
+														else{
+															while($row1 = mysqli_fetch_assoc($attendance)){
+																if($row['id'] == $row1['event_id'] && $row1['remarks'] != 'joined'){
+																	echo "<td>
+																	<a class='btn btn-outline btn-success' href='payments/page_2.php?event_id=".$row['id'].
+																	"&reservation_fee=".$row['reservation_fee']."'>Join</a>";
+																	echo"</tr>";
+																}
+																else {
+																	echo "<td><a class='btn btn-outline btn-danger fancybox fancybox.ajax' href='venue_decline.php?ppid=".$row['id']."'>Cancel</a></td>";
+																	echo"</tr>";
+																}
+															}
+														}
+													}
+												}
+											?>
 											<?PHP
 												while($row = mysqli_fetch_assoc($equipment)){
 													echo "<tr>";
