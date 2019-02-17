@@ -263,7 +263,7 @@
 												<th>Fee</th>
 												<?PHP }
 												} ?>
-												<?PHP if($Account_Type == 0) { ?>
+												<?PHP if($Account_Type != 1) { ?>
 												<th>Fee</th>
 												<th>Action</th>
 												<?PHP }?>
