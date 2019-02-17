@@ -237,7 +237,7 @@
 										<li>
 											<a href="payment_management.php"><i class="fa fa-dollar fa-fw"></i> Manage Payments</a>
 										</li>
-										<?PHP if($Account_Type == 1){?>
+										<?PHP if($Account_Type == 1 || $Account_Type == 2 || $Account_Type == 3){?>
 											<li>
 												<a href="#"><i class="fa fa-map-marker fa-fw"></i> Manage Locations<span class="fa arrow"></span></a>
 													<ul class="nav nav-second-level">
