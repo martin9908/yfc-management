@@ -20,7 +20,19 @@
 	$Account_Status = isset($_SESSION['Account_Status']) ? $_SESSION['Account_Status'] : null;
 
 	//SQL Scripts
-	$international = mysqli_query($connect, "SELECT * FROM reservation_venue WHERE event_type = 'International'")
+	$international = mysqli_query($connect, "SELECT * FROM
+	reservation_venue,
+	info_area,
+	info_sector,
+	info_chapter
+    WHERE
+		info_area.id = reservation_venue.reservation_area
+	AND
+		info_sector.id = reservation_venue.reservation_sector
+	AND
+		event_type = 'International'
+	AND
+		info_chapter.id = reservation_venue.reservation_chapter;");
 
 	if($Account_Type == 1){
 		$equipment = mysqli_query($connect,"SELECT * FROM
