@@ -49,7 +49,7 @@
 						`password` = '$pword',
 						`account_picture` = '$target_path'
 
-						WHERE `User_Number` = $id;");
+						WHERE `User_Number` = '$id';");
 		if(!$sql){
 			die('Error: ' . mysqli_error($connect));
 		}
