@@ -73,7 +73,6 @@
 		AND
 			Chapter = $Chapter";
 	}
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

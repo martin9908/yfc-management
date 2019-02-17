@@ -34,6 +34,8 @@
 	AND
 		info_chapter.id = reservation_venue.reservation_chapter;");
 
+	$attendance = mysqli_query($connect, "SELECT * FROM info_attendance where info_attendance.user_id = '$User_Number'");
+
 	if($Account_Type == 1){
 		$equipment = mysqli_query($connect,"SELECT * FROM
 			reservation_venue,
@@ -69,6 +71,7 @@
 		 	info_sector.id = reservation_venue.reservation_sector
 		AND
 			info_chapter.id = reservation_venue.reservation_chapter;");
+
 	}
 	else {
 		$equipment = mysqli_query($connect,"SELECT * FROM
@@ -90,8 +93,6 @@
 		 	info_sector.id = reservation_venue.reservation_sector
 		AND
 			info_chapter.id = reservation_venue.reservation_chapter;");
-
-		$attendance = mysqli_query($connect, "SELECT * FROM info_attendance where info_attendance.user_id = $User_Number");
 	}
 ?>
 <!DOCTYPE html>
@@ -258,9 +259,8 @@
 												<th>Sector</th>
 												<th>Area</th>
 												<th>Chapter</th>
-												<?PHP if($Account_Type != 1){ ?>
+												<?PHP if($Account_Type == 1){ ?>
 												<th>Fee</th>
-												<th>Action</th>
 												<?PHP }
 												} ?>
 												<?PHP if($Account_Type == 0) { ?>

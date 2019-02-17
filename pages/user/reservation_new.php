@@ -6,6 +6,9 @@
 
 	//Date Today
 	$currentDate = date("Y-m-d");
+	$Area_Value	 		= isset($_SESSION['Area']) ? $_SESSION['Area'] : null;
+	$Sector_Value		= isset($_SESSION['Sector']) ? $_SESSION['Sector'] : null;
+	$Chapter_Value  = isset($_SESSION['Chapter']) ? $_SESSION['Chapter'] : null;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,8 +74,16 @@
 												<select class="form-control" id="Area" name="area" required>
 													<option value="">Please Select Area</option>
 												<?PHP
+												if($_SESSION['Account_Type'] == 2 || $_SESSION['Account_Type'] == 3 || $_SESSION['Account_Type'] == 4)
+												{
+													$area_query = "SELECT * FROM info_area WHERE id = $Area_Value";
+												}
+												else
+												{
+													$area_query = "SELECT * FROM info_chapter";
+												}
 												$connect = mysqli_connect($host, $user, $pass,$databasename) or die("Couldn't connect to database!");
-												$area = mysqli_query($connect, "SELECT * FROM info_area");
+												$area = mysqli_query($connect, $area_query);
 												while($row = mysqli_fetch_assoc($area)){
 													echo "<option value = ". $row['id'].">".$row['areaName']."</td>";
 												}
@@ -83,8 +94,16 @@
 												<select class="form-control" id="Sector" name="sector" required>
 													<option data-group="SHOW" value="">Please Select Sector</option>
 													<?PHP
+														if($_SESSION['Account_Type'] == 3 || $_SESSION['Account_Type'] == 4)
+														{
+															 $sector_query = "SELECT * FROM info_sector WHERE id = $Sector_Value";
+														}
+														else
+														{
+															$sector_query = "SELECT * FROM info_chapter";
+														}
 														$connect = mysqli_connect($host, $user, $pass,$databasename) or die("Couldn't connect to database!");
-														$sector = mysqli_query($connect, "SELECT * FROM info_sector");
+														$sector = mysqli_query($connect, $sector_query);
 														while($row = mysqli_fetch_assoc($sector)){
 															echo "<option data-group=". $row['areaId'] ." value = ". $row['id'].">".$row['sectorName']."</td>";
 														}
@@ -95,10 +114,9 @@
 												<select class="form-control" id="Chapter" name="chapter" required>
 													<option data-group="SHOW" value="">Please Select Chapter</option>
 												<?PHP
-													var $chapter_query = "SELECT * FROM info_chapter";
 													if($_SESSION['Account_Type'] == 4)
 													{
-														 $chapter_query = "SELECT * FROM info_chapter WHERE id = $_SESSION['Chapter']";
+														 $chapter_query = "SELECT * FROM info_chapter WHERE id = $Chapter_Value";
 													}
 													else
 													{
