@@ -95,13 +95,14 @@
 												<select class="form-control" id="Chapter" name="chapter" required>
 													<option data-group="SHOW" value="">Please Select Chapter</option>
 												<?PHP
+													var $chapter_query = "SELECT * FROM info_chapter";
 													if($_SESSION['Account_Type'] == 4)
 													{
-														 $chapter_query = "SELECT * FROM info_chapter WHERE id = $_SESSION['Chapter']"
+														 $chapter_query = "SELECT * FROM info_chapter WHERE id = $_SESSION['Chapter']";
 													}
 													else
 													{
-														$chapter_query = "SELECT * FROM info_chapter"
+														$chapter_query = "SELECT * FROM info_chapter";
 													}
 													$connect = mysqli_connect($host, $user, $pass,$databasename) or die("Couldn't connect to database!");
 													$chapter = mysqli_query($connect, $chapter_query);
