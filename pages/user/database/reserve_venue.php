@@ -1,5 +1,6 @@
 <?PHP
 	session_start();
+	include("PushNotification.php")
 	include("connect.php");
 
 	//Variables
@@ -59,44 +60,39 @@
 		if(!$sql){
 			die('Error: ' . mysqli_error($connect));
 		} else {
-			$json_data =
-			[
-		    "to" => '1:750026638096:android:d535ee459b36f495',
-		    "notification" => [
-		        "body" => "SOMETHING",
-		        "title" => "SOMETHING",
-		        "icon" => "ic_launcher"
-		    ]
-			]
-			$data = json_encode($json_data);
-			//FCM API end-point
-			$url = 'https://fcm.googleapis.com/fcm/send';
-			//api_key in Firebase Console -> Project Settings -> CLOUD MESSAGING -> Server key
-			$server_key = 'AAAArqESQxA:APA91bEPD-zROiksdWZhFII9pxK_snPJeL4vpwqA72CYdnPdRR8yUuEnE_1vKLE-BsgyJ5DL12jhA0MK85Se5KdG8989TInZlxgCS-cpZ8BDucpw6k6A6fWxuMim_F2weFJ4Jg5SfjPr';
-			//header with content_type api key
+			$title = $_POST["title"];
+			$message = $_POST["messege"];
+			$uid = $_POST["uid"];
+			$fID = mysqli_fetch_array(mysqli_query($c_m_db, "SELECT firebaseId FROM      tablename WHERE uid='".$uid."'"));
+			$fIDD = $fID[0];
+			$url = 'http://fcm.googleapis.com/fcm/send';
+			$key = "AIzaSyD2641vhTud-qFfi6mmu4Nku-QXLYtHm8Q";
+
 			$headers = array(
-			    'Content-Type:application/json',
-			    'Authorization:key='.$server_key
+			'Authorization: key='.$key,
+			'Content-type: application/json'
 			);
-			//CURL request to route notification to FCM connection server (provided by Google)
-			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_URL, $url);
-			curl_setopt($ch, CURLOPT_POST, true);
-			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-			$result = curl_exec($ch);
-			if ($result === FALSE) {
-			    die('Oops! FCM Send Error: ' . curl_error($ch));
-			}
-			curl_close($ch);
+			$fields = array('notification'=>array('title'=>$title,'body'=>$message),'registration_ids'=>$fIDD);
+
+			$payload = json_encode(array(messege=>$fields));
+
+			$curl_session = curl_init();
+			curl_setopt($curl_session, CURLOPT_URL, $url);
+			curl_setopt($curl_session, CURLOPT_POST, true);
+			curl_setopt($curl_session, CURLOPT_HTTPHEADER, $headers);
+			curl_setopt($curl_session, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($curl_session, CURLOPT_SSL_VERIFYPEER, false);
+			curl_setopt($curl_session, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+			curl_setopt($curl_session, CURLOPT_POSTFIELDS, $payload);
+
+			$result = curl_exec($curl_session);
+
+			curl_close($curl_session);
 		}
 
 		mysqli_close($connect);
-		echo "<script>
-					alert('Event Created!');
-					window.location.assign('../reserve_venue.php'); </script>";
+		// echo "<script>
+		// 			alert('Event Created!');
+		// 			window.location.assign('../reserve_venue.php'); </script>";
 	}
 ?>

@@ -12,6 +12,8 @@ class ComposerStaticInit7ae7d802624eb03feab8fd178fb9fe33
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         'decc78cc4436b1292c6c0d151b19445c' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/bootstrap.php',
+        'b067bc7112e384b61c701452d53a14a8' => __DIR__ . '/..' . '/mtdowling/jmespath.php/src/JmesPath.php',
+        'f7c6080b46f9fe41a46a657439674576' => __DIR__ . '/..' . '/kreait/firebase-php/src/Firebase.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -19,8 +21,17 @@ class ComposerStaticInit7ae7d802624eb03feab8fd178fb9fe33
         array (
             'phpseclib\\' => 10,
         ),
+        'l' => 
+        array (
+            'libphonenumber\\' => 15,
+        ),
+        'S' => 
+        array (
+            'Superbalist\\Flysystem\\GoogleStorage\\' => 36,
+        ),
         'P' => 
         array (
+            'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Cache\\' => 10,
@@ -29,16 +40,35 @@ class ComposerStaticInit7ae7d802624eb03feab8fd178fb9fe33
         array (
             'Monolog\\' => 8,
         ),
+        'L' => 
+        array (
+            'League\\Flysystem\\' => 17,
+            'Lcobucci\\JWT\\' => 13,
+        ),
+        'K' => 
+        array (
+            'Kreait\\Firebase\\' => 16,
+            'Kreait\\' => 7,
+        ),
+        'J' => 
+        array (
+            'JmesPath\\' => 9,
+        ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
+            'Google\\Cloud\\Storage\\' => 21,
+            'Google\\Cloud\\Core\\' => 18,
             'Google\\Auth\\' => 12,
+            'Giggsey\\Locale\\' => 15,
         ),
         'F' => 
         array (
             'Firebase\\JWT\\' => 13,
+            'Firebase\\Auth\\Token\\' => 20,
+            'Fig\\Http\\Message\\' => 17,
         ),
     );
 
@@ -46,6 +76,18 @@ class ComposerStaticInit7ae7d802624eb03feab8fd178fb9fe33
         'phpseclib\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib',
+        ),
+        'libphonenumber\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src',
+        ),
+        'Superbalist\\Flysystem\\GoogleStorage\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/superbalist/flysystem-google-storage/src',
+        ),
+        'Psr\\SimpleCache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/simple-cache/src',
         ),
         'Psr\\Log\\' => 
         array (
@@ -63,6 +105,26 @@ class ComposerStaticInit7ae7d802624eb03feab8fd178fb9fe33
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+        'League\\Flysystem\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/flysystem/src',
+        ),
+        'Lcobucci\\JWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/lcobucci/jwt/src',
+        ),
+        'Kreait\\Firebase\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kreait/firebase-php/src/Firebase',
+        ),
+        'Kreait\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kreait/gcp-metadata/src',
+        ),
+        'JmesPath\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mtdowling/jmespath.php/src',
+        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
@@ -75,17 +137,44 @@ class ComposerStaticInit7ae7d802624eb03feab8fd178fb9fe33
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
         ),
+        'Google\\Cloud\\Storage\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/google/cloud-storage/src',
+        ),
+        'Google\\Cloud\\Core\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/google/cloud-core/src',
+        ),
         'Google\\Auth\\' => 
         array (
             0 => __DIR__ . '/..' . '/google/auth/src',
+        ),
+        'Giggsey\\Locale\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/giggsey/locale/src',
         ),
         'Firebase\\JWT\\' => 
         array (
             0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
         ),
+        'Firebase\\Auth\\Token\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kreait/firebase-tokens/src',
+        ),
+        'Fig\\Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/fig/http-message-util/src',
+        ),
     );
 
     public static $prefixesPsr0 = array (
+        'R' => 
+        array (
+            'Rize\\UriTemplate' => 
+            array (
+                0 => __DIR__ . '/..' . '/rize/uri-template/src',
+            ),
+        ),
         'G' => 
         array (
             'Google_Service_' => 
