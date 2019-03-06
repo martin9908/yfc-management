@@ -1,6 +1,6 @@
 <?PHP
 //Local
-// $host="localhost:3307";
+// $host="localhost";
 // $databasename="yfc_db";
 // $user="root";
 // $pass="root";
