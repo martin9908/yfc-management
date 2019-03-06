@@ -60,34 +60,28 @@
 		if(!$sql){
 			die('Error: ' . mysqli_error($connect));
 		} else {
-			$title = $_POST["title"];
-			$message = $_POST["messege"];
-			$uid = $_POST["uid"];
-			$fID = mysqli_fetch_array(mysqli_query($c_m_db, "SELECT firebaseId FROM      tablename WHERE uid='".$uid."'"));
-			$fIDD = $fID[0];
-			$url = 'http://fcm.googleapis.com/fcm/send';
-			$key = "AIzaSyD2641vhTud-qFfi6mmu4Nku-QXLYtHm8Q";
+			require_once 'database/firebase/firebase.php';
 
-			$headers = array(
-			'Authorization: key='.$key,
-			'Content-type: application/json'
-			);
-			$fields = array('notification'=>array('title'=>$title,'body'=>$message),'registration_ids'=>$fIDD);
+			// paste here getting fcm registration device token
+			$devicetoken [] = "dCgnXuMuC7s:APA91bEWvmUkAyYGyZ6VIS4KDhOHSTv8Eb8ZNEmWIRQQBWyrIcsN-J41gmKAN33QZIl6siiFcRoTs1vcxh_kZ8nPfk1u57XP28SoANe38ne4qgUPYZnYEL-R9cHjsdrEXQQ70FIrbyb7";
 
-			$payload = json_encode(array(messege=>$fields));
+			// create array that contains notification details
+			$res = array();
 
-			$curl_session = curl_init();
-			curl_setopt($curl_session, CURLOPT_URL, $url);
-			curl_setopt($curl_session, CURLOPT_POST, true);
-			curl_setopt($curl_session, CURLOPT_HTTPHEADER, $headers);
-			curl_setopt($curl_session, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($curl_session, CURLOPT_SSL_VERIFYPEER, false);
-			curl_setopt($curl_session, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
-			curl_setopt($curl_session, CURLOPT_POSTFIELDS, $payload);
+			//push title, message, & image url for big notification  like as below
+			$res['data']['title'] = "YFC APP";
+			$res['data']['message'] = "A New Event is Available!";
 
-			$result = curl_exec($curl_session);
+			/* //push title, message for small notification like as below
+			$res['data']['title'] = "FCM Demo";
+			$res['data']['message'] = "Testing message";*/
 
-			curl_close($curl_session);
+
+			//creating firebase class object
+			$firebase = new Firebase();
+
+			//sending push notification and displaying result
+			echo $firebase->send($devicetoken, $res);
 		}
 
 		mysqli_close($connect);
