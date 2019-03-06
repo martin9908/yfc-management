@@ -80,7 +80,7 @@
 												}
 												else
 												{
-													$area_query = "SELECT * FROM info_chapter";
+													$area_query = "SELECT * FROM info_area";
 												}
 												$connect = mysqli_connect($host, $user, $pass,$databasename) or die("Couldn't connect to database!");
 												$area = mysqli_query($connect, $area_query);
@@ -100,7 +100,7 @@
 														}
 														else
 														{
-															$sector_query = "SELECT * FROM info_chapter";
+															$sector_query = "SELECT * FROM info_sector";
 														}
 														$connect = mysqli_connect($host, $user, $pass,$databasename) or die("Couldn't connect to database!");
 														$sector = mysqli_query($connect, $sector_query);
