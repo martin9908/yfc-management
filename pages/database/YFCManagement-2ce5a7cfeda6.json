@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "yfcmanagement",
+  "private_key_id": "2ce5a7cfeda6ea0d815fb51f985d2b40672e8299",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCvywpoqKZ9MWJV\nbe+7XbF9Vj6DP/BiAu7x9H2qV9EIVWaFJOcKlaKn2min7g6OBpre0f7rF5xnzHFr\n1WvSte8VXlQphTNpKZCr+f3sQUyFAAA7nklgCRHMyXNSPIlIoJJARCqJvyWfdzQe\nlp1ZQUvqu7yQC9ZUTeFPev+s6EUb1eywFOb8BNhoDZLTWg3MKEvgLZHa3Oz/sq8r\np3aTZR0H8n46uJlD1mCtn1rh/SIsaSMmLhSoU9aP+M4r4IL83qgbLt1fSfuNyLl/\nZJHRQo+V1fEIjGv5RcFGSzBYjQ7E3Egm5bEFIjUBUhIzn5l1JbFQapIUgySEr8p8\nsgSjAPmnAgMBAAECggEAJKqXfbProgI6bfIzxiNpQWjLOioMdA0DlND3ox+U+IWD\nkDLdw+3pEtSx7pDvVT1YcTBg2N1AYMAaSjEmP7l16EGYEV74la83Pz+x8GTAVp9k\n7Qp7aH4Lyeic1qLMyarARopRSxDlAollBBpLMJI3iPrmfi8R4dyqqZ7QlFqQC5lu\njdQusyLpQSQYzzrkHub9Nhvb5udrTGo1Z+vHw6pcf5/gBinlizowDSiWzvbuObCG\ngREUkHe9Swz1wSSxIxucPOzOOogm+khx6bDU6g3XRFA9/I6L+zmOxlElX2qXbew2\nnE4QO7j4ZxgNd2McqSdd8330x6utXKoluWA4T66wQQKBgQDv5wq1TSB1rYswpWKF\n8NHEbhU4CNy8d40qFvQm3oZnJx6xER8tWHd/Q5ifo6YCkPBc+bI8WWNCM/1YX++0\nv9yRM7eTXKmCjCNzoABNKfNdNqPseEOuMUF1DbLUWvlfcSmHw5o7SrVhIh7gd+Pu\nWLlfn/pHPxd9HyNMGdHqUcbj5wKBgQC7lsBNi1EJhIBEqIvPoCy8XmH9DA9y7zcL\nB3mgTX/XcrgvOH1J2ecQZVKux3YC7smD+Bwdf1YNJfnQ1KZsPUZruy7nNvRh7PPq\nsZQubP7ZL+ODuE4Myfa4VtLG+NlKKxf5i3s+QqqNXEPl+vwei1tb7TZQs9U9ol4D\naNdc3lKEQQKBgFKDR+aV0X1IJGCl8Z4Z9zw1lKzCN5HHGNGKNY2M6fNevCqwteV1\n0Rv/luYJdlbZnSKNa2VgZUhm81NLI/oqJ2X1wMU5kL/rDWJ+fLwNmrvLyFPUBYtL\nO7VT8dciNzVBicQ9XbXY+0ueXbpc4hOfhprCPmX06FJLvGs3UkDiwaKvAoGBAJRe\ngM0UYs0PUtB7KtHWU2vNjt0xO8rhL3z2tZk3kuTaJJmcqWPPCDXsngAFXO6m5RYP\nGFWwUGRn4/XrK5IyyM8OpuNTkOkfHDFFsPkjVlJ70QxuqrTszMoySdX8HwjNmtHS\nI3E0E2dpUX7GC8Ew4dqMfUhJZGCyWn+B3czjPwrBAoGAQNLgP7gYTJ6FGAhXBo2F\n1Rpd8LqT2kJ+XQTmBh2EBgOCmxgGhmIxcTuI5Hu0c2Ks/3Xmhd/D4PnLKPclYFQn\nUu+PRKxRbu+GHgnQbY8A3FMfu9UMP6cJcqRYCgrcB3ZLw4dDbWSTLn1+ep5vul8s\nX8Tf6wOAj4fGFF5YcxAWtjs=\n-----END PRIVATE KEY-----\n",
+  "client_email": "yfmanagement@yfcmanagement.iam.gserviceaccount.com",
+  "client_id": "105145582237885093624",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/yfmanagement%40yfcmanagement.iam.gserviceaccount.com"
+}
