@@ -1,6 +1,6 @@
 <?PHP
 	session_start();
-	include("PushNotification.php")
+	include("PushNotification.php");
 	include("connect.php");
 
 	//Variables
