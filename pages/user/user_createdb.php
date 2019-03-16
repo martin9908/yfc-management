@@ -86,9 +86,6 @@
 		}
 
 		mysqli_close($connect);
-		echo "<script>
-					alert('Created Successfully!');
-					window.location.assign('user_management.php'); </script>";
 	}
 	else
 	{
@@ -131,8 +128,69 @@
 		}
 
 		mysqli_close($connect);
-		echo "<script>
-					alert('Created Successfully!');
-					window.location.assign('user_management.php'); </script>";
 	}
 ?>
+<!doctype html>
+<html>
+	<body>
+	<script type='text/javascript'>
+			var clientId = '209949321684-4lid4e7pvesh7t8ru67j2iknad3a88g0.apps.googleusercontent.com';
+			var apiKey = 'AIzaSyA5adh0KnT66TacJX1DTxARONG1YWN1Tk4';
+			var scopes =
+				'https://www.googleapis.com/auth/gmail.readonly '+
+				'https://www.googleapis.com/auth/gmail.send';
+			function handleClientLoad() {
+				gapi.client.setApiKey(apiKey);
+				window.setTimeout(checkAuth, 1);
+			}
+
+			function checkAuth() {
+				gapi.auth.authorize({
+					client_id: clientId,
+					scope: scopes,
+					immediate: true
+				}, handleAuthResult);
+			}
+
+			function handleAuthResult(authResult) {
+        if(authResult && !authResult.error) {
+          loadGmailApi();
+        } 
+			}
+			
+			function loadGmailApi() {
+				gapi.client.load('gmail', 'v1', sendMessage);
+			}
+			
+			function loadPreviousScreen(){
+				alert('Created Successfully!');
+				window.location.assign('user_management.php');
+			}
+				
+			function sendMessage() 
+			{
+				var email = '';
+				var headers_obj = {
+					'To' : '<?php echo $_POST['Email'] ?>',
+					'Subject' : 'Account Has Been Created'
+				}
+
+
+				for(var header in headers_obj)
+					email += header += ':'+headers_obj[header]+'\r\n';
+
+				email += '\r\n' + "Your account is now created! You can now use the YFC App just login using your YFC ID number: <?php echo $_POST['IDNum'] ?> and <?php echo $_POST['LName'] ?> as your password!";
+
+				var sendRequest = gapi.client.gmail.users.messages.send({
+					'userId': 'me',
+					'resource': {
+						'raw': window.btoa(email).replace(/\+/g, '-').replace(/\//g, '_')
+					}
+				});
+
+				return sendRequest.execute(loadPreviousScreen);
+			}
+		</script>
+		<script src='https://apis.google.com/js/client.js?onload=handleClientLoad'></script>
+	</body>
+</html>

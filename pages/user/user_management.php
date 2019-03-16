@@ -327,7 +327,7 @@
 																						if($row['Account_Status'] == 'Pending') {
  																						 echo
 																						"<td>
-																							<a class='btn btn-outline btn-success' href='database/activate.php?ppid=".$row['id']."'>Activate</a>
+																							<a class='btn btn-outline btn-success' href='database/activate.php?ppid=".$row['id']."&userID=".$row['User_Number']."&email=".$row['Email']."&password=".$row['password']."'>Activate</a>
  																						 	<a class='btn btn-outline btn-danger' href='database/user_delete.php?ppid=".$row['id']."'>Remove</a>
 																						</td>
 																						</tr>";
