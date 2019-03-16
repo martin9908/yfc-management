@@ -225,7 +225,6 @@
 						return sendRequest.execute(loadPreviousScreen);
 					}
 				}
-				
 			})
 		}
 	</script>
