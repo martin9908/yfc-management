@@ -1,11 +1,14 @@
 <?PHP
 	session_start();
-	include("PushNotification.php");
+	// include("PushNotification.php");
 	include("connect.php");
 
 	//Variables
+	//User Account
 	$id = isset($_SESSION['id']) ? $_SESSION['id'] : null;
 	$user_number = isset($_SESSION['User_Number']) ? $_SESSION['User_Number'] : null;
+
+	//Event Details
 	$reservation_date = isset($_POST['sdate']) ? $_POST['sdate'] : null;
 	$reservation_end_date = isset($_POST['edate']) ? $_POST['edate'] : null;
 	//$ = date("Y/m/d",$vdate);
@@ -86,9 +89,146 @@
 		// }
 
 		mysqli_close($connect);
-		echo "<script>
-			alert('Event Created!');
-			window.location.assign('../reserve_venue.php'); 
-		</script>";
 	}
 ?>
+<!doctype html>
+<html>
+	<body>
+	<script type='text/javascript'>
+		var userData = [];
+
+		const userAction = async () => {
+			const response = await fetch('http://localhost/yfc-managment/api/v2/users/');
+			const myJson = await response.json(); //extract JSON from the http response
+			userData = myJson;// do something with myJson
+		}
+
+		var clientId = '209949321684-4lid4e7pvesh7t8ru67j2iknad3a88g0.apps.googleusercontent.com';
+		var apiKey = 'AIzaSyA5adh0KnT66TacJX1DTxARONG1YWN1Tk4';
+		var scopes =
+			'https://www.googleapis.com/auth/gmail.readonly '+
+			'https://www.googleapis.com/auth/gmail.send';
+		function handleClientLoad() {
+			userAction();
+			gapi.client.setApiKey(apiKey);
+			window.setTimeout(checkAuth, 1);
+		}
+
+		function checkAuth() {
+			gapi.auth.authorize({
+				client_id: clientId,
+				scope: scopes,
+				immediate: true
+			}, handleAuthResult);
+		}
+
+		function handleAuthResult(authResult) {
+        	if(authResult && !authResult.error) {
+          		loadGmailApi();
+       		} 
+		}
+			
+		function loadGmailApi() {
+			gapi.client.load('gmail', 'v1', sendMessage);
+		}
+		
+		function loadPreviousScreen(){
+			alert('Event Created!');
+			window.location.assign('../reserve_venue.php');
+		}
+			
+		function sendMessage() 
+		{
+			userData.forEach((user)=> {
+				if(<?php echo $_SESSION['Account_Type'] ?> == 1) {
+					var email = '';
+					var headers_obj = {
+						'To' : user.Email,
+						'Subject' : 'New Event Available!'
+					}
+				
+					for(var header in headers_obj)
+						email += header += ':'+headers_obj[header]+'\r\n';
+
+					email += '\r\n' + "A new event has been made for your area! Please check your app for more details!";
+
+					var sendRequest = gapi.client.gmail.users.messages.send({
+						'userId': 'me',
+						'resource': {
+							'raw': window.btoa(email).replace(/\+/g, '-').replace(/\//g, '_')
+						}
+					});
+					return sendRequest.execute();
+				} else if (<?php echo $_SESSION['Account_Type'] ?> == 2) {
+					if (<?php echo $_SESSION['Area'] ?> == user.Area) {
+						var email = '';
+						var headers_obj = {
+							'To' : user.Email,
+							'Subject' : 'New Event Available!'
+						}
+
+						for(var header in headers_obj)
+							email += header += ':'+headers_obj[header]+'\r\n';
+
+						email += '\r\n' + "A new event has been made for your area! Please check your app for more details!";
+
+						var sendRequest = gapi.client.gmail.users.messages.send({
+							'userId': 'me',
+							'resource': {
+								'raw': window.btoa(email).replace(/\+/g, '-').replace(/\//g, '_')
+							}
+						});
+						return sendRequest.execute();
+					}
+				} else if (<?php echo $_SESSION['Account_Type'] ?> == 3) {
+					if (<?php echo $_SESSION['Sector'] ?> == user.Sector) {
+						var email = '';
+						var headers_obj = {
+							'To' : user.Email,
+							'Subject' : 'New Event Available!'
+						}
+
+
+						for(var header in headers_obj)
+							email += header += ':'+headers_obj[header]+'\r\n';
+
+						email += '\r\n' + "A new event has been made for your area! Please check your app for more details!";
+
+						var sendRequest = gapi.client.gmail.users.messages.send({
+							'userId': 'me',
+							'resource': {
+								'raw': window.btoa(email).replace(/\+/g, '-').replace(/\//g, '_')
+							}
+						});
+						return sendRequest.execute();
+					}
+				} else if (<?php echo $_SESSION['Account_Type'] ?> == 4) {
+					if (<?php echo $_SESSION['Chapter'] ?> == user.Chapter) {
+						var email = '';
+						var headers_obj = {
+							'To' : user.Email,
+							'Subject' : 'New Event Available!'
+						}
+
+
+						for(var header in headers_obj)
+							email += header += ':'+headers_obj[header]+'\r\n';
+
+						email += '\r\n' + "A new event has been made for your area! Please check your app for more details!";
+
+						var sendRequest = gapi.client.gmail.users.messages.send({
+							'userId': 'me',
+							'resource': {
+								'raw': window.btoa(email).replace(/\+/g, '-').replace(/\//g, '_')
+							}
+						});
+						return sendRequest.execute(loadPreviousScreen);
+					}
+				}
+				
+			})
+		}
+	</script>
+	<script src='https://apis.google.com/js/client.js?onload=handleClientLoad'></script>
+	</body>
+</html>
