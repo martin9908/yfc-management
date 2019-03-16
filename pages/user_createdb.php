@@ -13,6 +13,7 @@
 	$Address = isset($_POST['Address']) ? $_POST['Address'] : null;
 	$Gender = isset($_POST['Gender']) ? $_POST['Gender'] : null;
 	$ConNum = isset($_POST['ConNum']) ? $_POST['ConNum'] : null;
+	$Email = isset($_POST['Email']) ? $_POST['Email'] : null;
 	$Area = isset($_POST['Area']) ? $_POST['Area'] : null;
 	$Sector = isset($_POST['Sector']) ? $_POST['Sector'] : null;
 	$Chapter = isset($_POST['Chapter']) ? $_POST['Chapter'] : null;
@@ -55,6 +56,7 @@
 						`Address`,
 						`Gender`,
 						`Contact_Number`,
+						`Email,
 						`Account_Type`,
 						`Area`,
 						`Sector`,
@@ -72,6 +74,7 @@
 							'$Address',
 							'$Gender',
 							'$ConNum',
+							'$Email',
 							'$Account_Type',
 							'$Area',
 							'$Sector',
@@ -107,6 +110,7 @@
 				`Address`,
 				`Gender`,
 				`Contact_Number`,
+				`Email`,
 				`Account_Type`,
 				`Area`,
 				`Sector`,
@@ -123,6 +127,7 @@
 					'$Address',
 					'$Gender',
 					'$ConNum',
+					'$Email'
 					'$Account_Type',
 					'$Area',
 					'$Sector',

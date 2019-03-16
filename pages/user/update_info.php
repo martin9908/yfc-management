@@ -176,21 +176,23 @@
 		                                    <input class="form-control" name="LName" value="<?PHP echo $LName;?>" required>
 	                                    </div>
                                     </div>
-																		<div class="row">
-																			<div class="col-lg-12">
-		                                    <label>Address</label>
-		                                    <input class="form-control" name="Address" value="<?PHP echo $Address;?>" required>
-		                                    <label>Contact Number</label>
-																				<div class="form-group input-group">
-																					<span class="input-group-addon">+63</span>
-																					<input class="form-control" name="Contact_Number" placeholder="9XXXXXXXXX" value="<?PHP echo $Contact_Number;?>" required>
-																				</div>
-		                                    <label>Password</label>
-		                                    <input class="form-control" name="Password" value="<?PHP echo $Password;?>" type="password" required>
-		                                    <label>Profile Picture</label>
-		                                    <input type='file' onChange="readURL(this);" name="uploadedimage"/>
-																			</div>
-																	</div>
+									<div class="row">
+										<div class="col-lg-12">
+										<label>Address</label>
+										<input class="form-control" name="Address" value="<?PHP echo $Address;?>" required>
+										<label>Contact Number</label>
+										<div class="form-group input-group">
+											<span class="input-group-addon">+63</span>
+											<input class="form-control" name="Contact_Number" placeholder="9XXXXXXXXX" value="<?PHP echo $Contact_Number;?>" required>
+										</div>
+										<label>Email</label>
+										<input class="form-control" name="Email" required>
+										<label>Password</label>
+										<input class="form-control" name="Password" value="<?PHP echo $Password;?>" type="password" required>
+										<label>Profile Picture</label>
+										<input type='file' onChange="readURL(this);" name="uploadedimage"/>
+									</div>
+								</div>
                                 </div>
                                 <center>
                                     <button type="submit" class="btn btn-success">Save</button>

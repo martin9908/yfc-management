@@ -13,6 +13,7 @@ $mname = isset($_POST['MName']) ? $_POST['MName'] : null;
 $lname = isset($_POST['LName']) ? $_POST['LName'] : null;
 $address = isset($_POST['Address']) ? $_POST['Address'] : null;
 $cnum = isset($_POST['ConNum']) ? $_POST['ConNum'] : null;
+$email = isset($_POST['Email']) ? $_POST['Email'] : null;
 $Area = isset($_POST['Area']) ? $_POST['Area'] : null;
 $Sector = isset($_POST['Sector']) ? $_POST['Sector'] : null;
 $Chapter = isset($_POST['Chapter']) ? $_POST['Chapter'] : null;
@@ -51,6 +52,7 @@ if (!empty($_FILES["uploadedimage"]["name"])) {
 					`Last_Name` = '$lname',
 					`Address` = '$address',
 					`Contact_Number` = '$cnum',
+					`Email` = '$email',
 					`Account_Type` = $accttype,
 					`Area` = $Area,
 					`Sector` = $Sector,
@@ -72,6 +74,7 @@ else
 					`Last_Name` = '$lname',
 					`Address` = '$address',
 					`Contact_Number` = '$cnum',
+					`Email` = '$email',
 					`Account_Type` = $accttype,
 					`Area` = $Area,
 					`Sector` = $Sector,

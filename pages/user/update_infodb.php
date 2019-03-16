@@ -13,6 +13,7 @@
 	$lname = isset($_POST['LName']) ? $_POST['LName'] : null;
 	$address = isset($_POST['Address']) ? $_POST['Address'] : null;
 	$cnum = isset($_POST['Contact_Number']) ? $_POST['Contact_Number'] : null;
+	$email = isset($_POST['Email']) ? $_POST['Email'] : null;
 	$pword = isset($_POST['Password']) ? $_POST['Password'] : null;
 
   function GetImageExtension($imagetype)
@@ -46,6 +47,7 @@
 						`Last_Name` = '$lname',
 						`Address` = '$address',
 						`Contact_Number` = '$cnum',
+						`Email` = '$email',
 						`password` = '$pword',
 						`account_picture` = '$target_path'
 
@@ -67,6 +69,7 @@
 						`Last_Name` = '$lname',
 						`Address` = '$address',
 						`Contact_Number` = '$cnum',
+						`Email` = '$email',
 						`password` = '$pword'
 
 						WHERE `User_Number` = '$id';");

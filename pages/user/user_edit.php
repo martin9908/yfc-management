@@ -121,6 +121,8 @@
 									<span class="input-group-addon">+63</span>
 									<input class="form-control" name="ConNum" placeholder="9XXXXXXXXX" value="<?PHP echo $CNum;?>" required>
 								</div>
+								<label>Email</label>
+								<input class="form-control" name="Email" required>
 								<label>Area</label>
 								<select class="form-control" name="Area" id="Area">
 									<option data-group="SHOW" value="">Please Select Area</option>

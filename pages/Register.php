@@ -72,6 +72,8 @@
 															<span class="input-group-addon">+63</span>
 	                            <input class="form-control" name="ConNum" placeholder="9XXXXXXXXX" required>
 														</div>
+                            <label>Email</label>
+                            <input class="form-control" name="Email" required>
 														<label>Area</label>
 														<select class="form-control" id="Area" name="Area">
 															<option value="">Please Select Area</option>

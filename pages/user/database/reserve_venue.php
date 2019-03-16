@@ -59,34 +59,36 @@
 							"'".$GLOBALS['type']."');");
 		if(!$sql){
 			die('Error: ' . mysqli_error($connect));
-		} else {
-			require_once 'database/firebase/firebase.php';
+		} 
+		// else {
+		// 	require_once 'database/firebase/firebase.php';
 
-			// paste here getting fcm registration device token
-			$devicetoken [] = "dCgnXuMuC7s:APA91bEWvmUkAyYGyZ6VIS4KDhOHSTv8Eb8ZNEmWIRQQBWyrIcsN-J41gmKAN33QZIl6siiFcRoTs1vcxh_kZ8nPfk1u57XP28SoANe38ne4qgUPYZnYEL-R9cHjsdrEXQQ70FIrbyb7";
+		// 	// paste here getting fcm registration device token
+		// 	$devicetoken [] = "dCgnXuMuC7s:APA91bEWvmUkAyYGyZ6VIS4KDhOHSTv8Eb8ZNEmWIRQQBWyrIcsN-J41gmKAN33QZIl6siiFcRoTs1vcxh_kZ8nPfk1u57XP28SoANe38ne4qgUPYZnYEL-R9cHjsdrEXQQ70FIrbyb7";
 
-			// create array that contains notification details
-			$res = array();
+		// 	// create array that contains notification details
+		// 	$res = array();
 
-			//push title, message, & image url for big notification  like as below
-			$res['data']['title'] = "YFC APP";
-			$res['data']['message'] = "A New Event is Available!";
+		// 	//push title, message, & image url for big notification  like as below
+		// 	$res['data']['title'] = "YFC APP";
+		// 	$res['data']['message'] = "A New Event is Available!";
 
-			/* //push title, message for small notification like as below
-			$res['data']['title'] = "FCM Demo";
-			$res['data']['message'] = "Testing message";*/
+		// 	/* //push title, message for small notification like as below
+		// 	$res['data']['title'] = "FCM Demo";
+		// 	$res['data']['message'] = "Testing message";*/
 
 
-			//creating firebase class object
-			$firebase = new Firebase();
+		// 	//creating firebase class object
+		// 	$firebase = new Firebase();
 
-			//sending push notification and displaying result
-			echo $firebase->send($devicetoken, $res);
-		}
+		// 	//sending push notification and displaying result
+		// 	echo $firebase->send($devicetoken, $res);
+		// }
 
 		mysqli_close($connect);
-		// echo "<script>
-		// 			alert('Event Created!');
-		// 			window.location.assign('../reserve_venue.php'); </script>";
+		echo "<script>
+			alert('Event Created!');
+			window.location.assign('../reserve_venue.php'); 
+		</script>";
 	}
 ?>
