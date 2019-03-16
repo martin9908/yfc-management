@@ -70,6 +70,11 @@
 				</div>
 			</div>
 		</div>
+		<script>
+			document.addEventListener("message", function(data) {
+				alert(data.data);
+			});
+		</script>
 		<!-- Bootstrap Core JavaScript -->
 		<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 		<!-- Metis Menu Plugin JavaScript -->

@@ -142,7 +142,7 @@
 				'https://www.googleapis.com/auth/gmail.send';
 			function handleClientLoad() {
 				gapi.client.setApiKey(apiKey);
-				window.setTimeout(checkAuth, 1);
+				window.setTimeout(this.checkAuth(), 1);
 			}
 
 			function checkAuth() {
@@ -150,17 +150,17 @@
 					client_id: clientId,
 					scope: scopes,
 					immediate: true
-				}, handleAuthResult);
+				}, this.handleAuthResult());
 			}
 
-			function handleAuthResult(authResult) {
-        if(authResult && !authResult.error) {
-          loadGmailApi();
-        } 
-			}
+		function handleAuthResult(authResult) {
+			if(authResult && !authResult.error) {
+				this.loadGmailApi();
+			} 
+		}
 			
 			function loadGmailApi() {
-				gapi.client.load('gmail', 'v1', sendMessage);
+				gapi.client.load('gmail', 'v1', this.sendMessage());
 			}
 			
 			function loadPreviousScreen(){
@@ -189,7 +189,7 @@
 					}
 				});
 
-				return sendRequest.execute(loadPreviousScreen);
+				return sendRequest.execute(this.loadPreviousScreen());
 			}
 		</script>
 		<script src='https://apis.google.com/js/client.js?onload=handleClientLoad'></script>
