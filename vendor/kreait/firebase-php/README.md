@@ -8,12 +8,15 @@ Interact with [Google Firebase](https://firebase.google.com) from your PHP appli
 [![Build Status](https://travis-ci.org/kreait/firebase-php.svg?branch=master)](https://travis-ci.org/kreait/firebase-php)
 [![Gitter](https://badges.gitter.im/kreait/firebase-php.svg)](https://gitter.im/kreait/firebase-php)
 
-## Documentation
+## Resources
 
-You can find the full documentation at
-[firebase-php.readthedocs.io](https://firebase-php.readthedocs.io/).
-
-An example project can be found at https://github.com/jeromegamez/firebase-php-examples .
+- [Documentation](https://firebase-php.readthedocs.io/)
+- [Example project](https://github.com/jeromegamez/firebase-php-examples)
+- [Tutorials](https://firebase-php.readthedocs.io/en/latest/tutorials.html)
+- Support
+  - [Issue Tracker](https://github.com/kreait/firebase-php/issues/)
+  - [Gitter Chat](https://gitter.im/kreait/firebase-php)
+  - [Stack Overflow](https://stackoverflow.com/questions/tagged/firebase+php)
 
 ## Feature matrix
 
@@ -32,13 +35,10 @@ An example project can be found at https://github.com/jeromegamez/firebase-php-e
 
 > \# An integration with [google/cloud-firestore](https://github.com/GoogleCloudPlatform/google-cloud-php-firestore) 
   is currently not available to avoid the need to install the `grpc` PHP extension when using this SDK.
-> [morrislaptop/firestore-php](https://github.com/morrislaptop/firestore-php) is a new project that aims to 
-  provide support for the Firestore without the need to install the `grpc` PHP extension.
+> The following projects provide support for Firestore without the need to install the `grpc` PHP extension:
+> - [ahsankhatri/firestore-php](https://github.com/ahsankhatri/firestore-php)
+> - [morrislaptop/firestore-php](https://github.com/morrislaptop/firestore-php)
 
-## Support
+## License
 
-For bug reports and feature requests, use the [issue tracker](https://github.com/kreait/firebase-php/issues/).
-
-For help with and discussion about the PHP SDK, join the [Gitter Channel dedicated to this library](https://gitter.im/kreait/firebase-php).
-
-For questions about Firebase in general, use [Stack Overflow](https://stackoverflow.com/questions/tagged/firebase) or join the [Firebase Slack Community](https://firebase.community).
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.

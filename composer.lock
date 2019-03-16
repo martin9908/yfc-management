@@ -104,16 +104,16 @@
         },
         {
             "name": "giggsey/libphonenumber-for-php",
-            "version": "8.10.6",
+            "version": "8.10.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/giggsey/libphonenumber-for-php.git",
-                "reference": "75fa86dec0a79632fe492fa121b2a067ec100bf1"
+                "reference": "09686926c6a4ded26944602eae80e56eba088c4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/75fa86dec0a79632fe492fa121b2a067ec100bf1",
-                "reference": "75fa86dec0a79632fe492fa121b2a067ec100bf1",
+                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/09686926c6a4ded26944602eae80e56eba088c4b",
+                "reference": "09686926c6a4ded26944602eae80e56eba088c4b",
                 "shasum": ""
             },
             "require": {
@@ -168,7 +168,7 @@
                 "phonenumber",
                 "validation"
             ],
-            "time": "2019-02-21T11:30:36+00:00"
+            "time": "2019-03-07T08:42:08+00:00"
         },
         {
             "name": "giggsey/locale",
@@ -280,16 +280,16 @@
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.77",
+            "version": "v0.89",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "f16907e09b5529cd92b109cfdadcd5260691a477"
+                "reference": "8a285822d48df1650c4c298653aa4961049a1ee8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/f16907e09b5529cd92b109cfdadcd5260691a477",
-                "reference": "f16907e09b5529cd92b109cfdadcd5260691a477",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/8a285822d48df1650c4c298653aa4961049a1ee8",
+                "reference": "8a285822d48df1650c4c298653aa4961049a1ee8",
                 "shasum": ""
             },
             "require": {
@@ -313,7 +313,7 @@
             "keywords": [
                 "google"
             ],
-            "time": "2018-12-08T00:22:54+00:00"
+            "time": "2019-03-10T00:23:16+00:00"
         },
         {
             "name": "google/auth",
@@ -657,16 +657,16 @@
         },
         {
             "name": "kreait/firebase-php",
-            "version": "4.19.0",
+            "version": "4.19.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kreait/firebase-php.git",
-                "reference": "08c3a24319698f65e0d7f8335497a46f865d78b5"
+                "reference": "671e09b693695f9dce45ed83b6252b3a87eef886"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kreait/firebase-php/zipball/08c3a24319698f65e0d7f8335497a46f865d78b5",
-                "reference": "08c3a24319698f65e0d7f8335497a46f865d78b5",
+                "url": "https://api.github.com/repos/kreait/firebase-php/zipball/671e09b693695f9dce45ed83b6252b3a87eef886",
+                "reference": "671e09b693695f9dce45ed83b6252b3a87eef886",
                 "shasum": ""
             },
             "require": {
@@ -723,7 +723,7 @@
                 "google",
                 "sdk"
             ],
-            "time": "2019-02-09T19:26:39+00:00"
+            "time": "2019-03-10T10:24:51+00:00"
         },
         {
             "name": "kreait/firebase-tokens",
@@ -1170,16 +1170,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.12",
+            "version": "2.0.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "8814dc7841db159daed0b32c2b08fb7e03c6afe7"
+                "reference": "11cf67cf78dc4acb18dc9149a57be4aee5036ce0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/8814dc7841db159daed0b32c2b08fb7e03c6afe7",
-                "reference": "8814dc7841db159daed0b32c2b08fb7e03c6afe7",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/11cf67cf78dc4acb18dc9149a57be4aee5036ce0",
+                "reference": "11cf67cf78dc4acb18dc9149a57be4aee5036ce0",
                 "shasum": ""
             },
             "require": {
@@ -1258,7 +1258,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2018-11-04T05:45:48+00:00"
+            "time": "2019-03-10T16:53:45+00:00"
         },
         {
             "name": "psr/cache",

@@ -117,6 +117,10 @@ class Google_Service_CloudTalentSolution_Resource_ProjectsJobs extends Google_Se
    * project".
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string jobView Optional.
+   *
+   * The desired job attributes returned for jobs in the search response. Defaults
+   * to JobView.JOB_VIEW_FULL if no value is specified.
    * @opt_param string pageToken Optional.
    *
    * The starting point of a query result.
@@ -142,10 +146,6 @@ class Google_Service_CloudTalentSolution_Resource_ProjectsJobs extends Google_Se
    *
    * * companyName = "projects/api-test-project/companies/123" * companyName =
    * "projects/api-test-project/companies/123" AND requisitionId = "req-1"
-   * @opt_param string jobView Optional.
-   *
-   * The desired job attributes returned for jobs in the search response. Defaults
-   * to JobView.JOB_VIEW_FULL if no value is specified.
    * @return Google_Service_CloudTalentSolution_ListJobsResponse
    */
   public function listProjectsJobs($parent, $optParams = array())

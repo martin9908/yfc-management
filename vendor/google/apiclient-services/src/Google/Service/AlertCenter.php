@@ -36,6 +36,7 @@ class Google_Service_AlertCenter extends Google_Service
 
   public $alerts;
   public $alerts_feedback;
+  public $v1beta1;
   
   /**
    * Constructs the internal representation of the AlertCenter service.
@@ -47,6 +48,7 @@ class Google_Service_AlertCenter extends Google_Service
     parent::__construct($client);
     $this->rootUrl = 'https://alertcenter.googleapis.com/';
     $this->servicePath = '';
+    $this->batchPath = 'batch';
     $this->version = 'v1beta1';
     $this->serviceName = 'alertcenter';
 
@@ -88,6 +90,10 @@ class Google_Service_AlertCenter extends Google_Service
               'path' => 'v1beta1/alerts',
               'httpMethod' => 'GET',
               'parameters' => array(
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -103,10 +109,6 @@ class Google_Service_AlertCenter extends Google_Service
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
-                ),
-                'filter' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
               ),
             ),'undelete' => array(
@@ -157,6 +159,34 @@ class Google_Service_AlertCenter extends Google_Service
                   'type' => 'string',
                 ),
                 'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->v1beta1 = new Google_Service_AlertCenter_Resource_V1beta1(
+        $this,
+        $this->serviceName,
+        'v1beta1',
+        array(
+          'methods' => array(
+            'getSettings' => array(
+              'path' => 'v1beta1/settings',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'updateSettings' => array(
+              'path' => 'v1beta1/settings',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'customerId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
