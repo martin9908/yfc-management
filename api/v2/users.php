@@ -15,14 +15,21 @@
 				$id=intval($_GET["id"]);
 				get_users($id);
 			}
-      else if (!empty($_GET["user_name"]) && !empty($_GET["password"]))
+      else if (!empty($_GET["user_name"]) && !empty($_GET["password"]) && empty($_GET['fcm']))
       {
         $user_name=intval($_GET["user_name"]);
         $password=$_GET["password"];
         // header("Content-Type: application/json");
         // echo json_encode($password);
         login($user_name, $password);
-      }
+			}
+			else if (!empty($_GET['user_name']) && !empty($_GET["password"]) && !empty($_GET['fcm']))
+			{
+				$user_name = $_GET['user_name'];
+				$password = $_GET['password'];
+				$fcm = $_GET['fcm'];
+				mobile_login($user_name, $password, $fcm);
+			}
 			else
 			{
 				get_users();
@@ -90,9 +97,56 @@
         )
       );
     }
-  	header('Content-Type: application/json');
+		header('Content-Type: application/json');
   	echo json_encode($response);
-  }
+	}
+	
+	function mobile_login($username=0, $password=0, $fcm=0){
+		global $connection;
+		$query="SELECT * FROM info_user WHERE User_Number='".$username."' and password='".$password."'";
+		$response=array();
+		$id = "";
+		$result=mysqli_query($connection, $query);
+    if(mysqli_num_rows($result)>0)
+    {
+    	while($row=mysqli_fetch_array($result))
+    	{
+				$id = $row['id'];
+			}
+			$update_query="UPDATE info_user SET `FCM_ID` = '".$fcm."' WHERE `id` = ".$id."";
+			if(mysqli_query($connection, $update_query))
+			{
+				$query="SELECT * FROM info_user WHERE User_Number='".$username."' and password='".$password."'";
+				$response=array();
+				$result=mysqli_query($connection, $query);
+				while($row=mysqli_fetch_array($result))
+				{
+					$response[]=$row;
+				}
+			}
+			else 
+			{
+				$response=array(
+					'status' => 0,
+					'status_message' =>'User Update Failed.'
+				);
+			}
+  	}
+    else
+    {
+      $response = array(
+        "code" => 404,
+        "status" => "Not Found",
+        "error" => array(
+          "code" => 404,
+          "message" => "Invalid Username and/or Password"
+        )
+      );
+    }
+  	header('Content-Type: application/json');
+		// echo $update_query;
+		echo json_encode($response);
+	}
 
   function insert_users()
 	{

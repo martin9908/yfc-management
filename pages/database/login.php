@@ -3,8 +3,8 @@
 	include("connect.php");
 
 	$notify = "";
-	$username =isset($_POST['username']) ? $_POST['username'] : null;
-	$password = isset($_POST['password']) ? $_POST['password'] : null;
+	$username =isset($_GET['username']) ? $_GET['username'] : null;
+	$password = isset($_GET['password']) ? $_GET['password'] : null;
 
 	$connect = mysqli_connect($host, $user, $dbpass,$database) or die("Couldn't connect to database!");
 	$query = mysqli_query($connect,
