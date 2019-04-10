@@ -8,32 +8,35 @@
   //Connect Strings
   $connect = mysqli_connect($host, $user, $pass,$databasename) or die("Couldn't connect to database!");
 
-	$SESSION['payment_user'] = isset($_GET['ppid']) ? $_GET['ppid'] : null;
+	$_SESSION['payment_user'] = isset($_GET['ppid']) ? $_GET['ppid'] : null;
   $Area = isset($_SESSION['Area']) ? $_SESSION['Area'] : null;
   $Sector = isset($_SESSION['Sector']) ? $_SESSION['Sector'] : null;
   $Chapter = isset($_SESSION['Chapter']) ? $_SESSION['Chapter'] : null;
 	$Account_Type = isset($_SESSION['Account_Type']) ? $_SESSION['Account_Type'] : null;
 
-		$equipment = mysqli_query($connect,"SELECT * FROM
-										reservation_venue,
-										info_user,
-										info_area,
-										info_sector,
-										info_chapter
-									WHERE
-										info_user.id = reservation_venue.iduser
-									AND
-										$Area = reservation_venue.reservation_area
-									AND
-										$Sector = reservation_venue.reservation_sector
-									AND
-										$Chapter = reservation_venue.reservation_chapter
-									AND
-										info_area.id = reservation_venue.reservation_area
-									AND
-									 	info_sector.id = reservation_venue.reservation_sector
-									AND
-										info_chapter.id = reservation_venue.reservation_chapter;");
+	$query = $Account_Type != 1 ? 
+	"SELECT * FROM
+		reservation_venue,
+		info_user,
+		info_area,
+		info_sector,
+		info_chapter
+	WHERE
+		$Area = reservation_venue.reservation_area
+	AND
+		$Sector = reservation_venue.reservation_sector
+	AND
+		$Chapter = reservation_venue.reservation_chapter
+	AND
+		info_area.id = reservation_venue.reservation_area
+	AND
+		info_sector.id = reservation_venue.reservation_sector
+	AND
+		info_chapter.id = reservation_venue.reservation_chapter;" :
+	"SELECT * FROM
+		reservation_venue";
+
+	$equipment = mysqli_query($connect,$query);
 ?>
 <head>
 
@@ -58,6 +61,13 @@
 		<style type="text/css">
 			@media only screen and (min-width: 600px){
 				.hide-on-desktop, *[aria-labelledby='hide-on-desktop']{
+					display: none;
+					max-height: 0;
+					overflow: hidden;
+				}
+			}
+			@media only screen and (max-width: 640px) { 
+				.hide-on-mobile, *[aria-labelledby='hide-on-mobile']{
 					display: none;
 					max-height: 0;
 					overflow: hidden;
@@ -89,7 +99,7 @@
 
     <div id="wrapper">
 			<!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color:green;">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color:green;" aria-labelledby="hide-on-mobile">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>

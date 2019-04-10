@@ -23,11 +23,11 @@
 	//SQL Scripts
 	$attendance = mysqli_query($connect,
   "SELECT * FROM
-    info_payment,
-    info_user,
-    reservation_venue
+		info_user,
+    reservation_venue,
+    info_payment
   WHERE
-    user_id = info_user.id
+	info_payment.user_id = info_user.id
   AND
     event_id = reservation_venue.id
   AND
@@ -59,6 +59,13 @@
 		<style type="text/css">
 			@media only screen and (min-width: 600px){
 				.hide-on-desktop, *[aria-labelledby='hide-on-desktop']{
+					display: none;
+					max-height: 0;
+					overflow: hidden;
+				}
+			}
+			@media only screen and (max-width: 640px) { 
+				.hide-on-mobile, *[aria-labelledby='hide-on-mobile']{
 					display: none;
 					max-height: 0;
 					overflow: hidden;
@@ -100,7 +107,7 @@
 <body>
 	<div id="wrapper">
 		<!-- Navigation -->
-		<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color:green;">
+		<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color:green;" aria-labelledby="hide-on-mobile">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 					<span class="sr-only">Toggle navigation</span>

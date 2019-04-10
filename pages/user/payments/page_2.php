@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-	session_start();
-
+  session_start();
+  
+  $user_id = isset($_GET['ppid']) ? $_GET['ppid'] : null;
 	$_SESSION['event_id'] = isset($_GET['event_id']) ? $_GET['event_id'] : null;
 	$_SESSION['reservation_fee'] = isset($_GET['reservation_fee']) ? $_GET['reservation_fee'] : null;
 
@@ -30,6 +31,13 @@
 		<style type="text/css">
 			@media only screen and (min-width: 600px){
 				.hide-on-desktop, *[aria-labelledby='hide-on-desktop']{
+					display: none;
+					max-height: 0;
+					overflow: hidden;
+				}
+			}
+			@media only screen and (max-width: 640px) { 
+				.hide-on-mobile, *[aria-labelledby='hide-on-mobile']{
 					display: none;
 					max-height: 0;
 					overflow: hidden;
@@ -64,7 +72,7 @@
 <body>
     <div id="wrapper">
 			<!-- Navigation -->
-			<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color:green;">
+			<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color:green;" aria-labelledby="hide-on-mobile">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 						<span class="sr-only">Toggle navigation</span>

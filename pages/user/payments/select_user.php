@@ -10,37 +10,22 @@
 	$connect = mysqli_connect($host, $user, $pass,$databasename) or die("Couldn't connect to database!");
 
 	//User Information
-	$id = isset($_SESSION['id']) ? $_SESSION['id'] : null;
-	$User_Number = isset($_SESSION['User_Number']) ? $_SESSION['User_Number'] : null;
-	$FName = isset($_SESSION['First_Name']) ? $_SESSION['First_Name'] : null;
-	$MName = isset($_SESSION['Middle_Name']) ? $_SESSION['Middle_Name'] : null;
-	$LName = isset($_SESSION['Last_Name']) ? $_SESSION['Last_Name'] : null;
-	$Address = isset($_SESSION['Address']) ? $_SESSION['Address'] : null;
+	$id 			= isset($_SESSION['id']) ? $_SESSION['id'] : null;
+	$User_Number 	= isset($_SESSION['User_Number']) ? $_SESSION['User_Number'] : null;
+	$FName 			= isset($_SESSION['First_Name']) ? $_SESSION['First_Name'] : null;
+	$MName 			= isset($_SESSION['Middle_Name']) ? $_SESSION['Middle_Name'] : null;
+	$LName 			= isset($_SESSION['Last_Name']) ? $_SESSION['Last_Name'] : null;
+	$Address 		= isset($_SESSION['Address']) ? $_SESSION['Address'] : null;
 	$Contact_Number = isset($_SESSION['Contact_Number']) ? $_SESSION['Contact_Number'] : null;
-	$Account_Type = isset($_SESSION['Account_Type']) ? $_SESSION['Account_Type'] : null;
+	$Account_Type 	= isset($_SESSION['Account_Type']) ? $_SESSION['Account_Type'] : null;
 	$Account_Status = isset($_SESSION['Account_Status']) ? $_SESSION['Account_Status'] : null;
-	$Area			 		= isset($_SESSION['Area']) ? $_SESSION['Area'] : null;
-	$Sector 			= isset($_SESSION['Sector']) ? $_SESSION['Sector'] : null;
-	$Chapter			= isset($_SESSION['Chapter']) ? $_SESSION['Chapter'] : null;
+	$Area			= isset($_SESSION['Area']) ? $_SESSION['Area'] : null;
+	$Sector 		= isset($_SESSION['Sector']) ? $_SESSION['Sector'] : null;
+	$Chapter		= isset($_SESSION['Chapter']) ? $_SESSION['Chapter'] : null;
 
 	//SQL Scripts
-	$users = mysqli_query($connect,
-	" SELECT
-			*
-		FROM
-			info_user
-		WHERE
-			Account_Type != 1
-		AND
-			Account_Status = 'Active'
-		AND
-			Area = $Area
-		AND
-			Sector = $Sector
-		AND
-			Chapter = $Chapter
-		ORDER BY
-			Account_Type");
+	$query = $Account_Type != 1 ? "SELECT * FROM info_user WHERE Account_Type != 1 AND Account_Status = 'Active' AND Area = $Area AND Sector = $Sector AND Chapter = $Chapter ORDER BY Account_Type" : "SELECT * FROM info_user WHERE Account_Type != 1 AND Account_Status = 'Active' ORDER BY Account_Type";
+	$users = mysqli_query($connect, $query);
 ?>
 <head>
     <meta charset="utf-8">
@@ -64,6 +49,13 @@
 		<style type="text/css">
 			@media only screen and (min-width: 600px){
 				.hide-on-desktop, *[aria-labelledby='hide-on-desktop']{
+					display: none;
+					max-height: 0;
+					overflow: hidden;
+				}
+			}
+			@media only screen and (max-width: 640px) { 
+				.hide-on-mobile, *[aria-labelledby='hide-on-mobile']{
 					display: none;
 					max-height: 0;
 					overflow: hidden;
@@ -106,7 +98,7 @@
 <body>
     <div id="wrapper">
 			<!-- Navigation -->
-			<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color:green;">
+			<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0; background-color:green;" aria-labelledby="hide-on-mobile">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 						<span class="sr-only">Toggle navigation</span>
@@ -203,24 +195,24 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                										<?PHP
+									<?PHP
                                         while($row = mysqli_fetch_assoc($users)){
                                             echo "<tr><td>".$row['User_Number']."</td>";
                                             echo "<td>".$row['First_Name']."</td>";
                                             echo "<td>".$row['Middle_Name']."</td>";
                                             echo "<td>".$row['Last_Name']."</td>";
-																						if ($row['Account_Type'] == 1){
-																							echo "<td>Administrator</td>";
-																						}
-																						else if ($row['Account_Type'] == 2){
-																							echo "<td>Encoder</td>";
-																						}
-																						else{
-																							echo "<td>User</td>";
-																						}
-																						 echo "<td><a class='btn btn-success ../fancybox ../fancybox.ajax' href='page_1.php?ppid=".$row['id']."'>Select</a></td></tr>";
-																					}
-                                        ?>
+											if ($row['Account_Type'] == 1){
+												echo "<td>Administrator</td>";
+											}
+											else if ($row['Account_Type'] == 2){
+												echo "<td>Encoder</td>";
+											}
+											else{
+												echo "<td>User</td>";
+											}
+												echo "<td><a class='btn btn-success ../fancybox ../fancybox.ajax' href='page_1.php?ppid=".$row['id']."'>Select</a></td></tr>";
+										}
+									?>
                                     </tbody>
                                 </table>
                             </div>

@@ -127,7 +127,7 @@
 					'$Address',
 					'$Gender',
 					'$ConNum',
-					'$Email'
+					'$Email',
 					'$Account_Type',
 					'$Area',
 					'$Sector',

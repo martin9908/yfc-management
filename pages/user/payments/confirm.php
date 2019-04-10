@@ -51,6 +51,13 @@
 					overflow: hidden;
 				}
 			}
+			@media only screen and (max-width: 640px) { 
+				.hide-on-mobile, *[aria-labelledby='hide-on-mobile']{
+					display: none;
+					max-height: 0;
+					overflow: hidden;
+				}
+			}
 			.footer {
 			  position: fixed;
 			  bottom: 0;
