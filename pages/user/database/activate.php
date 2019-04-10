@@ -148,9 +148,9 @@ $sql= mysqli_query($connect,"UPDATE `info_user`
           loadGmailApi();
           $('#authorize-button').remove();
           $('.table-inbox').removeClass("hidden");
-          $('#title').removeClass("hidden");
         } else {
           $('#authorize-button').removeClass("hidden");
+          $('#title').removeClass("hidden");
           $('#authorize-button').on('click', function(){
             handleAuthClick();
           });
