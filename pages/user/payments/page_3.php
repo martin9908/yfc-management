@@ -268,16 +268,16 @@
 </div>
 <footer class="footer" aria-labelledby="hide-on-desktop">
 	<nav class="navbar navbar-light bg-faded container-fluid" aria-labelledby="hide-on-desktop">
-		<a href="index.php" class="navbar-brand"><i class="fa fa-home fa-fw"></i></a>
+		<a href="../index.php" class="navbar-brand"><i class="fa fa-home fa-fw"></i></a>
 	<?php if ($Account_Type != 0){?>
-	  <a href="reserve_venue.php" class="navbar-brand "><i class="fa fa-calendar fa-fw"></i></a>
-		<a href="user_management.php" class="navbar-brand"><i class="fa fa-users fa-fw"></i></a>
-		<a href="payment_management.php" class="navbar-brand"><i class="fa fa-dollar fa-fw"></i></a>
-		<a href="manage_area.php" class="navbar-brand"><i class="fa fa-map-marker fa-fw"></i></a>
+	  <a href="../reserve_venue.php" class="navbar-brand "><i class="fa fa-calendar fa-fw"></i></a>
+		<a href="../user_management.php" class="navbar-brand"><i class="fa fa-users fa-fw"></i></a>
+		<a href="../payment_management.php" class="navbar-brand"><i class="fa fa-dollar fa-fw"></i></a>
+		<a href="../manage_area.php" class="navbar-brand"><i class="fa fa-map-marker fa-fw"></i></a>
 	<?php } else {?>
-		<a href="reserve_venue.php" class="navbar-brand"><i class="fa fa-calendar fa-fw"></i></a>
+		<a href="../reserve_venue.php" class="navbar-brand"><i class="fa fa-calendar fa-fw"></i></a>
 	<?php } ?>
-		<a href="update_info.php" class="navbar-brand"><i class="fa fa-gears fa-fw"></i></a>
+		<a href="../update_info.php" class="navbar-brand"><i class="fa fa-gears fa-fw"></i></a>
 	</nav>
 </footer>
 </body>
