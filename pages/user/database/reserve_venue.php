@@ -1,7 +1,8 @@
 <?PHP
 	session_start();
 	// include("PushNotification.php");
-	include("connect.php");
+  include("connect.php");
+  require_once 'google-api-php-client/vendor/autoload.php';
 
 	//Variables
 	//User Account
@@ -88,7 +89,68 @@
 		// 	echo $firebase->send($devicetoken, $res);
 		// }
 
-		mysqli_close($connect);
+    mysqli_close($connect);
+
+    $connect_1 = mysqli_connect($GLOBALS['host'], $GLOBALS['user'], $GLOBALS['pass'], $GLOBALS['databasename']) or die("Couldn't connect to database!");
+
+    $sql= mysqli_query($connect_1,
+          "SELECT * from `info_user`");
+          
+    while($row = mysqli_fetch_assoc($sql))
+    {
+      $url = "https://fcm.googleapis.com/fcm/send";
+      $token = $row['FCM_ID'];
+      $serverKey = 'AAAArqESQxA:APA91bEPD-zROiksdWZhFII9pxK_snPJeL4vpwqA72CYdnPdRR8yUuEnE_1vKLE-BsgyJ5DL12jhA0MK85Se5KdG8989TInZlxgCS-cpZ8BDucpw6k6A6fWxuMim_F2weFJ4Jg5SfjPr';
+      $title = "A New Event is Available!";
+      $body = $GLOBALS['reservation_event'];
+      $notification = array('title' =>$title , 'body' => $body, 'sound' => 'default', 'badge' => '1');
+      $arrayToSend = array('to' => $token, 'notification' => $notification,'priority'=>'high');
+      $json = json_encode($arrayToSend);
+      $headers = array();
+      $headers[] = 'Content-Type: application/json';
+      $headers[] = 'Authorization: key='. $serverKey;
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL, $url);
+      curl_setopt($ch, CURLOPT_CUSTOMREQUEST,"POST");
+      curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
+      curl_setopt($ch, CURLOPT_HTTPHEADER,$headers);
+      //Send the request
+      $response = curl_exec($ch);
+      //Close request
+      if ($response === FALSE) {
+      die('FCM Send Error: ' . curl_error($ch));
+      }
+      curl_close($ch);
+
+      $client = new Google_Client();
+      //The json file you got after creating the service account
+      putenv('GOOGLE_APPLICATION_CREDENTIALS=google-api/test-calendar-serivce-1ta558q3xvg0.json');
+      $client->useApplicationDefaultCredentials();
+      $client->setApplicationName("test_calendar");
+      $client->setScopes(Google_Service_Calendar::CALENDAR);
+      $client->setAccessType('offline');
+
+      $service = new Google_Service_Calendar($client);
+
+      $event = new Google_Service_Calendar_Event(array(
+        'summary' => $GLOBALS['reservation_event'],
+        'description' => $GLOBALS['reservation_place'],
+        'start' => array(
+          'dateTime' => $GLOBALS['reservation_date'].'T09:00:00-07:00'
+        ),
+        'end' => array(
+          'dateTime' => $GLOBALS['reservation_end_date'].'T09:00:00-07:00'
+        )
+      ));
+      
+      $calendarId = 'eldr28nhloed0fb8crgp6snqvo@group.calendar.google.com';
+      $event = $service->events->insert($calendarId, $event);
+      printf('Event created: %s\n', $event->htmlLink);
+
+      $calendarList = $service->calendarList->listCalendarList();
+      print_r($calendarList);
+    }
+    mysqli_close($connect_1);
 	}
 ?>
 <!doctype html>
