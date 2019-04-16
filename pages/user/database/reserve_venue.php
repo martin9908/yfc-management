@@ -97,6 +97,12 @@
      
     if($GLOBALS['type']=="International"){
       $query = "SELECT * from `info_user`";
+    } else if ( $GLOBALS['type'] == 'Area'){
+      $query = "SELECT * from `info_user` WHERE reservation_area = '" . $GLOBALS['area'] . "'";
+    } else if ( $GLOBALS['type'] == 'Sector'){
+      $query = "SELECT * from `info_user` WHERE reservation_sector = '" . $GLOBALS['sector'] . "'";
+    } else if ( $GLOBALS['type'] == 'Chapter'){
+      $query = "SELECT * from `info_user` WHERE reservation_chapter = '" . $GLOBALS['chapter'] . "'";
     }
 
     echo $query;
