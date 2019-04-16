@@ -581,7 +581,6 @@
       }
     </script>
     <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
-    <script>alert('Creation Complete');
-				window.location.assign('../reserve_venue.php'); </script>
+    <script>window.location.assign('../reserve_venue.php'); </script>
   </body>
 </html>
