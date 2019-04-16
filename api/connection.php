@@ -2,12 +2,12 @@
 Class dbObj{
 	/* Database connection start */
 	var $servername = "localhost";
-	var $username = "root";
-	var $password = "root";
-	var $dbname = "yfc_db";
-	// var $username = "u158189477_ydun";
-	// var $password = "root123";
-	// var $dbname = "u158189477_ydun";
+	// var $username = "root";
+	// var $password = "root";
+	// var $dbname = "yfc_db";
+	var $username = "u158189477_ydun";
+	var $password = "root123";
+	var $dbname = "u158189477_ydun";
 	var $conn;
 	function getConnstring() {
 		$con = mysqli_connect($this->servername, $this->username, $this->password, $this->dbname) or die("Connection failed: " . mysqli_connect_error());
