@@ -2,7 +2,7 @@
 	session_start();
 	// include("PushNotification.php");
   include("connect.php");
-  require_once 'google-api-php-client/vendor/autoload.php';
+  // require_once 'google-api-php-client/vendor/autoload.php';
 
 	//Variables
 	//User Account
@@ -93,8 +93,14 @@
 
     $connect_1 = mysqli_connect($GLOBALS['host'], $GLOBALS['user'], $GLOBALS['pass'], $GLOBALS['databasename']) or die("Couldn't connect to database!");
 
-    $sql= mysqli_query($connect_1,
-          "SELECT * from `info_user`");
+    $query = "";
+     
+    if($GLOBALS['type']=="International"){
+      $query = "SELECT * from `info_user`";
+    }
+
+    echo $query;
+    $sql= mysqli_query($connect_1, $query);
           
     while($row = mysqli_fetch_assoc($sql))
     {
@@ -118,37 +124,37 @@
       $response = curl_exec($ch);
       //Close request
       if ($response === FALSE) {
-      die('FCM Send Error: ' . curl_error($ch));
+        die('FCM Send Error: ' . curl_error($ch));
       }
       curl_close($ch);
 
-      $client = new Google_Client();
-      //The json file you got after creating the service account
-      putenv('GOOGLE_APPLICATION_CREDENTIALS=google-api/test-calendar-serivce-1ta558q3xvg0.json');
-      $client->useApplicationDefaultCredentials();
-      $client->setApplicationName("test_calendar");
-      $client->setScopes(Google_Service_Calendar::CALENDAR);
-      $client->setAccessType('offline');
+      // $client = new Google_Client();
+      // //The json file you got after creating the service account
+      // putenv('GOOGLE_APPLICATION_CREDENTIALS=google-api/test-calendar-serivce-1ta558q3xvg0.json');
+      // $client->useApplicationDefaultCredentials();
+      // $client->setApplicationName("test_calendar");
+      // $client->setScopes(Google_Service_Calendar::CALENDAR);
+      // $client->setAccessType('offline');
 
-      $service = new Google_Service_Calendar($client);
+      // $service = new Google_Service_Calendar($client);
 
-      $event = new Google_Service_Calendar_Event(array(
-        'summary' => $GLOBALS['reservation_event'],
-        'description' => $GLOBALS['reservation_place'],
-        'start' => array(
-          'dateTime' => $GLOBALS['reservation_date'].'T09:00:00-07:00'
-        ),
-        'end' => array(
-          'dateTime' => $GLOBALS['reservation_end_date'].'T09:00:00-07:00'
-        )
-      ));
+      // $event = new Google_Service_Calendar_Event(array(
+      //   'summary' => $GLOBALS['reservation_event'],
+      //   'description' => $GLOBALS['reservation_place'],
+      //   'start' => array(
+      //     'dateTime' => $GLOBALS['reservation_date'].'T09:00:00-07:00'
+      //   ),
+      //   'end' => array(
+      //     'dateTime' => $GLOBALS['reservation_end_date'].'T09:00:00-07:00'
+      //   )
+      // ));
       
-      $calendarId = 'eldr28nhloed0fb8crgp6snqvo@group.calendar.google.com';
-      $event = $service->events->insert($calendarId, $event);
-      printf('Event created: %s\n', $event->htmlLink);
+      // $calendarId = 'eldr28nhloed0fb8crgp6snqvo@group.calendar.google.com';
+      // $event = $service->events->insert($calendarId, $event);
+      // printf('Event created: %s\n', $event->htmlLink);
 
-      $calendarList = $service->calendarList->listCalendarList();
-      print_r($calendarList);
+      // $calendarList = $service->calendarList->listCalendarList();
+      // print_r($calendarList);
     }
     mysqli_close($connect_1);
 	}

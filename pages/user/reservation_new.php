@@ -135,7 +135,9 @@
 												<label>Event Type</label>
 												<select class="form-control" name="type" required>
 													<option value="">Please Select Event Type</option>
-													<option value="local">Local</option>
+													<option value="Area">Area</option>
+													<option value="Sector">Sector</option>
+													<option value="Chapter">Chapter</option>
 													<option value="International">International</option>
 												</select>
                     </div>

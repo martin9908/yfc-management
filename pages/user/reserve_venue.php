@@ -409,7 +409,7 @@
 										</tbody>
 									</table>
 									<?PHP if ($Account_Type != 0) { ?>
-										<a class="btn btn-success btn-circle btn-lg fa fa-plus-circle fa-align-center fancybox fancybox.ajax" href="reservation_new.php?ppid=<?PHP echo $id?>"></a>
+										<a class="btn btn-success btn-mdo fancybox fancybox.ajax" href="reservation_new.php?ppid=<?PHP echo $id?>">Add Event</a>
 									<?PHP } ?>
 								</div>
 							</div>
