@@ -226,7 +226,7 @@
 											?>
 										</tbody>
 									</table>
-									<a class="btn btn-success btn-mdo fancybox fancybox.ajax" href="payments/select_user.php?ppid=<?PHP echo $id?>">Add Payment</a>
+									<a class="btn btn-success btn-mdo" href="payments/select_user.php?ppid=<?PHP echo $id?>">Add Payment</a>
 								</div>
 							</div>
 							<!-- /.panel-->
