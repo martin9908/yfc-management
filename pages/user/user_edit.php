@@ -34,6 +34,7 @@
 		$Address = $row['Address'];
 		$CNum = $row['Contact_Number'];
 		$Area = $row['Area'];
+		$email = $row['Email'];
 		$Sector = $row['Sector'];
 		$Chapter = $row['Chapter'];
 		$Password = $row['password'];
