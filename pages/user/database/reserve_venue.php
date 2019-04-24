@@ -116,7 +116,8 @@
       $title = "A New Event is Available!";
       $body = $GLOBALS['reservation_event'];
       $notification = array('title' =>$title , 'body' => $body, 'sound' => 'default', 'badge' => '1');
-      $arrayToSend = array('to' => $token, 'notification' => $notification,'priority'=>'high');
+      $data = array('date_start' => $GLOBALS['reservation_date'], 'date_end' => $GLOBALS['reservation_end_date']);
+      $arrayToSend = array('to' => $token, 'notification' => $notification, 'data' => $data, 'priority'=>'high');
       $json = json_encode($arrayToSend);
       $headers = array();
       $headers[] = 'Content-Type: application/json';
