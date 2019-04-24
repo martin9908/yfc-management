@@ -182,7 +182,7 @@
 										</tbody>
 									</table>
 									<?PHP if ($Account_Type != 0) { ?>
-										<a class="btn btn-success btn-circle btn-lg fa fa-plus-circle fa-align-center fancybox fancybox.ajax" href="chapter_new.php"></a>
+										<a class="btn btn-success btn-mdo fancybox fancybox.ajax" href="chapter_new.php">Add Chapter</a>
 									<?PHP } ?>
 								</div>
 							</div>
