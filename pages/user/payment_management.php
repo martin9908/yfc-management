@@ -29,9 +29,7 @@
   WHERE
 	info_payment.user_id = info_user.id
   AND
-    event_id = reservation_venue.id
-  AND
-    status = 'Pending'");
+    event_id = reservation_venue.id");
 
 ?>
 <!DOCTYPE html>
@@ -216,10 +214,17 @@
 													echo "<td>".$row['reservation_end_date']."</td>";
 													echo "<td>".$row['reservation_end_time']."</td>";
 													echo "<td>".$row['reservation_fee']."</td>";
-													echo "<td>
-                          <a class='btn btn-outline btn-success fancybox fancybox.ajax' href='payments/confirm.php?ppid=".$row['id']."'>Confirm Payment</a>";
-                          echo "<a class='btn btn-outline btn-danger fancybox fancybox.ajax' href='venue_decline.php?ppid=".$row['id']."'>Decline Payment</a>
-                          </td>";
+													if($row['status'] == 'Pending'){
+														echo "<td>
+														<a class='btn btn-outline btn-success fancybox fancybox.ajax' href='payments/confirm.php?ppid=".$row['id']."'>Confirm Payment</a>";
+														echo "<a class='btn btn-outline btn-danger fancybox fancybox.ajax' href='venue_decline.php?ppid=".$row['id']."'>Decline Payment</a>
+														</td>";
+													} else {
+														echo 
+														"<td>
+															<a class='btn btn-outline btn-danger fancybox fancybox.ajax' href='venue_decline.php?ppid=".$row['id']."'>Decline Payment</a>
+														</td>";
+													}
 													echo"</tr>";
 
 												}
