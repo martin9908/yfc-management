@@ -8,7 +8,7 @@
 <div class="container">
 <h1>Excel Upload</h1>
 
-<form method="POST" action="excelUpload.php" enctype="multipart/form-data">
+<form method="POST" action="database/excelUpload.php" enctype="multipart/form-data">
 <div class="form-group">
 <label>Upload Excel File</label>
 <input type="file" name="file" class="form-control">
