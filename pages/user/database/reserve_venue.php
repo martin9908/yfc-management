@@ -148,7 +148,7 @@
           ),
       );
       $context  = stream_context_create($param);
-      return file_get_contents($url, false, $context);}
+      return file_get_contents($url, false, $context);
 
       // $client = new Google_Client();
       // //The json file you got after creating the service account
