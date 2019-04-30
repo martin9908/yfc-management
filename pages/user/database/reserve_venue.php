@@ -133,18 +133,22 @@
       if ($response === FALSE) {
         die('FCM Send Error: ' . curl_error($ch));
       }
-      
+      curl_close($ch);
+
       $apicode="TR-MARTI515599_XJEXP";
       $message="New event available: ".$body." Date: ".$GLOBALS['reservation_date'];
 
+      $url = 'https://www.itexmo.com/php_api/api.php';
       $itexmo = array('1' => $row['Contact_Number'], '2' => $message, '3' => $apicode);
-			curl_setopt($ch, CURLOPT_URL,"https://www.itexmo.com/php_api/api.php");
-			curl_setopt($ch, CURLOPT_POST, 1);
-			 curl_setopt($ch, CURLOPT_POSTFIELDS, 
-			          http_build_query($itexmo));
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			return curl_exec ($ch);
-      curl_close($ch);
+      $param = array(
+          'http' => array(
+              'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+              'method'  => 'POST',
+              'content' => http_build_query($itexmo),
+          ),
+      );
+      $context  = stream_context_create($param);
+      return file_get_contents($url, false, $context);}
 
       // $client = new Google_Client();
       // //The json file you got after creating the service account
