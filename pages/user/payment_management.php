@@ -27,7 +27,7 @@
     reservation_venue,
     info_payment
   WHERE
-	info_payment.user_id = info_user.id
+		info_payment.user_id = info_user.id
   AND
     event_id = reservation_venue.id");
 
@@ -198,6 +198,7 @@
 											<tr>
 												<th>Event</th>
 												<th>Venue Name</th>
+												<th>Member Name</th>
 												<th>Start Date</th>
 												<th>Start Time</th>
 												<th>End Date</th>
@@ -212,6 +213,7 @@
 													echo "<tr>";
 													echo "<td>".$row['reservation_event']."</td>";
 													echo "<td>".$row['reservation_place']."</td>";
+													echo "<td>".$row['First_Name']." ".$row['Last_Name']."</td>";
 													echo "<td>".$row['reservation_date']."</td>";
 													echo "<td>".$row['reservation_time']."</td>";
 													echo "<td>".$row['reservation_end_date']."</td>";
