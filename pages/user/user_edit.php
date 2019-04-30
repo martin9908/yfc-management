@@ -269,6 +269,9 @@
 										<?PHP }?>
 									<?PHP } ?>
 								</select>
+								<?PHP if($Account_Type != 0) {?>
+								<label>House
+								<?PHP } ?>
 								<label>Password</label>
 								<input class="form-control" name="Password" value="<?PHP echo $Password;?>" type="password" required>
 								<label>Profile Picture</label>
