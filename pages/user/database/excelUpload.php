@@ -1,6 +1,6 @@
 <?PHP
 require('library/php-excel-reader/excel_reader2.php');
-require('library/SpreadsheetReader.php');
+require('library/SpreadsheetReader_CSV.php');
 require('connect.php');
 
 $mysqli = new mysqli($host, $user, $pass, $databasename);
