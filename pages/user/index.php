@@ -147,7 +147,6 @@
                 <a class="navbar-brand" href="index.php" style="color:white;">Youth For Christ</a>
             </div>
             <!-- /.navbar-header -->
-
                 <div class="navbar-default sidebar" role="navigation">
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
@@ -167,25 +166,28 @@
                                     <li>
                                         <a href="user_management.php"><i class="fa fa-users fa-fw"></i> Manage Users</a>
                                     </li>
-																		<li>
-																			<a href="payment_management.php"><i class="fa fa-dollar fa-fw"></i> Manage Payments</a>
-																		</li>
-																		<?PHP if($Account_Type == 1){?>
-																			<li>
-																				<a href="#"><i class="fa fa-map-marker fa-fw"></i> Manage Locations<span class="fa arrow"></span></a>
-							                            <ul class="nav nav-second-level">
-							                                <li>
-							                                    <a href="manage_area.php">Manage Area</a>
-							                                </li>
-							                                <li>
-							                                    <a href="manage_sector.php">Manage Sector</a>
-							                                </li>
-																							<li>
-							                                    <a href="manage_chapter.php">Manage Chapter</a>
-							                                </li>
-							                            </ul>
-																			</li>
-																		<?PHP }?>
+									<li>
+										<a href="payment_management.php"><i class="fa fa-dollar fa-fw"></i> Manage Payments</a>
+									</li>
+								<?PHP if($Account_Type == 1){?>
+									<li>
+										<a href="#"><i class="fa fa-map-marker fa-fw"></i> Manage Locations<span class="fa arrow"></span></a>
+										<ul class="nav nav-second-level">
+											<li>
+												<a href="manage_area.php">Manage Area</a>
+											</li>
+											<li>
+												<a href="manage_sector.php">Manage Sector</a>
+											</li>
+											<li>
+												<a href="manage_chapter.php">Manage Chapter</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="#"><i class="fa fa-bar-chart fa-fw"></i> Reports</a>
+									</li>
+								<?PHP }?>
                                 <?PHP } else { ?>
                                     <li>
                                         <a href="reserve_venue.php"><i class="fa fa-calendar fa-fw"></i> View Events</a>

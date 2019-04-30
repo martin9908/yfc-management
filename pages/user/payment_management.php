@@ -154,6 +154,9 @@
 														</li>
 												</ul>
 										</li>
+										<li>
+											<a href="#"><i class="fa fa-bar-chart fa-fw"></i> Reports</a>
+										</li>
 									<?PHP }?>
 								<?PHP } else { ?>
 									<li>
@@ -222,7 +225,7 @@
 													} else {
 														echo 
 														"<td>
-															<a class='btn btn-outline btn-danger fancybox fancybox.ajax' href='venue_decline.php?ppid=".$row['id']."'>Decline Payment</a>
+															Payment Confirmed
 														</td>";
 													}
 													echo"</tr>";
