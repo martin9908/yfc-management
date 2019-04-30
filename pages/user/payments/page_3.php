@@ -153,88 +153,88 @@
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body center-div">
-															<form action="../database/create_payment.php" method="post">
-																<input type="hidden" name="payment_reference" value="<?PHP echo $payment_reference?>"/>
-																<h3>Your Events Registration Order is now ready for payment.</h3>
-																<br>
-																<h2>TOTAL AMOUNT DUE: PHP. <?PHP echo $reservation_fee ?></h2>
-																<br>
-																<h3>PAYMENT OPTION: <?PHP echo strtoupper($payment_type)?></h3>
-																<div class="overflow-text">
-																	<?PHP if ($payment_type == 'bank') { ?>
-																		<ol>
-																			<li>
-																				Deposit your payment to any of the following bank accounts: BDO Octagon Peso Savings Account: 6810020704 BPI Aurora Peso Current Account: 0123-4662-76 Chinabank Aurora Peso Current Account: 1040981311 Note: Deposit the full amount as reflected in the transaction (one transaction: one deposit/payment) within five (5) calendar days upon registration. Transactions with no payment details will automatically expire after 5 calendar days from the day they were created.
-																			</li>
-																			<li>
-																				After making the deposit, log in back to www.cfchomeoffice.com. The system will remind you of your pending transaction that needs payment. Click the link to add payment details. Alternative: You may also click on the module (TITHES/EVENTS REGISTRATION/DONATIONS), click History, and click on the TRANSACTION ID that newts payment.
-																			</li>
-																			<li>
-																				Fill out the fields in this format:
-																				<ol type="a">
-																					<li>
-																						DATE OF DEPOSIT- mm/dd/yyyy (12/19/2013)
-																					</li>
-																					<li>
-																						TIME OF DEPOSIT- hh:mm AM/PM (1:55 PM)
-																					</li>
-																					<li>
-																						BANK ACCOUNT - choose from the drop-down fist
-																						Note: There are different bank accounts designated for each event/module. Make sure that you deposit your payment to the correct bank account.
-																					</li>
-																					<li>
-																						PANIC/BRANCH - bank name and branch where payment was deposited
-																					</li>
-																					<li>
-																						REFERENCE NO.
-																					</li>
-																					<li>
-																						REMARKS - additional instructions you would like to tell Finance
-																					</li>
-																					<li>
-																						CONTACT NO. - where Hnance can contact you should they need to clarify your payment details Once done, click Save. Then, a dialog box will appear to confirm your payment submission. Click OK to continue.
-																					</li>
-																				</ol>
-																			</li>
-																			<li>
-																				Finance will review your payment and confirm your bansaction. Keep your deposit slip until your transaction is confirmed. Confirmation takes up to 14 working days from the day you entered your deposit details. This may extend to 19 working days during peak season (deadline and end of the month).
-																			</li>
-																			<li>
-																				Once transaction is confirmed, a CONFIRMATION notice will be automatically sent to the email address used to create the transaction and to the designated contact person/delegation head. The confirmation email also serves as your PROVISIONAL RECEIPT. You may get the OFFICIAL RECEIPT from Finance. For inquiries and follow-up on the status of your payment, contact Jean Magbujos at 7094868 loc 39 or email cfcfinance©cfcglobaldata.com.
-																			</li>
-																		</ol>
-																	<?PHP } else if ($payment_type == 'cash') { ?>
-																	<ol>
-																		<li>
-																			Take note of the TRANSACTION ID and the AMOUNT.
-																		</li>
-																		<li>
-																			Go to the CFC Global Mission Center (4156 20th Avenue, Cubao, Quezon City), accomplish the PAYMENT SLIP and give to the CASHIER along with your payment. Note: The CFC Global Mission Center is open from yam-5pm, Monday to Friday, except holidays. Make sure to pay the transaction within five (5) calendar days. Transactions not paid after 5 calendar days will automatically expire.
-																		</li>
-																		<li>
-																			The Cashier will issue an OFFICIAL RECEIPT and will confirm your transaction.
-																		</li>
-																		<li>
-																			 Once transaction is confirmed, a CONFIRMATION notice will be automatically sent to the email address used to create the transaction and to the designated contact person/delegation head.
-																		</li>
-																	</ol>
-																	<?PHP }?>
-																</div>
-																<br>
-																<input type="checkbox" name="q" id="a-1" required>
-																<label>
-																	By checking this box you agree to the above Guidelines and the Terms and Conditions.
-																</label>
-																<br>
-																<a class='btn btn-danger' href='page_2.php?event_id=<?PHP echo $event_id?>&payment_type=<?PHP echo $payment_type?>'>Back</a>
-																<button class="btn btn-success" type="submit">Confirm</button>
-															</form>
+								<form action="../database/create_payment.php" method="post">
+									<input type="hidden" name="payment_reference" value="<?PHP echo $payment_reference?>"/>
+									<h3>Your Events Registration Order is now ready for payment.</h3>
+									<br>
+									<h2>TOTAL AMOUNT DUE: PHP. <?PHP echo $reservation_fee ?></h2>
+									<br>
+									<h3>PAYMENT OPTION: <?PHP echo strtoupper($payment_type)?></h3>
+									<div class="overflow-text">
+										<?PHP if ($payment_type == 'bank') { ?>
+											<ol>
+												<li>
+													Deposit your payment to any of the following bank accounts: BDO Octagon Peso Savings Account: 6810020704 BPI Aurora Peso Current Account: 0123-4662-76 Chinabank Aurora Peso Current Account: 1040981311 Note: Deposit the full amount as reflected in the transaction (one transaction: one deposit/payment) within five (5) calendar days upon registration. Transactions with no payment details will automatically expire after 5 calendar days from the day they were created.
+												</li>
+												<li>
+													After making the deposit, log in back to www.cfchomeoffice.com. The system will remind you of your pending transaction that needs payment. Click the link to add payment details. Alternative: You may also click on the module (TITHES/EVENTS REGISTRATION/DONATIONS), click History, and click on the TRANSACTION ID that newts payment.
+												</li>
+												<li>
+													Fill out the fields in this format:
+													<ol type="a">
+														<li>
+															DATE OF DEPOSIT- mm/dd/yyyy (12/19/2013)
+														</li>
+														<li>
+															TIME OF DEPOSIT- hh:mm AM/PM (1:55 PM)
+														</li>
+														<li>
+															BANK ACCOUNT - choose from the drop-down fist
+															Note: There are different bank accounts designated for each event/module. Make sure that you deposit your payment to the correct bank account.
+														</li>
+														<li>
+															PANIC/BRANCH - bank name and branch where payment was deposited
+														</li>
+														<li>
+															REFERENCE NO.
+														</li>
+														<li>
+															REMARKS - additional instructions you would like to tell Finance
+														</li>
+														<li>
+															CONTACT NO. - where Hnance can contact you should they need to clarify your payment details Once done, click Save. Then, a dialog box will appear to confirm your payment submission. Click OK to continue.
+														</li>
+													</ol>
+												</li>
+												<li>
+													Finance will review your payment and confirm your bansaction. Keep your deposit slip until your transaction is confirmed. Confirmation takes up to 14 working days from the day you entered your deposit details. This may extend to 19 working days during peak season (deadline and end of the month).
+												</li>
+												<li>
+													Once transaction is confirmed, a CONFIRMATION notice will be automatically sent to the email address used to create the transaction and to the designated contact person/delegation head. The confirmation email also serves as your PROVISIONAL RECEIPT. You may get the OFFICIAL RECEIPT from Finance. For inquiries and follow-up on the status of your payment, contact Jean Magbujos at 7094868 loc 39 or email cfcfinance©cfcglobaldata.com.
+												</li>
+											</ol>
+										<?PHP } else if ($payment_type == 'cash') { ?>
+										<ol>
+											<li>
+												Take note of the TRANSACTION ID and the AMOUNT.
+											</li>
+											<li>
+												Go to the CFC Global Mission Center (4156 20th Avenue, Cubao, Quezon City), accomplish the PAYMENT SLIP and give to the CASHIER along with your payment. Note: The CFC Global Mission Center is open from yam-5pm, Monday to Friday, except holidays. Make sure to pay the transaction within five (5) calendar days. Transactions not paid after 5 calendar days will automatically expire.
+											</li>
+											<li>
+												The Cashier will issue an OFFICIAL RECEIPT and will confirm your transaction.
+											</li>
+											<li>
+												Once transaction is confirmed, a CONFIRMATION notice will be automatically sent to the email address used to create the transaction and to the designated contact person/delegation head.
+											</li>
+										</ol>
+										<?PHP }?>
+									</div>
+									<br>
+									<input type="checkbox" name="q" id="a-1" required>
+									<label>
+										By checking this box you agree to the above Guidelines and the Terms and Conditions.
+									</label>
+									<br>
+									<a class='btn btn-danger' href='page_2.php?event_id=<?PHP echo $event_id?>&payment_type=<?PHP echo $payment_type?>'>Back</a>
+									<button class="btn btn-success" type="submit">Confirm</button>
+								</form>
                             </div>
                         </div>
                         <!-- /.panel-->
                     </div>
                     <!-- /.col-lg-8-->
-				        </div>
+				</div>
                 <!-- /.row -->
             </div>
             <!-- /.container-fluid -->

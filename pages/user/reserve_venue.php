@@ -323,7 +323,7 @@
 														echo "<td>".$row['reservation_fee']."</td>";
 														if(mysqli_num_rows($attendance) == 0){
 															echo "<td>
-															<a class='btn btn-outline btn-success' href='payments/page_2.php?event_id=".$row['id'].
+															<a class='btn btn-outline btn-success' href='payments/page_2.php?ppid=".$id."&event_id=".$row['id'].
 															"&reservation_fee=".$row['reservation_fee']."'>Join</a>";
 
 															echo"</tr>";
