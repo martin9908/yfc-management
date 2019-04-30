@@ -1,7 +1,10 @@
 <?php
 require('library/php-excel-reader/excel_reader2.php');
 require('library/SpreadsheetReader.php');
-require('db_config.php');
+require('connect.php');
+
+$mysqli = new mysqli($host, $user, $pass, $databasename);
+
 if(isset($_POST['Submit']))
 {
 $mimes = ['application/vnd.ms-excel','text/xls','text/xlsx','application/vnd.oasis.opendocument.spreadsheet'];
