@@ -25,13 +25,60 @@ $Reader->ChangeSheet($i);
 foreach ($Reader as $Row)
 {
 $html.="<tr>";
-$title = isset($Row[0]) ? $Row[0] : '';
-$description = isset($Row[1]) ? $Row[1] : '';
+$User_Name = isset($Row[0]) ? $Row[0] : '';
+$First_Name = isset($Row[1]) ? $Row[1] : '';
+$Middle_Name = isset($Row[2]) ? $Row[2] : '';
+$Last_Name = isset($Row[3]) ? $Row[3] : '';
+$Gender = isset($Row[4]) ? $Row[4] : '';
+$Address = isset($Row[5]) ? $Row[5] : '';
+$Contact_Number = isset($Row[6]) ? $Row[6] : '';
+$Email = isset($Row[7]) ? $Row[7] : '';
+$Account_Type = isset($Row[8]) ? $Row[8] : '';
+$Account_Status = "Active";
+$password = isset($Row[9]) ? $Row[9] : '';
+$Area = isset($Row[10]) ? $Row[10] : '';
+$Sector = isset($Row[11]) ? $Row[11] : '';
+$Chapter = isset($Row[12]) ? $Row[12] : '';
+$Member_Since = isset($Row[13]) ? $Row[13] : '';
 $html.="<td>".$title."</td>";
 $html.="<td>".$description."</td>";
 $html.="</tr>";
 
-$query = "insert into items(title,description) values('".$title."','".$description."')";
+$query = "insert into `info_user`
+(`id`,
+`User_Number`,
+`First_Name`,
+`Middle_Name`,
+`Last_Name`,
+`Gender`,
+`Address`,
+`Contact_Number`,
+`Email`,
+`Account_Type`,
+`Account_Status`,
+`password`,
+`Area`,
+`Sector`,
+`Chapter`,
+`Member_Since`,
+`Account_Picture`,
+`FCM_ID`,
+`Household`) 
+values('".$User_Name."','".
+$First_Name ."','".
+$Middle_Name."','".
+$Last_Name."','".
+$Gender."','".
+$Address."','".
+$Contact_Number."','".
+$Email."','".
+$Account_Type."','".
+$Account_Status."','".
+$password."','".
+$Area."','".
+$Sector."','".
+$Chapter."','".
+$Member_Since."')";
 $mysqli->query($query);
 }
 }
