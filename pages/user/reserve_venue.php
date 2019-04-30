@@ -21,10 +21,10 @@
 
 	//SQL Scripts
 	$international = mysqli_query($connect, "SELECT * FROM
-	reservation_venue,
 	info_area,
 	info_sector,
-	info_chapter
+	info_chapter,
+	reservation_venue
     WHERE
 		info_area.id = reservation_venue.reservation_area
 	AND
@@ -46,8 +46,8 @@
 			info_area.id = reservation_venue.reservation_area
 		AND
 		 	info_sector.id = reservation_venue.reservation_sector
-		AND
-			`event_type` = 'local'
+			 AND
+		event_type != 'International' 
 		AND
 			info_chapter.id = reservation_venue.reservation_chapter;");
 	}
@@ -66,9 +66,9 @@
 		AND
 			info_area.id = reservation_venue.reservation_area
 		AND
-			`event_type` = 'local'
-		AND
 		 	info_sector.id = reservation_venue.reservation_sector
+		AND
+			event_type != 'International'
 		AND
 			info_chapter.id = reservation_venue.reservation_chapter;");
 
@@ -88,9 +88,9 @@
 		AND
 			info_area.id = reservation_venue.reservation_area
 		AND
-			`event_type` = 'local'
-		AND
 		 	info_sector.id = reservation_venue.reservation_sector
+		AND
+			event_type != 'International'
 		AND
 			info_chapter.id = reservation_venue.reservation_chapter;");
 	}
@@ -272,6 +272,7 @@
 												<th>Chapter</th>
 												<?PHP if($Account_Type == 1){ ?>
 												<th>Fee</th>
+												<th>Action</th>
 												<?PHP }
 												} ?>
 												<?PHP if($Account_Type != 1) { ?>
@@ -300,7 +301,8 @@
 																echo "<td>
 																<a class='btn btn-outline btn-success' href='payments/page_2.php?event_id=".$row['id'].
 																"&reservation_fee=".$row['reservation_fee']."'>Join</a>";
-
+																echo "<a class='btn btn-outline btn-success fancybox fancybox.ajax' href='venue_edit.php?ppid=".$row['id']."'>Edit</a>
+																		<a class='btn btn-outline btn-danger' href='database/venue_delete.php?ppid=".$row['id']."'>Delete</a></td>";
 																echo"</tr>";
 															}
 															else{
@@ -309,23 +311,31 @@
 																		echo "<td>
 																		<a class='btn btn-outline btn-success' href='payments/page_2.php?event_id=".$row['id'].
 																		"&reservation_fee=".$row['reservation_fee']."'>Join</a>";
+																		echo "<a class='btn btn-outline btn-success fancybox fancybox.ajax' href='venue_edit.php?ppid=".$row['id']."'>Edit</a>
+																		<a class='btn btn-outline btn-danger' href='database/venue_delete.php?ppid=".$row['id']."'>Delete</a></td>";
 																		echo"</tr>";
 																	}
 																	else {
 																		echo "<td><a class='btn btn-outline btn-danger fancybox fancybox.ajax' href='venue_decline.php?ppid=".$row['id']."'>Cancel</a></td>";
+																		echo "<a class='btn btn-outline btn-success fancybox fancybox.ajax' href='venue_edit.php?ppid=".$row['id']."'>Edit</a>
+																		<a class='btn btn-outline btn-danger' href='database/venue_delete.php?ppid=".$row['id']."'>Delete</a></td>";
 																		echo"</tr>";
 																	}
 																}
 															}
+														} else {
+															echo "<td>";
+															echo "<a class='btn btn-outline btn-success fancybox fancybox.ajax' href='venue_edit.php?ppid=".$row['id']."'>Edit</a>
+																		<a class='btn btn-outline btn-danger' href='database/venue_delete.php?ppid=".$row['id']."'>Delete</a></td>";
+															echo "</tr>";
 														}
 													}
 													if($Account_Type == 0) {
 														echo "<td>".$row['reservation_fee']."</td>";
 														if(mysqli_num_rows($attendance) == 0){
-															echo "<td>
-															<a class='btn btn-outline btn-success' href='payments/page_2.php?ppid=".$id."&event_id=".$row['id'].
-															"&reservation_fee=".$row['reservation_fee']."'>Join</a>";
-
+															echo "<td>";
+															echo "<a class='btn btn-outline btn-success' href='payments/page_2.php?ppid=".$id."&event_id=".$row['id']."&reservation_fee=".$row['reservation_fee']."'>Join</a>";
+															echo "</td>";
 															echo"</tr>";
 														}
 														else{
