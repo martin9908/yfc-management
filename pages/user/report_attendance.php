@@ -114,62 +114,62 @@
 				</div>
 				<!-- /.navbar-header -->
 
-					<div class="navbar-default sidebar" role="navigation">
-						<div class="sidebar-nav navbar-collapse">
-							<ul class="nav" id="side-menu">
-								<li class="sidebar-search">
-									<div class="input-group custom-search-form">
-										<img src="../assets/yfc_logo.gif" width="190px"/>
-									</div>
-								<!-- /input-group -->
-								</li>
-								<li>
-									<a href="index.php"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
-								</li>
-									<?PHP if($Account_Type != 3){ ?>
+				<div class="navbar-default sidebar" role="navigation">
+					<div class="sidebar-nav navbar-collapse">
+						<ul class="nav" id="side-menu">
+							<li class="sidebar-search">
+								<div class="input-group custom-search-form">
+									<img src="../assets/yfc_logo.gif" width="190px"/>
+								</div>
+							<!-- /input-group -->
+							</li>
+							<li>
+								<a href="index.php"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
+							</li>
+								<?PHP if($Account_Type != 3){ ?>
+									<li>
+										<a href="reserve_venue.php"><i class="fa fa-calendar fa-fw"></i> Manage Events</a>
+									</li>
+									<li>
+										<a href="user_management.php"><i class="fa fa-users fa-fw"></i> Manage Users</a>
+									</li>
+									<li>
+										<a href="payment_management.php"><i class="fa fa-dollar fa-fw"></i> Manage Payments</a>
+									</li>
+									<?PHP if($Account_Type == 1 || $Account_Type == 2 || $Account_Type == 3 || $Account_Type == 4){?>
 										<li>
-											<a href="reserve_venue.php"><i class="fa fa-calendar fa-fw"></i> Manage Events</a>
+											<a href="#"><i class="fa fa-map-marker fa-fw"></i> Manage Locations<span class="fa arrow"></span></a>
+												<ul class="nav nav-second-level">
+													<li>
+														<a href="manage_area.php">Manage Area</a>
+													</li>
+													<li>
+														<a href="manage_sector.php">Manage Sector</a>
+													</li>
+													<li>
+														<a href="manage_chapter.php">Manage Chapter</a>
+													</li>
+												</ul>
 										</li>
 										<li>
-											<a href="user_management.php"><i class="fa fa-users fa-fw"></i> Manage Users</a>
-										</li>
-										<li>
-											<a href="payment_management.php"><i class="fa fa-dollar fa-fw"></i> Manage Payments</a>
-										</li>
-										<?PHP if($Account_Type == 1 || $Account_Type == 2 || $Account_Type == 3 || $Account_Type == 4){?>
-											<li>
-												<a href="#"><i class="fa fa-map-marker fa-fw"></i> Manage Locations<span class="fa arrow"></span></a>
-													<ul class="nav nav-second-level">
-															<li>
-																	<a href="manage_area.php">Manage Area</a>
-															</li>
-															<li>
-																	<a href="manage_sector.php">Manage Sector</a>
-															</li>
-															<li>
-																	<a href="manage_chapter.php">Manage Chapter</a>
-															</li>
-													</ul>
-											</li>
-											<li>
-												<a href="reports.php" class="active"><i class="fa fa-bar-chart fa-fw"></i> Reports</a>
-											</li>
-										<?PHP }?>
-									<?PHP } else { ?>
-										<li>
-											<a href="reserve_venue.php" class="active"><i class="fa fa-calendar fa-fw"></i> View Events</a>
+											<a href="reports.php" class="active"><i class="fa fa-bar-chart fa-fw"></i> Reports</a>
 										</li>
 									<?PHP }?>
-								<!--<li> <a href= "reports.php"><i class="fa fa-bar-chart-o fa-fw"></i> Reports</a>
-								</li> -->
-								<li>
-									<a href="update_info.php"><i class="fa fa-gears fa-fw"></i> My Account</a>
-								</li>
-								<li>
-									<a href="database/logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-								</li>
-							</ul>
-						</div>
+								<?PHP } else { ?>
+									<li>
+										<a href="reserve_venue.php" class="active"><i class="fa fa-calendar fa-fw"></i> View Events</a>
+									</li>
+								<?PHP }?>
+							<!--<li> <a href= "reports.php"><i class="fa fa-bar-chart-o fa-fw"></i> Reports</a>
+							</li> -->
+							<li>
+								<a href="update_info.php"><i class="fa fa-gears fa-fw"></i> My Account</a>
+							</li>
+							<li>
+								<a href="database/logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+							</li>
+						</ul>
+					</div>
 					<!-- /.sidebar-collapse -->
 				</div>
 				<!-- /.navbar-static-side -->
@@ -203,28 +203,28 @@
                                     </thead>
                                     <tbody>
                                     <?PHP
-                                        while($row = mysqli_fetch_assoc($users)){
-                                            echo "<tr><td>".$row['User_Number']."</td>";
-                                            echo "<td>".$row['First_Name']."</td>";
-                                            echo "<td>".$row['Last_Name']."</td>";
-                                            if ($row['Account_Type'] == 1){
-                                                echo "<td>Administrator</td>";
-                                            }
-                                            else if ($row['Account_Type'] == 2){
-                                                echo "<td>Area Encoder</td>";
-                                            }
-                                            else if ($row['Account_Type'] == 3){
-                                                echo "<td>Sector Encoder</td>";
-                                            }
-                                            else if ($row['Account_Type'] == 4){
-                                                echo "<td>Chapter Encoder</td>";
-                                            }
-                                            else{
-                                                echo "<td>User</td>";
-                                            }
-                                            echo "<td>".$row['payment_status']."</td>";
-                                            echo "<td>".$row['attendance_remarks']."</td>";
-                                        }										
+										while($row = mysqli_fetch_assoc($users)){
+											echo "<tr><td>".$row['User_Number']."</td>";
+											echo "<td>".$row['First_Name']."</td>";
+											echo "<td>".$row['Last_Name']."</td>";
+											if ($row['Account_Type'] == 1){
+												echo "<td>Administrator</td>";
+											}
+											else if ($row['Account_Type'] == 2){
+												echo "<td>Area Encoder</td>";
+											}
+											else if ($row['Account_Type'] == 3){
+												echo "<td>Sector Encoder</td>";
+											}
+											else if ($row['Account_Type'] == 4){
+												echo "<td>Chapter Encoder</td>";
+											}
+											else{
+												echo "<td>User</td>";
+											}
+											echo "<td>".$row['payment_status']."</td>";
+											echo "<td>".$row['attendance_remarks']."</td>";
+										}										
                                     ?>
                                     </tbody>
                                 </table>
@@ -272,6 +272,7 @@
 	<?php if ($Account_Type != 0){?>
 	  <a href="reserve_venue.php" class="navbar-brand "><i class="fa fa-calendar fa-fw"></i></a>
 		<a href="user_management.php" class="navbar-brand"><i class="fa fa-users fa-fw"></i></a>
+			<a href="reports.php"><i class="fa fa-bar-chart fa-fw"></i></a>
 		<a href="payment_management.php" class="navbar-brand"><i class="fa fa-dollar fa-fw"></i></a>
 		<a href="manage_area.php" class="navbar-brand"><i class="fa fa-map-marker fa-fw"></i></a>
 	<?php } else {?>

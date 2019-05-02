@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for macos10.12 (x86_64)
 --
--- Host: localhost    Database: yfc_db
+-- Host: 127.0.0.1    Database: u158189477_ydun
 -- ------------------------------------------------------
--- Server version	5.5.5-10.1.33-MariaDB
+-- Server version	5.5.5-10.1.37-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,6 +14,30 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `household`
+--
+
+DROP TABLE IF EXISTS `household`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `household` (
+  `idhousehold` int(11) NOT NULL,
+  `household_name` varchar(45) NOT NULL,
+  `household_member` varchar(45) NOT NULL,
+  PRIMARY KEY (`idhousehold`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `household`
+--
+
+LOCK TABLES `household` WRITE;
+/*!40000 ALTER TABLE `household` DISABLE KEYS */;
+/*!40000 ALTER TABLE `household` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `info_area`
@@ -51,13 +75,9 @@ CREATE TABLE `info_attendance` (
   `user_id` int(11) NOT NULL,
   `event_id` int(11) NOT NULL,
   `payment_status` varchar(45) NOT NULL,
-  `remarks` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_user_idx` (`user_id`),
-  KEY `id_events_idx` (`event_id`),
-  CONSTRAINT `id_events` FOREIGN KEY (`event_id`) REFERENCES `reservation_venue` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `id_user` FOREIGN KEY (`user_id`) REFERENCES `info_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `attendance_remarks` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,6 +86,7 @@ CREATE TABLE `info_attendance` (
 
 LOCK TABLES `info_attendance` WRITE;
 /*!40000 ALTER TABLE `info_attendance` DISABLE KEYS */;
+INSERT INTO `info_attendance` VALUES (10,24,16,'Paid','Test');
 /*!40000 ALTER TABLE `info_attendance` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -115,12 +136,8 @@ CREATE TABLE `info_payment` (
   `processed_by` varchar(45) DEFAULT NULL,
   `status` varchar(45) DEFAULT NULL,
   `remarks` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `user_id_idx` (`user_id`),
-  KEY `event_id_idx` (`event_id`),
-  CONSTRAINT `event_id` FOREIGN KEY (`event_id`) REFERENCES `reservation_venue` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `info_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -129,6 +146,7 @@ CREATE TABLE `info_payment` (
 
 LOCK TABLES `info_payment` WRITE;
 /*!40000 ALTER TABLE `info_payment` DISABLE KEYS */;
+INSERT INTO `info_payment` VALUES (12,24,16,'bank','2019-05-02','07:57:11',1500,'5cca86b557d6c','1','Paid','Test');
 /*!40000 ALTER TABLE `info_payment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -175,6 +193,7 @@ CREATE TABLE `info_user` (
   `Gender` varchar(45) NOT NULL,
   `Address` varchar(500) NOT NULL,
   `Contact_Number` varchar(45) NOT NULL,
+  `Email` varchar(45) NOT NULL,
   `Account_Type` int(11) NOT NULL,
   `Account_Status` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
@@ -183,11 +202,13 @@ CREATE TABLE `info_user` (
   `Chapter` int(11) NOT NULL,
   `Member_Since` date NOT NULL,
   `Account_Picture` varchar(150) DEFAULT NULL,
+  `FCM_ID` varchar(150) DEFAULT NULL,
+  `Household` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `area_idx` (`Area`),
   KEY `sector_idx` (`Sector`),
   KEY `CHAPTER_idx` (`Chapter`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -196,7 +217,7 @@ CREATE TABLE `info_user` (
 
 LOCK TABLES `info_user` WRITE;
 /*!40000 ALTER TABLE `info_user` DISABLE KEYS */;
-INSERT INTO `info_user` VALUES (1,'1001','Admin','','Data','M','Test Data','9123456789',1,'Active','admin123',1,1,1,'2018-01-01',NULL),(21,'YMM-2018-797480','Encoder','of','Villamor','M','Address','9132456789',2,'Active','Villamor',4,8,8,'2018-06-01',NULL),(22,'YMM-2018-728789','Encoder','M','Mapua Makati','F','Makati','9123456789',2,'Active','Mapua Makati',4,9,11,'2018-06-20',NULL),(23,'YMM-2018-698892','Encoder','I','Mapua Intramuros','F','Intramuros','09132456789',2,'Active','Mapua Intramuros',4,9,10,'2018-06-20',NULL),(24,'YMM-2018-130964','One','Ragos','Ragos','F','Address','09132456789',0,'Pending','1234',4,9,11,'2008-05-29',NULL),(25,'YMM-2018-809382','TEST','ENCODER','DATA','M','TEST DATA','09123456789',2,'Active','DATA',5,10,13,'2017-06-13',NULL),(26,'YMM-2018-115450','Test','Sector','Encoder','M','TEST DATA','9123456789',3,'Active','Encoder',4,8,8,'2018-07-03','');
+INSERT INTO `info_user` VALUES (1,'1001','Admin','','Data','M','Test Data','09123456789','martin9908@gmail.com',1,'Active','admin123',1,1,1,'2018-01-01',NULL,'eQxBlScW3bw:APA91bFpOiBpZ9xei3sBiL7qZEUkoGKP0z9UJnY-MJTqb_xxj2xYN7eBSbe7jnEoJRoDlxKShsmRyHNZOmJFj_G68Rlw789KW-YRdnaRUYK1qFrRnzaYvsp88-8i6uiZqsc6v1HZtl',NULL),(24,'YMM-2018-130964','One','Ragos','Ragos','F','Address','09132456789','jrsapinoso@gmail.com',0,'Active','1234',1,1,1,'2008-05-29',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `info_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -227,7 +248,7 @@ CREATE TABLE `reservation_venue` (
   KEY `user_fk_idx` (`id`),
   CONSTRAINT `area_fk` FOREIGN KEY (`reservation_area`) REFERENCES `info_area` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `sector_fk` FOREIGN KEY (`reservation_sector`) REFERENCES `info_sector` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -236,7 +257,7 @@ CREATE TABLE `reservation_venue` (
 
 LOCK TABLES `reservation_venue` WRITE;
 /*!40000 ALTER TABLE `reservation_venue` DISABLE KEYS */;
-INSERT INTO `reservation_venue` VALUES (11,'YFC International Conference','2018-06-30','2018-06-30','13:00:00','17:00:00','International','Circuit Makati','Reserved',4,9,11,0),(13,'New Test Venue','2018-09-17','2018-09-18','22:00:00','21:00:00','local','New Test Event','Reserved',4,7,7,2500);
+INSERT INTO `reservation_venue` VALUES (16,'TEST','2019-05-01','2019-05-02','10:00:00','10:00:00','Area','FOR PUSH','Reserved',1,1,1,1500);
 /*!40000 ALTER TABLE `reservation_venue` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -265,7 +286,7 @@ INSERT INTO `time_avail` VALUES (1,'07:30:00'),(2,'09:30:00'),(3,'11:30:00'),(4,
 UNLOCK TABLES;
 
 --
--- Dumping routines for database 'yfc_db'
+-- Dumping routines for database 'u158189477_ydun'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -277,4 +298,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-09-17  9:56:18
+-- Dump completed on 2019-05-02 15:44:40

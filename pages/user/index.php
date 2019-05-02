@@ -325,6 +325,7 @@
 	<?php if ($Account_Type != 0){?>
 	  <a href="reserve_venue.php" class="navbar-brand "><i class="fa fa-calendar fa-fw"></i></a>
 		<a href="user_management.php" class="navbar-brand"><i class="fa fa-users fa-fw"></i></a>
+			<a href="reports.php"><i class="fa fa-bar-chart fa-fw"></i></a>
 		<a href="payment_management.php" class="navbar-brand"><i class="fa fa-dollar fa-fw"></i></a>
 		<a href="manage_area.php" class="navbar-brand"><i class="fa fa-map-marker fa-fw"></i></a>
 	<?php } else {?>
