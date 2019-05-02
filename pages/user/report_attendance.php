@@ -223,7 +223,7 @@
                                                 echo "<td>User</td>";
                                             }
                                             echo "<td>".$row['payment_status']."</td>";
-                                            echo "<td>".$row['remarks']."</td>";
+                                            echo "<td>".$row['attendance_remarks']."</td>";
                                         }										
                                     ?>
                                     </tbody>
