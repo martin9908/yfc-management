@@ -85,7 +85,7 @@ VALUES
 '$user_id',
 '$event_id',
 '$remarks',
-'joined');");
+'');");
 
 if(!$sql){
   die('Error_2: ' . mysqli_error($connect));
