@@ -256,7 +256,7 @@
 													echo "<td>".$row['areaName']."</td>";
 													echo "<td>".$row['chapterName']."</td>";												
 													echo "<td>";
-													echo "<a class='btn btn-outline btn-success' href='attendance_report.php?ppid=".$row['id']."'>View Attendance</a>";
+													echo "<a class='btn btn-outline btn-success' href='report_attendance.php?ppid=".$row['id']."'>View Attendance</a>";
 													echo"</tr>";
 												
 													}
@@ -270,7 +270,7 @@
 													echo "<td>".$row['areaName']."</td>";
 													echo "<td>".$row['chapterName']."</td>";
 													echo "<td>";
-													echo "<a class='btn btn-outline btn-success' href='attendance_report.php?ppid=".$row['id']."'>View Attendance</a>";
+													echo "<a class='btn btn-outline btn-success' href='report_attendance.php?ppid=".$row['id']."'>View Attendance</a>";
 													echo "</tr>";
 												}
 											?>
