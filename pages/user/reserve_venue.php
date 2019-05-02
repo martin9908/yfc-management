@@ -34,7 +34,7 @@
 	AND
 		info_chapter.id = reservation_venue.reservation_chapter;");
 
-	$attendance = mysqli_query($connect, "SELECT * FROM info_attendance where info_attendance.user_id = '$User_Number'");
+	$attendance = mysqli_query($connect, "SELECT * FROM info_attendance where info_attendance.user_id = '$id'");
 
 	if($Account_Type == 1){
 		$equipment = mysqli_query($connect,"SELECT * FROM
@@ -417,14 +417,12 @@
 																	echo "<td>
 																	<a class='btn btn-outline btn-success' href='payments/page_2.php?event_id=".$row['id'].
 																	"&reservation_fee=".$row['reservation_fee']."'>Join</a>";
-																	echo "<a class='btn btn-outline btn-success fancybox fancybox.ajax' href='venue_edit.php?ppid=".$row['id']."'>Edit</a>
-																	<a class='btn btn-outline btn-danger' href='database/venue_delete.php?ppid=".$row['id']."'>Delete</a></td>";
 																	echo"</tr>";
 																}
 																else {
-																	echo "<td><a class='btn btn-outline btn-danger fancybox fancybox.ajax' href='venue_decline.php?ppid=".$row['id']."'>Cancel</a></td>";
-																	echo "<a class='btn btn-outline btn-success fancybox fancybox.ajax' href='venue_edit.php?ppid=".$row['id']."'>Edit</a>
-																	<a class='btn btn-outline btn-danger' href='database/venue_delete.php?ppid=".$row['id']."'>Delete</a></td>";
+																	echo "<td>
+																		<a class='btn btn-outline btn-success fancybox fancybox.ajax' href='user_attended.php?ppid=".$row['id']."'>Attended</a>
+																		<a class='btn btn-outline btn-danger fancybox fancybox.ajax' href='user_cancelled.php?ppid=".$row['id']."'>Cancel</a></td>";
 																	echo"</tr>";
 																}
 															}
