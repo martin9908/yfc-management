@@ -170,6 +170,7 @@
     $Account_Picture=$data["Account_Picture"];
 
 		echo $query="INSERT INTO info_user SET User_Number='".$User_Number."', First_Name='".$First_Name."', Middle_Name='".$Middle_Name."', Last_Name='".$Last_Name."', Gender='".$Gender."', Address='".$Address."', Contact_Number='".$Contact_Number."', Account_Type='".$Account_Type."', Account_Status='".$Account_Status."', password='".$password."', Area='".$Area."', Sector='".$Sector."', Chapter='".$Chapter."', Member_Since='".$Member_Since."', Account_Picture='".$Account_Picture."'";
+		
 		if(mysqli_query($connection, $query))
 		{
 			$response=array(

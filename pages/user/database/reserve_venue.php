@@ -105,7 +105,7 @@
       $query = "SELECT * from `info_user` WHERE reservation_chapter = '" . $GLOBALS['chapter'] . "'";
     }
 
-    echo $query;
+    // echo $query;
     $sql= mysqli_query($connect_1, $query);
           
     while($row = mysqli_fetch_assoc($sql))

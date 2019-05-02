@@ -40,8 +40,8 @@
 	}
 
 	mysqli_close($connect);
-	echo $query1;
-	// echo "<script>
-	// 			alert('Payment Complete');
-	// 			window.location.assign('../payment_management.php'); </script>";
+	// echo $query1;
+	echo "<script>
+				alert('Payment Complete');
+				window.location.assign('../payment_management.php'); </script>";
 ?>
