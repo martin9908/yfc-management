@@ -348,6 +348,8 @@
 																}
 																else {
 																	echo "<td><a class='btn btn-outline btn-danger fancybox fancybox.ajax' href='venue_decline.php?ppid=".$row['id']."'>Cancel</a></td>";
+																	echo "<a class='btn btn-outline btn-success fancybox fancybox.ajax' href='venue_edit.php?ppid=".$row['id']."'>Edit</a>
+																				<a class='btn btn-outline btn-danger' href='database/venue_delete.php?ppid=".$row['id']."'>Delete</a></td>";
 																	echo"</tr>";
 																}
 															}
@@ -374,32 +376,39 @@
 																echo "<td>
 																<a class='btn btn-outline btn-success' href='payments/page_2.php?event_id=".$row['id'].
 																"&reservation_fee=".$row['reservation_fee']."'>Join</a>";
-
 																echo"</tr>";
 															}
 															else{
 																while($row1 = mysqli_fetch_assoc($attendance)){
 																	if($row['id'] == $row1['event_id'] && $row1['remarks'] != 'joined'){
 																		echo "<td>
-																		<a class='btn btn-outline btn-success' href='payments/page_2.php?event_id=".$row['id'].
-																		"&reservation_fee=".$row['reservation_fee']."'>Join</a>";
+																		<a class='btn btn-outline btn-success' href='payments/page_2.php?event_id=".$row['id']."&reservation_fee=".$row['reservation_fee']."'>Join</a>";
+																		echo "<a class='btn btn-outline btn-success fancybox fancybox.ajax' href='venue_edit.php?ppid=".$row['id']."'>Edit</a>
+																					<a class='btn btn-outline btn-danger' href='database/venue_delete.php?ppid=".$row['id']."'>Delete</a></td>";
 																		echo"</tr>";
 																	}
 																	else {
 																		echo "<td><a class='btn btn-outline btn-danger fancybox fancybox.ajax' href='venue_decline.php?ppid=".$row['id']."'>Cancel</a></td>";
+																		echo "<a class='btn btn-outline btn-success fancybox fancybox.ajax' href='venue_edit.php?ppid=".$row['id']."'>Edit</a>
+																					<a class='btn btn-outline btn-danger' href='database/venue_delete.php?ppid=".$row['id']."'>Delete</a></td>";
 																		echo"</tr>";
 																	}
 																}
 															}
+														} else {
+															echo "<td>";
+															echo "<a class='btn btn-outline btn-success fancybox fancybox.ajax' href='venue_edit.php?ppid=".$row['id']."'>Edit</a>
+																		<a class='btn btn-outline btn-danger' href='database/venue_delete.php?ppid=".$row['id']."'>Delete</a></td>";
+															echo "</tr>";
 														}
-													}
+													} 
 													if($Account_Type == 0) {
 														echo "<td>".$row['reservation_fee']."</td>";
 														if(mysqli_num_rows($attendance) == 0){
 															echo "<td>
 															<a class='btn btn-outline btn-success' href='payments/page_2.php?event_id=".$row['id'].
 															"&reservation_fee=".$row['reservation_fee']."'>Join</a>";
-
+															
 															echo"</tr>";
 														}
 														else{
@@ -408,10 +417,14 @@
 																	echo "<td>
 																	<a class='btn btn-outline btn-success' href='payments/page_2.php?event_id=".$row['id'].
 																	"&reservation_fee=".$row['reservation_fee']."'>Join</a>";
+																	echo "<a class='btn btn-outline btn-success fancybox fancybox.ajax' href='venue_edit.php?ppid=".$row['id']."'>Edit</a>
+																	<a class='btn btn-outline btn-danger' href='database/venue_delete.php?ppid=".$row['id']."'>Delete</a></td>";
 																	echo"</tr>";
 																}
 																else {
 																	echo "<td><a class='btn btn-outline btn-danger fancybox fancybox.ajax' href='venue_decline.php?ppid=".$row['id']."'>Cancel</a></td>";
+																	echo "<a class='btn btn-outline btn-success fancybox fancybox.ajax' href='venue_edit.php?ppid=".$row['id']."'>Edit</a>
+																	<a class='btn btn-outline btn-danger' href='database/venue_delete.php?ppid=".$row['id']."'>Delete</a></td>";
 																	echo"</tr>";
 																}
 															}

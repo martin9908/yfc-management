@@ -131,6 +131,9 @@
 															</li>
 													</ul>
 											</li>
+											<li>
+												<a href="#"><i class="fa fa-bar-chart fa-fw"></i> Reports</a>
+											</li>
 										<?PHP }?>
 									<?PHP } else { ?>
 										<li>
