@@ -250,8 +250,8 @@
 											<?PHP
 												while($row = mysqli_fetch_assoc($international)){
 													echo "<tr>";
-													echo "<td>".$row['reservation_place']."</td>";
 													echo "<td>".$row['reservation_event']."</td>";
+													echo "<td>".$row['reservation_place']."</td>";
 													echo "<td>".$row['sectorName']."</td>";
 													echo "<td>".$row['areaName']."</td>";
 													echo "<td>".$row['chapterName']."</td>";												
@@ -264,8 +264,8 @@
 											<?PHP
 												while($row = mysqli_fetch_assoc($equipment)){
 													echo "<tr>";
-													echo "<td>".$row['reservation_place']."</td>";
 													echo "<td>".$row['reservation_event']."</td>";
+													echo "<td>".$row['reservation_place']."</td>";
 													echo "<td>".$row['sectorName']."</td>";
 													echo "<td>".$row['areaName']."</td>";
 													echo "<td>".$row['chapterName']."</td>";

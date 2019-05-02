@@ -285,8 +285,8 @@
 											<?PHP
 												while($row = mysqli_fetch_assoc($international)){
 													echo "<tr>";
-													echo "<td>".$row['reservation_place']."</td>";
 													echo "<td>".$row['reservation_event']."</td>";
+													echo "<td>".$row['reservation_place']."</td>";
 													echo "<td>".$row['reservation_date']."</td>";
 													echo "<td>".$row['reservation_time']."</td>";
 													echo "<td>".$row['reservation_end_date']."</td>";
