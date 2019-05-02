@@ -22,6 +22,8 @@
 
 	//Equipment Info
 	$avid = $_GET['ppid'];
+	$user_id = isset($_GET["user_id"]) ? $_GET["user_id"] : null;
+	$event_id = isset($_GET["event_id"]) ? $_GET["event_id"] : null;
 ?>
 <head>
 
@@ -92,6 +94,8 @@
                 <form action="database/confirm_payment.php" method="GET">
                     <div class="form-group">
                     	<input type="hidden" name="ppid" value="<?php echo $avid; ?>">
+						<input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+						<input type="hidden" name="event_id" value="<?php echo $event_id; ?>">
                         <label>Remarks</label>
                         <input class="form-control" name="remarks">
                         <input type="hidden" class="form-control" name="processed_by" value="<?php echo $id?>">

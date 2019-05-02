@@ -5,6 +5,8 @@
 
 	//Get ID
 	$action = isset($_GET["ppid"]) ? $_GET["ppid"] : null;
+	$user_id = isset($_GET["user_id"]) ? $_GET["user_id"] : null;
+	$event_id = isset($_GET["event_id"]) ? $_GET["event_id"] : null;
 	$remarks = isset($_GET["remarks"]) ? $_GET["remarks"] : null;
 	$processed_by = isset($_GET["processed_by"]) ? $_GET["processed_by"] : null;
 	
@@ -29,14 +31,17 @@
 						SET
 						`payment_status` = 'Paid',
 						`remarks` = '$remarks'
-						WHERE `id` = $action;";
+						WHERE `user_id` = $user_id
+						AND `event_id` = $event_id;";
+						
 	$sql= mysqli_query($connect,$query1);
 	if(!$sql){
 		die('Error: ' . mysqli_error($connect));
 	}
 
 	mysqli_close($connect);
-	echo "<script>
-				alert('Payment Complete');
-				window.location.assign('../payment_management.php'); </script>";
+	echo $query1;
+	// echo "<script>
+	// 			alert('Payment Complete');
+	// 			window.location.assign('../payment_management.php'); </script>";
 ?>

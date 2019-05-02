@@ -37,5 +37,5 @@
 	// echo $query1;
 	echo "<script>
 				alert('Cancellation Complete');
-				window.location.assign('reserve_venue.php'); </script>";
+				window.location.assign('../reserve_venue.php'); </script>";
 ?>

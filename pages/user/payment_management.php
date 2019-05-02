@@ -221,7 +221,7 @@
 													echo "<td>".$row['reservation_fee']."</td>";
 													if($row['status'] == 'Pending'){
 														echo "<td>
-														<a class='btn btn-outline btn-success fancybox fancybox.ajax' href='payments/confirm.php?ppid=".$row['id']."'>Confirm Payment</a>";
+														<a class='btn btn-outline btn-success fancybox fancybox.ajax' href='payments/confirm.php?ppid=".$row['id']."&user_id=".$row['user_id']."&event_id=".$row['event_id']."'>Confirm Payment</a>";
 														echo "<a class='btn btn-outline btn-danger fancybox fancybox.ajax' href='venue_decline.php?ppid=".$row['id']."'>Decline Payment</a>
 														</td>";
 													} else {

@@ -408,7 +408,6 @@
 															echo "<td>
 															<a class='btn btn-outline btn-success' href='payments/page_2.php?event_id=".$row['id'].
 															"&reservation_fee=".$row['reservation_fee']."'>Join</a>";
-															
 															echo"</tr>";
 														}
 														else{
@@ -418,12 +417,12 @@
 																	if($row1['payment_status'] == "Paid"){
 																		echo	"<a class='btn btn-outline btn-success' href='user_attended.php?ppid=".$row['id']."'>Attended</a>";
 																	}
-																	echo	"<a class='btn btn-outline btn-danger' href='database/venue_decline.php?ppid=".$row['id']."'>Cancel</a></td>";
+																	echo	"<a class='btn btn-outline btn-danger' href='database/venue_decline.php?ppid=".$row1['id']."'>Cancel</a></td>";
 																	echo"</tr>";
 																}
 																else {
 																	echo "<td>
-																	<a class='btn btn-outline btn-success' href='payments/page_2.php?event_id=".$row['id'].
+																	<a class='btn btn-outline btn-success' href='payments/page_2.php?event_id=".$row1['event_id'].
 																	"&reservation_fee=".$row['reservation_fee']."'>Join</a>";
 																	echo"</tr>";
 																}

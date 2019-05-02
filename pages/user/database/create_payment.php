@@ -26,28 +26,6 @@ if($Account_Type == 0){
   $remarks = 'Paid';
 }
 
-echo ("INSERT INTO info_payment
-(
-`user_id`,
-`event_id`,
-`pament_type`,
-`payment_date`,
-`pament_time`,
-`payment_made`,
-`payment_reference`,
-`status`)
-VALUES
-(
-$user_id,
-'$event_id',
-'$payment_type',
-'$payment_date',
-'$payment_time',
-'$payment_made',
-'$payment_reference',
-'$remarks');
-");
-
 $sql= mysqli_query($connect,"INSERT INTO info_payment
 (
 `user_id`,
@@ -61,7 +39,7 @@ $sql= mysqli_query($connect,"INSERT INTO info_payment
 VALUES
 (
 $user_id,
-'$event_id',
+$event_id,
 '$payment_type',
 '$payment_date',
 '$payment_time',
@@ -82,8 +60,8 @@ $sql1= mysqli_query($connect, "INSERT INTO info_attendance
 `remarks`)
 VALUES
 (
-'$user_id',
-'$event_id',
+$user_id,
+$event_id,
 '$remarks',
 '');");
 
@@ -92,6 +70,7 @@ if(!$sql){
 }
 
 mysqli_close($connect);
+
 echo "<script>
       window.location.assign('../payments/page_4.php'); </script>";
 ?>
