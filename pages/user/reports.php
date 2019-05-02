@@ -173,7 +173,7 @@
 							</li>
 								<?PHP if($Account_Type != 0){ ?>
 									<li>
-										<a href="reserve_venue.php" class="active"><i class="fa fa-calendar fa-fw"></i> Manage Events</a>
+										<a href="reserve_venue.php"><i class="fa fa-calendar fa-fw"></i> Manage Events</a>
 									</li>
 									<li>
 										<a href="user_management.php"><i class="fa fa-users fa-fw"></i> Manage Users</a>
@@ -197,7 +197,7 @@
 												</ul>
 										</li>
 										<li>
-											<a href="reports.php"><i class="fa fa-bar-chart fa-fw"></i> Reports</a>
+											<a href="reports.php"  class="active"><i class="fa fa-bar-chart fa-fw"></i> Reports</a>
 										</li>
 									<?PHP }?>
 								<?PHP } else { ?>
@@ -270,7 +270,7 @@
 													echo "<td>".$row['areaName']."</td>";
 													echo "<td>".$row['chapterName']."</td>";
 													echo "<td>";
-													echo "<a class='btn btn-outline btn-success' href='report_attendance.php?ppid=".$row['id']."'>View Attendance</a>";
+													echo "<a class='btn btn-outline btn-success' href='report_attendance.php?ppid=".$row['id']."&event_name=".$row['reservation_event']."'>View Attendance</a>";
 													echo "</tr>";
 												}
 											?>
