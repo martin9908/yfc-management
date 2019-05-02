@@ -10,10 +10,10 @@
 	$query = mysqli_query($connect,
 	"SELECT *
 		FROM
-			`info_user`,
 			`info_sector`,
 			`info_area`,
-			`info_chapter`
+			`info_chapter`,
+			`info_user`
 		WHERE
 			`User_Number`= '$username'
 		AND

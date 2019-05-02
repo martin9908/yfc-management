@@ -34,7 +34,7 @@
 	AND
 		info_chapter.id = reservation_venue.reservation_chapter;");
 
-	$attendance = mysqli_query($connect, "SELECT * FROM info_attendance where info_attendance.user_id = '$id'");
+	$attendance = mysqli_query($connect, "SELECT * FROM info_attendance where user_id = $id");
 
 	if($Account_Type == 1){
 		$equipment = mysqli_query($connect,"SELECT * FROM
@@ -75,10 +75,10 @@
 	}
 	else {
 		$equipment = mysqli_query($connect,"SELECT * FROM
-			reservation_venue,
 			info_area,
 			info_sector,
-			info_chapter
+			info_chapter,
+			reservation_venue
 		WHERE
 			$Area = reservation_venue.reservation_area
 		AND
@@ -413,16 +413,18 @@
 														}
 														else{
 															while($row1 = mysqli_fetch_assoc($attendance)){
-																if($row['id'] == $row1['event_id'] && $row1['remarks'] != 'joined'){
-																	echo "<td>
-																	<a class='btn btn-outline btn-success' href='payments/page_2.php?event_id=".$row['id'].
-																	"&reservation_fee=".$row['reservation_fee']."'>Join</a>";
+																if($row['id'] == $row1['event_id'] && ($row1['payment_status'] == 'Paid' || $row1['payment_status'] == 'Pending')){
+																	echo "<td>";
+																	if($row1['payment_status'] == "Paid"){
+																		echo	"<a class='btn btn-outline btn-success' href='user_attended.php?ppid=".$row['id']."'>Attended</a>";
+																	}
+																	echo	"<a class='btn btn-outline btn-danger' href='database/venue_decline.php?ppid=".$row['id']."'>Cancel</a></td>";
 																	echo"</tr>";
 																}
 																else {
 																	echo "<td>
-																		<a class='btn btn-outline btn-success fancybox fancybox.ajax' href='user_attended.php?ppid=".$row['id']."'>Attended</a>
-																		<a class='btn btn-outline btn-danger fancybox fancybox.ajax' href='user_cancelled.php?ppid=".$row['id']."'>Cancel</a></td>";
+																	<a class='btn btn-outline btn-success' href='payments/page_2.php?event_id=".$row['id'].
+																	"&reservation_fee=".$row['reservation_fee']."'>Join</a>";
 																	echo"</tr>";
 																}
 															}

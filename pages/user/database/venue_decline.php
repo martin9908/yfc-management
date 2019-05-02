@@ -15,7 +15,7 @@
 						SET
 						`status` = 'Cancelled',
 						`remarks` = '$remarks'
-						WHERE `event_id` = $action;";
+						WHERE `id` = $action;";
 	$sql= mysqli_query($connect,$query);
 	if(!$sql){
 		die('Error: ' . mysqli_error($connect));
@@ -26,14 +26,16 @@
 						SET
 						`payment_status` = 'Cancelled',
 						`remarks` = '$remarks'
-						WHERE `event_id` = $action;";
+						WHERE `id` = $action;";
 	$sql= mysqli_query($connect,$query1);
 	if(!$sql){
 		die('Error: ' . mysqli_error($connect));
 	}
 
 	mysqli_close($connect);
+
+	// echo $query1;
 	echo "<script>
 				alert('Cancellation Complete');
-				window.location.assign('../reserve_venue.php'); </script>";
+				window.location.assign('reserve_venue.php'); </script>";
 ?>
