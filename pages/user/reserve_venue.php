@@ -477,11 +477,10 @@
 	</div>
 	<footer class="footer" aria-labelledby="hide-on-desktop">
 		<nav class="navbar navbar-light bg-faded container-fluid" aria-labelledby="hide-on-desktop">
-			<a href="index.php" class="navbar-brand"><i class="fa fa-home fa-fw"></i></a>
 		<?php if ($Account_Type != 0){?>
 		  <a href="reserve_venue.php" class="navbar-brand "><i class="fa fa-calendar fa-fw"></i></a>
 			<a href="user_management.php" class="navbar-brand"><i class="fa fa-users fa-fw"></i></a>
-			<a href="reports.php"><i class="fa fa-bar-chart fa-fw"></i></a>
+			<a href="reports.php" class="navbar-brand"><i class="fa fa-bar-chart fa-fw"></i></a>
 			<a href="payment_management.php" class="navbar-brand"><i class="fa fa-dollar fa-fw"></i></a>
 			<a href="manage_area.php" class="navbar-brand"><i class="fa fa-map-marker fa-fw"></i></a>
 		<?php } else {?>
