@@ -72,5 +72,6 @@ if(!$sql){
 mysqli_close($connect);
 
 echo "<script>
+      alert('Successfully Joined Event!');
       window.location.assign('../payments/page_4.php'); </script>";
 ?>

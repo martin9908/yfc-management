@@ -17,7 +17,7 @@
 <button type="submit" name="Submit" class="btn btn-success">Upload</button>
 </div>
 </form>
-<p>Download Demo File from here : <a href="sample_import.csv" download>Sample File</a></p>
+<p>Download Demo File from here : <a href="database/sample_import.csv" download="sample_import.csv">Sample File</a></p>
 </div>
 
 </body>
