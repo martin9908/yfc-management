@@ -134,52 +134,68 @@
         die('FCM Send Error: ' . curl_error($ch));
       }
       curl_close($ch);
-
-      $apicode="TR-MARTI515599_XJEXP";
-      $message="New event available: ".$body." Date: ".$GLOBALS['reservation_date'];
-
-      $url = 'https://www.itexmo.com/php_api/api.php';
-      $itexmo = array('1' => $row['Contact_Number'], '2' => $message, '3' => $apicode);
-      $param = array(
-          'http' => array(
-              'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-              'method'  => 'POST',
-              'content' => http_build_query($itexmo),
-          ),
-      );
-      $context  = stream_context_create($param);
-      return file_get_contents($url, false, $context);
-
-      // $client = new Google_Client();
-      // //The json file you got after creating the service account
-      // putenv('GOOGLE_APPLICATION_CREDENTIALS=google-api/test-calendar-serivce-1ta558q3xvg0.json');
-      // $client->useApplicationDefaultCredentials();
-      // $client->setApplicationName("test_calendar");
-      // $client->setScopes(Google_Service_Calendar::CALENDAR);
-      // $client->setAccessType('offline');
-
-      // $service = new Google_Service_Calendar($client);
-
-      // $event = new Google_Service_Calendar_Event(array(
-      //   'summary' => $GLOBALS['reservation_event'],
-      //   'description' => $GLOBALS['reservation_place'],
-      //   'start' => array(
-      //     'dateTime' => $GLOBALS['reservation_date'].'T09:00:00-07:00'
-      //   ),
-      //   'end' => array(
-      //     'dateTime' => $GLOBALS['reservation_end_date'].'T09:00:00-07:00'
-      //   )
-      // ));
       
-      // $calendarId = 'eldr28nhloed0fb8crgp6snqvo@group.calendar.google.com';
-      // $event = $service->events->insert($calendarId, $event);
-      // printf('Event created: %s\n', $event->htmlLink);
+      SendSMS();
 
-      // $calendarList = $service->calendarList->listCalendarList();
-      // print_r($calendarList);
+      return file_get_contents($url, false, $context);
     }
     mysqli_close($connect_1);
-	}
+  }
+  
+  function SendSMS($hostUrl, $username, $password, $phoneNoRecip, $msgText,
+                  $n1 = NULL, $v1 = NULL, $n2 = NULL, $v2 = NULL, $n3 = NULL, $v3 = NULL, 
+                  $n4 = NULL, $v4 = NULL, $n5 = NULL, $v5 = NULL, $n6 = NULL, $v6 = NULL, 
+                  $n7 = NULL, $v7 = NULL, $n8 = NULL, $v8 = NULL, $n9 = NULL, $v9 = NULL  ) { 
+
+ 
+
+// Parameters:
+//  $hostUrl – URL of the NowSMS server (e.g., http://127.0.0.1:8800 or
+//             https://sample.smshosts.com/
+//  $username – “SMS Users” account on the NowSMS server
+//  $password – Password defined for the “SMS Users” account on the NowSMS Server
+//  $phoneNoRecip – One or more phone numbers (comma delimited) to receive the message
+//  $msgText – Text of the message
+//  $n1-$n9 / $v1-$v9 - Additional optional URL parameters, encoded as name/value pairs
+//                      Example: charset=iso-8859-1 encoded as 'charset', 'iso-8859-1'
+
+   $postfields = array('Phone'=>"$phoneNoRecip", 'Text'=>"$msgText");
+   if (($n1 != NULL) && ($v1 != NULL)) $postfields[$n1] = $v1;
+   if (($n2 != NULL) && ($v2 != NULL)) $postfields[$n2] = $v2;
+   if (($n3 != NULL) && ($v3 != NULL)) $postfields[$n3] = $v3;
+   if (($n4 != NULL) && ($v4 != NULL)) $postfields[$n4] = $v4;
+   if (($n5 != NULL) && ($v5 != NULL)) $postfields[$n5] = $v5;
+   if (($n6 != NULL) && ($v6 != NULL)) $postfields[$n6] = $v6;
+   if (($n7 != NULL) && ($v7 != NULL)) $postfields[$n7] = $v7;
+   if (($n8 != NULL) && ($v8 != NULL)) $postfields[$n8] = $v8;
+   if (($n9 != NULL) && ($v9 != NULL)) $postfields[$n9] = $v9;
+   $ch = curl_init();
+   curl_setopt($ch, CURLOPT_URL, $hostUrl);
+   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+   curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+   curl_setopt($ch, CURLOPT_POST, 1);
+   curl_setopt($ch, CURLOPT_POSTFIELDS, $postfields);
+
+// TODO: This script does not currently validate SSL Certificates
+// curl_setopt($ch, CURLOPT_VERBOSE, true);
+// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+// curl_setopt($ch, CURLOPT_CAINFO, 'cacert.pem');
+   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0); // change to 1 to verify cert
+   curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+   curl_setopt($ch, CURLOPT_USERPWD, "$username:$password");
+   curl_setopt($ch, CURLOPT_HTTPHEADER, array('Expect:')); 
+   $result = curl_exec($ch);
+   return $result;
+}
+// This code provides an example of how you would call the SendSMS function from within
+//  a PHP script to send a message. 
+// The response from the NowSMS server is echoed back from the script.
+$x   = SendSMS('https://sample.smshosts.com/', 'username', 'password', '+44999999999', 'Test Message');
+echo $x;
+
+// This example adds an additional URL parameter, ReceiptRequested=Yes
+$x   = SendSMS('https://sample.smshosts.com/', 'username', 'password', '+44999999999', 'Test Message with delivery report', 'ReceiptRequested', 'Yes');
+echo $x;
 ?>
 <!doctype html>
 <html>
