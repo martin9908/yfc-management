@@ -134,59 +134,36 @@
         die('FCM Send Error: ' . curl_error($ch));
       }
       curl_close($ch);
-      
-      SendSMS();
 
       return file_get_contents($url, false, $context);
     }
+
+    SendSMS();
     mysqli_close($connect_1);
   }
   
-  function SendSMS($hostUrl, $username, $password, $phoneNoRecip, $msgText,
-                  $n1 = NULL, $v1 = NULL, $n2 = NULL, $v2 = NULL, $n3 = NULL, $v3 = NULL, 
-                  $n4 = NULL, $v4 = NULL, $n5 = NULL, $v5 = NULL, $n6 = NULL, $v6 = NULL, 
-                  $n7 = NULL, $v7 = NULL, $n8 = NULL, $v8 = NULL, $n9 = NULL, $v9 = NULL  ) { 
+  function SendSMS(){
+    $ch = curl_init();
+    $parameters = array(
+        'apikey' => 'c8a9802346f27096d84f883e93e5d244', //Your API KEY
+        'number' => '09167980594',
+        'message' => 'A New Event is Available! Please check your app for more details.',
+        'sendername' => 'YFC Events App'
+    );
+    curl_setopt( $ch, CURLOPT_URL,'https://semaphore.co/api/v4/messages' );
+    curl_setopt( $ch, CURLOPT_POST, 1 );
 
- 
+    //Send the parameters set above with the request
+    curl_setopt( $ch, CURLOPT_POSTFIELDS, http_build_query( $parameters ) );
 
-// Parameters:
-//  $hostUrl – URL of the NowSMS server (e.g., http://127.0.0.1:8800 or
-//             https://sample.smshosts.com/
-//  $username – “SMS Users” account on the NowSMS server
-//  $password – Password defined for the “SMS Users” account on the NowSMS Server
-//  $phoneNoRecip – One or more phone numbers (comma delimited) to receive the message
-//  $msgText – Text of the message
-//  $n1-$n9 / $v1-$v9 - Additional optional URL parameters, encoded as name/value pairs
-//                      Example: charset=iso-8859-1 encoded as 'charset', 'iso-8859-1'
+    // Receive response from server
+    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+    $output = curl_exec( $ch );
+    curl_close ($ch);
 
-   $postfields = array('Phone'=>"$phoneNoRecip", 'Text'=>"$msgText");
-   if (($n1 != NULL) && ($v1 != NULL)) $postfields[$n1] = $v1;
-   if (($n2 != NULL) && ($v2 != NULL)) $postfields[$n2] = $v2;
-   if (($n3 != NULL) && ($v3 != NULL)) $postfields[$n3] = $v3;
-   if (($n4 != NULL) && ($v4 != NULL)) $postfields[$n4] = $v4;
-   if (($n5 != NULL) && ($v5 != NULL)) $postfields[$n5] = $v5;
-   if (($n6 != NULL) && ($v6 != NULL)) $postfields[$n6] = $v6;
-   if (($n7 != NULL) && ($v7 != NULL)) $postfields[$n7] = $v7;
-   if (($n8 != NULL) && ($v8 != NULL)) $postfields[$n8] = $v8;
-   if (($n9 != NULL) && ($v9 != NULL)) $postfields[$n9] = $v9;
-   $ch = curl_init();
-   curl_setopt($ch, CURLOPT_URL, $hostUrl);
-   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-   curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-   curl_setopt($ch, CURLOPT_POST, 1);
-   curl_setopt($ch, CURLOPT_POSTFIELDS, $postfields);
-
-// TODO: This script does not currently validate SSL Certificates
-// curl_setopt($ch, CURLOPT_VERBOSE, true);
-// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-// curl_setopt($ch, CURLOPT_CAINFO, 'cacert.pem');
-   curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0); // change to 1 to verify cert
-   curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-   curl_setopt($ch, CURLOPT_USERPWD, "$username:$password");
-   curl_setopt($ch, CURLOPT_HTTPHEADER, array('Expect:')); 
-   $result = curl_exec($ch);
-   return $result;
-}
+    //Show the server response
+    echo $output;
+  }
 // This code provides an example of how you would call the SendSMS function from within
 //  a PHP script to send a message. 
 // The response from the NowSMS server is echoed back from the script.
