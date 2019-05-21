@@ -26,7 +26,8 @@
 
 	//date("Y/m/d");
 	//date("h:i:sa",strtotime('+'.$eqtime.' hours'));
-	reserve();
+  reserve();
+  SendSMS();
 
 	function reserve(){
 		$connect = mysqli_connect($GLOBALS['host'], $GLOBALS['user'], $GLOBALS['pass'], $GLOBALS['databasename']) or die("Couldn't connect to database!");
@@ -138,15 +139,14 @@
       return file_get_contents($url, false, $context);
     }
 
-    SendSMS($row['Contact_Number']);
     mysqli_close($connect_1);
   }
   
-  function SendSMS($mobile){
+  function SendSMS(){
     $ch = curl_init();
     $parameters = array(
         'apikey' => 'c8a9802346f27096d84f883e93e5d244', //Your API KEY
-        'number' => $mobile,
+        'number' => '09167980594',
         'message' => 'A New Event is Available! Event Name: '. $GLOBALS['reservation_event']. ', Event Venue: '. $GLOBALS['reservation_place']. ', Start Date & Time: ' . $GLOBALS['reservation_date'] . ' ' . $GLOBALS['reservation_time'],
         'sendername' => 'SEMAPHORE'
     );

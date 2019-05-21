@@ -31,7 +31,7 @@ if(isset($_POST['Submit']))
             $year = date("Y");
             
             $html.="<tr>";
-            $User_Name = "YMM"-$year."-".$number;
+            $User_Name = "YMM-".$year."-".$number;
             $First_Name = isset($Row[0]) ? $Row[0] : '';
             $Middle_Name = isset($Row[1]) ? $Row[1] : '';
             $Last_Name = isset($Row[2]) ? $Row[2] : '';
