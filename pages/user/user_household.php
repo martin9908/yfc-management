@@ -202,7 +202,7 @@
                                             echo "<tr><td>".$row['idhousehold']."</td>";
                                             echo "<td>".$row['household_name']."</td>";
                                             echo "<td>".$row['First_Name']." ".$row['Last_Name']."</td>";
-                                            echo "<td></td></tr>";
+                                            echo "<td><a class='btn btn-outline btn-success fancybox fancybox.ajax' href=''>Edit</a></td></tr>";
                                          }
                                     ?>
                                     </tbody>
