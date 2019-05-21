@@ -164,15 +164,12 @@
     //Show the server response
     echo $output;
   }
-// This code provides an example of how you would call the SendSMS function from within
-//  a PHP script to send a message. 
-// The response from the NowSMS server is echoed back from the script.
-$x   = SendSMS('https://sample.smshosts.com/', 'username', 'password', '+44999999999', 'Test Message');
-echo $x;
+  // This code provides an example of how you would call the SendSMS function from within
+  //  a PHP script to send a message. 
+  // The response from the NowSMS server is echoed back from the script.
+  $x   = SendSMS('https://sample.smshosts.com/', 'username', 'password', '+44999999999', 'Test Message');
+  echo $x;
 
-// This example adds an additional URL parameter, ReceiptRequested=Yes
-$x   = SendSMS('https://sample.smshosts.com/', 'username', 'password', '+44999999999', 'Test Message with delivery report', 'ReceiptRequested', 'Yes');
-echo $x;
 ?>
 <!doctype html>
 <html>

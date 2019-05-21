@@ -390,6 +390,7 @@
                                 </table>
 								<a class="btn btn-success btn-mdo fancybox fancybox.ajax" href="user_create.php">Add User</a>
 								<a class="btn btn-success btn-mdo fancybox fancybox.ajax" href="database/import_data.php">Import CSV</a>
+								<a class="btn btn-success btn-mdo" href="user_household.php">Manage Household</a>
                             </div>
                         </div>
                         <!-- /.panel-->
