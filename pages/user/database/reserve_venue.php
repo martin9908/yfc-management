@@ -98,11 +98,11 @@
     if($GLOBALS['type']=="International"){
       $query = "SELECT * from `info_user`";
     } else if ( $GLOBALS['type'] == 'Area'){
-      $query = "SELECT * from `info_user` WHERE reservation_area = '" . $GLOBALS['area'] . "'";
+      $query = "SELECT * from `info_user` WHERE area = '" . $GLOBALS['area'] . "'";
     } else if ( $GLOBALS['type'] == 'Sector'){
-      $query = "SELECT * from `info_user` WHERE reservation_sector = '" . $GLOBALS['sector'] . "'";
+      $query = "SELECT * from `info_user` WHERE sector = '" . $GLOBALS['sector'] . "'";
     } else if ( $GLOBALS['type'] == 'Chapter'){
-      $query = "SELECT * from `info_user` WHERE reservation_chapter = '" . $GLOBALS['chapter'] . "'";
+      $query = "SELECT * from `info_user` WHERE chapter = '" . $GLOBALS['chapter'] . "'";
     }
 
     // echo $query;
@@ -138,15 +138,15 @@
       return file_get_contents($url, false, $context);
     }
 
-    SendSMS();
+    SendSMS($row['Contact_Number']);
     mysqli_close($connect_1);
   }
   
-  function SendSMS(){
+  function SendSMS($mobile){
     $ch = curl_init();
     $parameters = array(
         'apikey' => 'c8a9802346f27096d84f883e93e5d244', //Your API KEY
-        'number' => '09167980594',
+        'number' => $mobile,
         'message' => 'A New Event is Available! Event Name: '. $GLOBALS['reservation_event']. ', Event Venue: '. $GLOBALS['reservation_place']. ', Start Date & Time: ' . $GLOBALS['reservation_date'] . ' ' . $GLOBALS['reservation_time'],
         'sendername' => 'SEMAPHORE'
     );

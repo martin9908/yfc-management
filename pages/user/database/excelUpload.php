@@ -27,17 +27,20 @@ if(isset($_POST['Submit']))
         $Reader->ChangeSheet($i);
         foreach ($Reader as $Row)
         {
+            $number = mt_rand(100000, 999999);
+            $year = date("Y");
+            
             $html.="<tr>";
-            $User_Name = isset($Row[0]) ? $Row[0] : '';
-            $First_Name = isset($Row[1]) ? $Row[1] : '';
-            $Middle_Name = isset($Row[2]) ? $Row[2] : '';
-            $Last_Name = isset($Row[3]) ? $Row[3] : '';
-            $Gender = isset($Row[4]) ? $Row[4] : '';
-            $Address = isset($Row[5]) ? $Row[5] : '';
-            $Contact_Number = isset($Row[6]) ? $Row[6] : '';
-            $Email = isset($Row[7]) ? $Row[7] : '';
-            $Account_Type = isset($Row[8]) ? $Row[8] : '';
-            $Account_Status = "Active";
+            $User_Name = "YMM"-$year."-".$number;
+            $First_Name = isset($Row[0]) ? $Row[0] : '';
+            $Middle_Name = isset($Row[1]) ? $Row[1] : '';
+            $Last_Name = isset($Row[2]) ? $Row[2] : '';
+            $Gender = isset($Row[3]) ? $Row[3] : '';
+            $Address = isset($Row[4]) ? $Row[4] : '';
+            $Contact_Number = isset($Row[5]) ? $Row[5] : '';
+            $Email = isset($Row[6]) ? $Row[6] : '';
+            $Account_Type = isset($Row[7]) ? $Row[7] : '';
+            $Account_Status = isset($Row[8]) ? $Row[8] : '';
             $password = isset($Row[9]) ? $Row[9] : '';
             $Area = isset($Row[10]) ? $Row[10] : '';
             $Sector = isset($Row[11]) ? $Row[11] : '';
