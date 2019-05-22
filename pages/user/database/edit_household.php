@@ -9,12 +9,14 @@ $connect = mysqli_connect($host, $user, $pass,$databasename) or die("Couldn't co
 $household_id = isset($_POST['household_id']) ? $_POST['household_id'] : null;
 $household_name = isset($_POST['household_name']) ? $_POST['household_name'] : null;
 $household_leader = isset($_POST['household_leader']) ? $_POST['household_leader'] : null;
-
+$household_members = isset($_POST['household_members']) ? $_POST['household_members'] : null;
+$json_members = json_encode($household_members);
 $sql= mysqli_query($connect,
   "UPDATE `household`
   SET
   `household_name` = '$household_name',
-  `household_leader` = $household_leader
+  `household_leader` = $household_leader,
+  `household_members` = '$json_members'
   WHERE `idhousehold` = $household_id;");
 
 if(!$sql){

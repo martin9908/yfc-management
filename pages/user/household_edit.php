@@ -13,6 +13,7 @@ while($row = mysqli_fetch_assoc($household)){
     $id = $row['idhousehold'];
     $leader_id = $row['household_leader'];
     $household_name = $row['household_name'];
+    $household_members = json_decode($row['household_members']);
 }
 ?>
 <!DOCTYPE html>
@@ -87,7 +88,12 @@ while($row = mysqli_fetch_assoc($household)){
                     <label>Select Members</label>
                     <div style="height:250px;width:350px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
                       <?PHP  while($row2 = mysqli_fetch_assoc($users1)){?>
-                        <input type="checkbox" name="check_list[]" value="<?PHP echo $row2['id']; ?>"><?PHP echo $row2['First_Name']. " ". $row2['Last_Name']?><br/>
+                          <?PHP $name = $row2['First_Name']. " ". $row2['Last_Name']?>
+                          <?PHP if (in_array($name, $household_members)) {?>
+                            <input type="checkbox" name="household_members[]" value="<?PHP echo $name ?>" checked><?PHP echo $name?><br/>
+                          <?PHP } else {?>
+                            <input type="checkbox" name="household_members[]" value="<?PHP echo $name ?>"><?PHP echo $name?><br/>
+                          <?PHP }?>
                       <?PHP }?>
                     </div>
                     <br>

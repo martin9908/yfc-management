@@ -199,10 +199,6 @@
 												<th>Event</th>
 												<th>Venue Name</th>
 												<th>Member Name</th>
-												<th>Start Date</th>
-												<th>Start Time</th>
-												<th>End Date</th>
-												<th>End Time</th>
 												<th>Fee</th>
 												<th>Action</th>
 											</tr>
@@ -214,10 +210,6 @@
 													echo "<td>".$row['reservation_event']."</td>";
 													echo "<td>".$row['reservation_place']."</td>";
 													echo "<td>".$row['First_Name']." ".$row['Last_Name']."</td>";
-													echo "<td>".$row['reservation_date']."</td>";
-													echo "<td>".$row['reservation_time']."</td>";
-													echo "<td>".$row['reservation_end_date']."</td>";
-													echo "<td>".$row['reservation_end_time']."</td>";
 													echo "<td>".$row['reservation_fee']."</td>";
 													if($row['status'] == 'Pending'){
 														echo "<td>
@@ -227,7 +219,7 @@
 													} else {
 														echo 
 														"<td>
-															Payment Confirmed
+															Attended
 														</td>";
 													}
 													echo"</tr>";
