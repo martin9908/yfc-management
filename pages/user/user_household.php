@@ -74,9 +74,7 @@
     <link href="../../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- Add jQuery library -->
-		<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"
-				integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-				crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
     <!-- Add fancyBox -->
     <link rel="stylesheet" href="fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
@@ -202,12 +200,12 @@
                                             echo "<tr><td>".$row['idhousehold']."</td>";
                                             echo "<td>".$row['household_name']."</td>";
                                             echo "<td>".$row['First_Name']." ".$row['Last_Name']."</td>";
-                                            echo "<td><a class='btn btn-outline btn-success fancybox fancybox.ajax' href=''>Edit</a></td></tr>";
+                                            echo "<td><a class='btn btn-outline btn-success fancybox fancybox.ajax' href='household_edit.php'>Edit</a></td></tr>";
                                          }
                                     ?>
                                     </tbody>
                                 </table>
-								<a class="btn btn-success btn-mdo fancybox fancybox.ajax" href="user_create.php">Add Household</a>
+								<a class="btn btn-success btn-mdo fancybox fancybox.ajax" href="household_create.php">Add Household</a>
                             </div>
                         </div>
                         <!-- /.panel-->
@@ -241,7 +239,7 @@
 		$('#dataTables-example').DataTable({
 				retrieve: true,
 				responsive: true,
-				"order": [[ 4, "desc" ]]
+				"order": [[ 0, "desc" ]]
 		});
 	});
     </script>
