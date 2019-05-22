@@ -7,12 +7,13 @@ $connect = mysqli_connect($host, $user, $pass,$databasename) or die("Couldn't co
 
 //SQL Scripts
 $users = mysqli_query($connect, "SELECT * FROM info_user");
-$users1 = mysqli_query($connect, "SELECT * FROM household_members, household, info_user WHERE idhouseholdmembers = id AND idhousehold = household_id");
+// $users1 = mysqli_query($connect, "SELECT * FROM household_members, household, info_user WHERE idhouseholdmembers = id AND idhousehold = household_id");
 $household = mysqli_query($connect, "SELECT * FROM info_user, household WHERE household_leader = id");
 while($row = mysqli_fetch_assoc($household)){
     $id = $row['idhousehold'];
     $leader_id = $row['household_leader'];
     $household_name = $row['household_name'];
+    $household_members=json_decode($row['household_members']);
 }
 ?>
 <!DOCTYPE html>
@@ -82,8 +83,8 @@ while($row = mysqli_fetch_assoc($household)){
                     <br />
                     <label>Household Members:</label>
                     <div style="height:250px;width:350px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
-                      <?PHP  while($row2 = mysqli_fetch_assoc($users1)){?>
-                        <?PHP echo $row2['First_Name']. " ". $row2['Last_Name']?><br/>
+                      <?PHP  for($ctr = 0; $ctr<count($household_members); $ctr++){?>
+                        <?PHP echo $household_members[$ctr]?><br/>
                       <?PHP }?>
                     </div>
                   </div>
