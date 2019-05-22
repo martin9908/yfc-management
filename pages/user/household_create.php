@@ -58,14 +58,14 @@ $household = mysqli_query($connect, "SELECT * FROM info_user");
             Area Information
           </div>
           <div class="panel-body">
-            <form action="database/create_area.php" enctype="multipart/form-data" method="post">
+            <form action="database/create_household.php" enctype="multipart/form-data" method="post">
               <div class="form-group">
                 <div class="row">
                   <div class="col-lg-12">
                     <label>Household Name</label>
                     <input class="form-control" name="household_name" required>
                     <label>Household Leader</label>
-                    <select class="js-example-basic-single" name="state">
+                    <select class="js-example-basic-single" name="household_leader">
                         <?PHP  while($row = mysqli_fetch_assoc($household)){?>
                             <option value="<?PHP echo $row['id']; ?>"><?PHP echo $row['First_Name']. " ". $row['Last_Name']?></option>
                         <?PHP }?>
