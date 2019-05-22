@@ -29,7 +29,7 @@
 	//SQL Scripts
 	$query1 = "UPDATE `info_attendance`
 						SET
-						`payment_status` = 'Paid',
+						`payment_status` = 'Attended',
 						`remarks` = '$remarks'
 						WHERE `user_id` = $user_id
 						AND `event_id` = $event_id;";
