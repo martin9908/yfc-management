@@ -82,6 +82,13 @@ while($row = mysqli_fetch_assoc($household)){
                             <?PHP }?>
                         <?PHP }?>
                     </select>
+                    <br />
+                    <label>Select Members</label>
+                    <div style="height:250px;width:350px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+                      <?PHP  while($row1 = mysqli_fetch_assoc($users)){?>
+                        <input type="checkbox" name="check_list[]" value="<?PHP echo $row1['id']; ?>"><?PHP echo $row1['First_Name']. " ". $row1['Last_Name']?><br/>
+                      <?PHP }?>
+                    </div>
                     <br>
                     <center>
                       <button type="submit" class="btn btn-success">Save</button>
