@@ -222,7 +222,12 @@
 											else{
 												echo "<td>User</td>";
 											}
-											echo "<td>".$row['payment_status']."</td>";
+											if($row['payment_status'] == "Paid"){
+												echo "<td>Attended</td>";
+											}
+											else {
+												echo "<td>".$row['payment_status']."</td>";
+											}
 											echo "<td>".$row['attendance_remarks']."</td>";
 										}										
                                     ?>
