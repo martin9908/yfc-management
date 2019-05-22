@@ -14,7 +14,7 @@ $sql= mysqli_query($connect,
   "UPDATE `household`
   SET
   `household_name` = '$household_name',
-  `household_leader` = $household_leader,
+  `household_leader` = $household_leader
   WHERE `idhousehold` = $household_id;");
 
 if(!$sql){
@@ -23,6 +23,6 @@ if(!$sql){
 
 mysqli_close($connect);
 echo "<script>
-      alert('Create Successful!');
+      alert('Update Successful!');
       window.location.assign('../user_household.php'); </script>";
 ?>

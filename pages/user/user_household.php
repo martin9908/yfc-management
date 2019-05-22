@@ -200,7 +200,8 @@
                                             echo "<tr><td>".$row['idhousehold']."</td>";
                                             echo "<td>".$row['household_name']."</td>";
                                             echo "<td>".$row['First_Name']." ".$row['Last_Name']."</td>";
-                                            echo "<td><a class='btn btn-outline btn-success fancybox fancybox.ajax' href='household_edit.php'>Edit</a></td></tr>";
+											echo "<td><a class='btn btn-outline btn-success fancybox fancybox.ajax' href='household_edit.php'>Edit</a>";
+											echo "&nbsp<a class='btn btn-outline btn-danger fancybox fancybox.ajax' href='household_view.php'>View</a></td></tr>";
                                          }
                                     ?>
                                     </tbody>

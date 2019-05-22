@@ -69,32 +69,23 @@ while($row = mysqli_fetch_assoc($household)){
               <div class="form-group">
                 <div class="row">
                   <div class="col-lg-12">
-                    <label>Household ID</label>
-                    <input class="form-control" name="household_id" value="<?PHP echo $id;?>" readonly>
-                    <label>Household Name</label>
-                    <input class="form-control" name="household_name" value="<?PHP echo $household_name;?>" required>
-                    <label>Household Leader</label>
-                    <select class="js-example-basic-single" name="household_leader">
-                        <?PHP  while($row1 = mysqli_fetch_assoc($users)){?>
-                            <?PHP if($leader_id == $row1['id']) { ?>
-                                <option value="<?PHP echo $row1['id']; ?>" selected><?PHP echo $row1['First_Name']. " ". $row1['Last_Name']?></option>
-                            <?PHP } else { ?>
-                                <option value="<?PHP echo $row1['id']; ?>"><?PHP echo $row1['First_Name']. " ". $row1['Last_Name']?></option>
-                            <?PHP }?>
-                        <?PHP }?>
-                    </select>
+                    <label>Household ID:</label>
+                    <?PHP echo $id;?><br/>
+                    <label>Household Name:</label>
+                    <?PHP echo $household_name;?><br/>
+                    <label>Household Leader:</label>
+                    <?PHP  while($row1 = mysqli_fetch_assoc($users)){?>
+                        <?PHP if($leader_id == $row1['id']) { ?>
+                        <?PHP echo $row1['First_Name']. " ". $row1['Last_Name']?>
+                        <?PHP } ?>
+                    <?PHP }?>
                     <br />
-                    <label>Select Members</label>
+                    <label>Household Members:</label>
                     <div style="height:250px;width:350px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
                       <?PHP  while($row2 = mysqli_fetch_assoc($users1)){?>
-                        <input type="checkbox" name="check_list[]" value="<?PHP echo $row2['id']; ?>"><?PHP echo $row2['First_Name']. " ". $row2['Last_Name']?><br/>
+                        <?PHP echo $row2['First_Name']. " ". $row2['Last_Name']?><br/>
                       <?PHP }?>
                     </div>
-                    <br>
-                    <center>
-                      <button type="submit" class="btn btn-success">Save</button>
-                      <button type="reset" class="btn btn-danger">Reset</button>
-                    </center>
                   </div>
                 </div>
               </div>

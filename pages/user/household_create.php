@@ -56,7 +56,7 @@ $users = mysqli_query($connect, "SELECT * FROM info_user");
       <div class="col-lg-12" >
         <div class="panel panel-success">
           <div class="panel-heading">
-            Area Information
+            Household Information
           </div>
           <div class="panel-body">
             <form action="database/create_household.php" enctype="multipart/form-data" method="post">
