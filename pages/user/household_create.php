@@ -1,3 +1,13 @@
+<?PHP
+//Database Connection String
+require("database/connect.php");
+
+//Connect Strings
+$connect = mysqli_connect($host, $user, $pass,$databasename) or die("Couldn't connect to database!");
+
+//SQL Scripts
+$household = mysqli_query($connect, "SELECT * FROM info_user");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,8 +66,9 @@
                     <input class="form-control" name="household_name" required>
                     <label>Household Leader</label>
                     <select class="js-example-basic-single" name="state">
-                        <option value="AL">Alabama</option>
-                        <option value="WY">Wyoming</option>
+                        <?PHP  while($row = mysqli_fetch_assoc($household)){?>
+                            <option value="<?PHP echo $row['id']; ?>"><?PHP echo $row['First_Name']. " ". $row['Last_Name']?></option>
+                        <?PHP }?>
                     </select>
                     <br>
                     <center>
@@ -79,7 +90,7 @@
 <script>
     // In your Javascript (external .js resource or <script> tag)
     $(document).ready(function() {
-        $('.js-example-basic-multiple').select2();
+        $('.js-example-basic-single').select2();
     });
 </script>
 <!-- / .wrapper -->
