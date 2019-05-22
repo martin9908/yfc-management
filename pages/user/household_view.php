@@ -7,7 +7,7 @@ $connect = mysqli_connect($host, $user, $pass,$databasename) or die("Couldn't co
 
 //SQL Scripts
 $users = mysqli_query($connect, "SELECT * FROM info_user");
-$users1 = mysqli_query($connect, "SELECT * FROM info_user");
+$users1 = mysqli_query($connect, "SELECT * FROM household_memeber, household, info_user WHERE idhouseholdmembers = id AND idhousehold = household_id");
 $household = mysqli_query($connect, "SELECT * FROM info_user, household WHERE household_leader = id");
 while($row = mysqli_fetch_assoc($household)){
     $id = $row['idhousehold'];
