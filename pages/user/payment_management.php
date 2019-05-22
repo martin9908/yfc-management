@@ -263,7 +263,7 @@
 				$('#dataTables-example').DataTable({
 					retrieve: true,
 					responsive: true,
-					"order": [[ 0, "desc" ]]
+					"order": [[ 4, "desc" ]]
 				});
 			});
 		</script>
