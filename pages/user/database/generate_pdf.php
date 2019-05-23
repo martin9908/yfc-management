@@ -1,8 +1,16 @@
 <?php
+session_start();
 //include connection file 
 include_once("connection.php");
 include_once('library/fpdf.php');
  
+$FName = isset($_SESSION['First_Name']) ? $_SESSION['First_Name'] : null;
+$LName = isset($_SESSION['Last_Name']) ? $_SESSION['Last_Name'] : null;
+
+$Name = "Prepared By: " . $FName . " " . $LName;
+$date = date('m/d/Y h:i:s a', time());
+$timestamp = "Generated At: " . $date;
+
 class PDF extends FPDF
 {
 // Page header
@@ -53,5 +61,9 @@ $pdf->Ln();
 foreach($row as $column)
 $pdf->Cell(38,12,$column,1);
 }
+$pdf->Ln();
+$pdf->Cell(40,10,$Name);
+$pdf->Ln();
+$pdf->Cell(40,10,$timestamp);
 $pdf->Output();
 ?>
