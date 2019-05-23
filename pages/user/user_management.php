@@ -305,86 +305,85 @@
                                             <th>First Name</th>
                                             <th>Last Name</th>
                                             <th>Account Type</th>
-																						<?PHP if($Account_Type != 0){ ?>
-																						<th>Account Status</th>
-																						<?PHP }?>
+											<?PHP if($Account_Type != 0){ ?>
+											<th>Account Status</th>
+											<?PHP }?>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-																		<?PHP
-																			if($Account_Type == 1){
-                                        while($row = mysqli_fetch_assoc($users)){
-                                            echo "<tr><td>".$row['User_Number']."</td>";
-                                            echo "<td>".$row['First_Name']."</td>";
-                                            echo "<td>".$row['Last_Name']."</td>";
-																						if ($row['Account_Type'] == 1){
-																							echo "<td>Administrator</td>";
-																						}
-																						else if ($row['Account_Type'] == 2){
-																							echo "<td>Area Encoder</td>";
-																						}
-																						else if ($row['Account_Type'] == 3){
-																							echo "<td>Sector Encoder</td>";
-																						}
-																						else if ($row['Account_Type'] == 4){
-																							echo "<td>Chapter Encoder</td>";
-																						}
-																						else{
-																							echo "<td>User</td>";
-																						}
-																						echo "<td>".$row['Account_Status']."</td>";
-																						if($row['Account_Status'] == 'Pending') {
- 																						 echo
-																						"<td>
-																							<a class='btn btn-outline btn-success' href='database/activate.php?ppid=".$row['id']."&userID=".$row['User_Number']."&email=".$row['Email']."&password=".$row['password']."'>Activate</a>
- 																						 	<a class='btn btn-outline btn-danger' href='database/user_delete.php?ppid=".$row['id']."'>Remove</a>
-																						</td>
-																						</tr>";
- 																					 }
- 																					 else {
- 																						 echo "<td><a class='btn btn-outline btn-success fancybox fancybox.ajax' href='user_edit.php?ppid=".$row['id']."'>Edit</a>
- 																						 <a class='btn btn-outline btn-danger' href='database/user_delete.php?ppid=".$row['id']."'>Delete</a></td></tr>";
- 																					 }
-																					}
-                                        }
-																			else {
-																				if($rowcount != 0) {
-																				while($row = mysqli_fetch_assoc($users1)){
-                                            echo "<tr><td>".$row['User_Number']."</td>";
-                                            echo "<td>".$row['First_Name']."</td>";
-                                            echo "<td>".$row['Last_Name']."</td>";
-																						if ($row['Account_Type'] == 1){
-																							echo "<td>Administrator</td>";
-																						}
-																						else if ($row['Account_Type'] == 2){
-																							echo "<td>Area Encoder</td>";
-																						}
-																						else if ($row['Account_Type'] == 3){
-																							echo "<td>Sector Encoder</td>";
-																						}
-																						else if ($row['Account_Type'] == 4){
-																							echo "<td>Chapter Encoder</td>";
-																						}
-																						else{
-																							echo "<td>User</td>";
-																						}
-																						echo "<td>".$row['Account_Status']."</td>";
-																						if($row['Account_Status'] == 'Pending') {
-																							echo
-																					 "<td>
-																						 <a class='btn btn-outline btn-success' href='database/activate.php?ppid=".$row['id']."'>Activate</a>
-																							 <a class='btn btn-outline btn-danger' href='database/user_delete.php?ppid=".$row['id']."'>Remove</a>
-																					 </td>
-																					 </tr>";
-																						}
-																						else {
-																							echo "<td><a class='btn btn-outline btn-success fancybox fancybox.ajax' href='user_edit.php?ppid=".$row['id']."'>Edit</a>
-																							<a class='btn btn-outline btn-danger' href='database/user_delete.php?ppid=".$row['id']."'>Delete</a></td></tr>";
-																						}
-																					}
-                                        }
-																			}
+									<?PHP
+										if($Account_Type == 1){
+											while($row = mysqli_fetch_assoc($users)){
+												echo "<tr><td>".$row['User_Number']."</td>";
+												echo "<td>".$row['First_Name']."</td>";
+												echo "<td>".$row['Last_Name']."</td>";
+												if ($row['Account_Type'] == 1){
+													echo "<td>Administrator</td>";
+												}
+												else if ($row['Account_Type'] == 2){
+													echo "<td>Area Encoder</td>";
+												}
+												else if ($row['Account_Type'] == 3){
+													echo "<td>Sector Encoder</td>";
+												}
+												else if ($row['Account_Type'] == 4){
+													echo "<td>Chapter Encoder</td>";
+												}
+												else{
+													echo "<td>User</td>";
+												}
+												echo "<td>".$row['Account_Status']."</td>";
+												if($row['Account_Status'] == 'Pending') {
+													echo
+												"<td>
+													<a class='btn btn-outline btn-success' href='database/activate.php?ppid=".$row['id']."&userID=".$row['User_Number']."&email=".$row['Email']."&password=".$row['password']."'>Activate</a>
+													<a class='btn btn-outline btn-danger' href='database/user_delete.php?ppid=".$row['id']."'>Remove</a>
+												</td>
+												</tr>";
+												}
+												else {
+													echo "<td><a class='btn btn-outline btn-success fancybox fancybox.ajax' href='user_edit.php?ppid=".$row['id']."'>Edit</a>
+													<a class='btn btn-outline btn-danger' href='database/user_delete.php?ppid=".$row['id']."'>Delete</a></td></tr>";
+												}
+											}
+										} else {
+											if($rowcount != 0) {
+												while($row = mysqli_fetch_assoc($users1)){
+                                            		echo "<tr><td>".$row['User_Number']."</td>";
+                                            		echo "<td>".$row['First_Name']."</td>";
+                                            		echo "<td>".$row['Last_Name']."</td>";
+													if ($row['Account_Type'] == 1){
+														echo "<td>Administrator</td>";
+													}
+													else if ($row['Account_Type'] == 2){
+														echo "<td>Area Encoder</td>";
+													}
+													else if ($row['Account_Type'] == 3){
+														echo "<td>Sector Encoder</td>";
+													}
+													else if ($row['Account_Type'] == 4){
+														echo "<td>Chapter Encoder</td>";
+													}
+													else{
+														echo "<td>User</td>";
+													}
+													echo "<td>".$row['Account_Status']."</td>";
+													if($row['Account_Status'] == 'Pending') {
+														echo
+													"<td>
+														<a class='btn btn-outline btn-success' href='database/activate.php?ppid=".$row['id']."'>Activate</a>
+															<a class='btn btn-outline btn-danger' href='database/user_delete.php?ppid=".$row['id']."'>Remove</a>
+													</td>
+													</tr>";
+													}
+													else {
+														echo "<td><a class='btn btn-outline btn-success fancybox fancybox.ajax' href='user_edit.php?ppid=".$row['id']."'>Edit</a>
+														<a class='btn btn-outline btn-danger' href='database/user_delete.php?ppid=".$row['id']."'>Delete</a></td></tr>";
+													}
+												}
+                                        	}
+										}
                                         ?>
                                     </tbody>
                                 </table>

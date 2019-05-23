@@ -92,7 +92,7 @@ while($row = mysqli_fetch_assoc($household)){
                           <?PHP if (in_array($name, $household_members)) {?>
                             <input type="checkbox" name="household_members[]" value="<?PHP echo $name ?>" checked><?PHP echo $name?><br/>
                           <?PHP } else {?>
-                            <input type="checkbox" name="household_members[]" value="<?PHP echo $name ?>"><?PHP echo $name?><br/>
+                          <input type="checkbox" name="household_members[]" value="<?PHP echo $name ?>"><?PHP echo $name?><br/>
                           <?PHP }?>
                       <?PHP }?>
                     </div>

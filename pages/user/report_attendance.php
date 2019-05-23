@@ -197,7 +197,7 @@
                                             <th>First Name</th>
                                             <th>Last Name</th>
                                             <th>Account Type</th>
-                                            <th>Payment</th>
+											<th>Remarks</th>
                                             <th>Attendance Status</th>
                                         </tr>
                                     </thead>
@@ -222,13 +222,14 @@
 											else{
 												echo "<td>User</td>";
 											}
+											echo "<td>".$row['attendance_remarks']."</td>";
 											if($row['payment_status'] == "Paid"){
-												echo "<td>Attended</td>";
+												echo "<td><a class='btn btn-outline btn-success' href='database/confirm_attendance.php?ppid=".$row['id']."&status=Present&event_id=".$ppid."'>Present</a>
+											<a class='btn btn-outline btn-danger' href='database/confirm_attendance.php?ppid=".$row['id']."&status=Absent&event_id=".$ppid."'>Absent</a></td>";
 											}
 											else {
 												echo "<td>".$row['payment_status']."</td>";
 											}
-											echo "<td>".$row['attendance_remarks']."</td>";
 										}										
                                     ?>
                                     </tbody>
@@ -266,7 +267,7 @@
 		$('#dataTables-example').DataTable({
 				retrieve: true,
 				responsive: true,
-				"order": [[ 0, "asc" ]]
+				"order": [[ 4, "desc" ]]
 		});
 	});
     </script>

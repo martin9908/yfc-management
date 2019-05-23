@@ -407,7 +407,7 @@
 														}
 														else{
 															while($row1 = mysqli_fetch_assoc($attendance)){
-																if($row['id'] == $row1['event_id'] && ($row1['payment_status'] == 'Paid' || $row1['payment_status'] == 'Pending')){
+																if($row['id'] == $row1['event_id'] && ($row1['payment_status'] == 'Paid')){
 																	echo "<td>";
 																	if($row1['payment_status'] == "Paid"){
 																		echo	"<a class='btn btn-outline btn-success' href='user_attended.php?ppid=".$row['id']."'>Attended</a>";
