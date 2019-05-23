@@ -234,6 +234,7 @@
                                     ?>
                                     </tbody>
                                 </table>
+								<a class='btn btn-md btn-danger' href='database/generate_pdf.php?ppid=<?PHP echo $ppid;?>'>Generate PDF</a>
                             </div>
                         </div>
                         <!-- /.panel-->
