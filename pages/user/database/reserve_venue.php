@@ -27,7 +27,7 @@
 	//date("Y/m/d");
 	//date("h:i:sa",strtotime('+'.$eqtime.' hours'));
   reserve();
-  SendSMS();
+  sendSMS();
 
 	function reserve(){
 		$connect = mysqli_connect($GLOBALS['host'], $GLOBALS['user'], $GLOBALS['pass'], $GLOBALS['databasename']) or die("Couldn't connect to database!");
@@ -142,7 +142,7 @@
     mysqli_close($connect_1);
   }
   
-  function SendSMS(){
+  function sendSMS(){
     $ch = curl_init();
     $parameters = array(
         'apikey' => 'c8a9802346f27096d84f883e93e5d244', //Your API KEY
