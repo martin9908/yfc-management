@@ -148,7 +148,7 @@
         'apikey' => 'c8a9802346f27096d84f883e93e5d244', //Your API KEY
         'number' => '09167980594',
         'message' => 'A New Event is Available! Event Name: '. $GLOBALS['reservation_event']. ', Event Venue: '. $GLOBALS['reservation_place']. ', Start Date & Time: ' . $GLOBALS['reservation_date'] . ' ' . $GLOBALS['reservation_time'],
-        'sendername' => 'SEMAPHORE'
+        'sendername' => 'YFCEvents'
     );
     curl_setopt( $ch, CURLOPT_URL,'https://semaphore.co/api/v4/messages' );
     curl_setopt( $ch, CURLOPT_POST, 1 );
